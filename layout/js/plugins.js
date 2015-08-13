@@ -11,7 +11,7 @@
 
         // simplePlaceholder - polyfill for mimicking the HTML5 placeholder attribute using jQuery
         // https://github.com/marcgg/Simple-Placeholder/blob/master/README.md
-        if(typeof $.fn.simplePlaceholder != 'undefined'){
+        if(typeof $.fn.simplePlaceholder !== 'undefined'){
 
             $('input[placeholder], textarea[placeholder]').simplePlaceholder();
 
@@ -83,25 +83,45 @@
 
         } // end
 
-
+        // Headroom - Give your pages some headroom. Hide your header until you need it.
+        // http://wicky.nillia.ms/headroom.js/
         if (typeof $.fn.headroom !== 'undefined') {
 
-            if (!isMobile() ) {
+            $('#masthead').headroom({
 
-                $('#masthead').headroom({
-
-                    // vertical offset in px before element is first unpinned
-                    offset: 0,
-                    // scroll tolerance in px before state changes
-                    tolerance: 0,
-                });
-            }
+                // vertical offset in px before element is first unpinned
+                offset: 0,
+                // scroll tolerance in px before state changes
+                tolerance: 0,
+            });
         }
 
-        /* ==========================================================================
-           When the window is scrolled, do
-           ========================================================================== */
+        // LazyLoad - delays loading of images in long paged websites
+        // https://github.com/tuupola/jquery_lazyload
+        if (typeof $.fn.lazyload !== 'undefined') {
 
+
+            $('.lazy').show().lazyload({
+                effect : "fadeIn",
+                skip_invisible : true
+            });
+        }
+
+        //YT Player - YouTube player
+        // https://github.com/pupunzi/jquery.mb.YTPlayer/wiki
+        if (typeof $.fn.YTPlayer !== 'undefined') {
+
+            $('.player').each(function(){
+
+               $(this).YTPlayer({
+                   showControls: false,
+                   showYTLogo: false,
+                   optimizeDisplay: true,
+                   ratio: 'auto',
+               });
+
+            });
+        }
 
     });
 

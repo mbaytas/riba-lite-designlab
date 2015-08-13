@@ -3,8 +3,6 @@
 
   'use strict';
 
-
-
 /* ==========================================================================
   Smooth Parallax Effect
   @see https://github.com/tysonmatanich/viewportSize

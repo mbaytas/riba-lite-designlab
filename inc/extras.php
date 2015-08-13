@@ -63,7 +63,6 @@ if ( version_compare( $GLOBALS['wp_version'], '4.3', '<' ) ) {
      * Title shim for sites older than WordPress 4.1.
      *
      * @link https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
-     * @todo Remove this function when WordPress 4.3 is released.
      */
     function rl_render_title()
     {
@@ -547,6 +546,59 @@ if( ! function_exists( 'rl_render_related_posts' ) ) {
         wp_reset_postdata();
 
         return $return_string;
+
+    }
+}
+
+if( !function_exists( 'rl_get_first_video_from_post') ) {
+    /**
+     * Function to fetch only URL of embedded video
+     *
+     * @param $post_id
+     * @return bool
+     */
+    function rl_get_first_video_from_post($post_id) {
+
+        $post = get_post($post_id);
+        $content = do_shortcode( apply_filters( 'the_content', $post->post_content ) );
+        $embeds = get_media_embedded_in_content( $content );
+
+        if( !empty($embeds) ) {
+            //check what is the first embed containg video tag, youtube or vimeo
+            foreach( $embeds as $embed ) {
+
+                if( strpos( $embed, 'video' ) || strpos( $embed, 'youtube' ) || strpos( $embed, 'vimeo' ) ) {
+                    return $embed;
+                }
+            }
+
+        } else {
+            //No video embedded found
+            return false;
+        }
+
+    }
+}
+
+if( !function_exists( 'rl_get_video_id_from_iframe' ) ) {
+    /**
+     * Simple function to get video URL from <iframe></iframe>
+     *
+     * @param $input
+     * @return array
+     */
+    function rl_get_video_id_from_iframe( $input ) {
+
+        $pattern = '/(youtu.be\/|youtube.com\/(watch\?(.*&)?v=|(embed|v)\/))([^\?&\"\'>]+)/';
+
+        $result = preg_match($pattern, $input, $matches);
+
+        if (false !== (bool)$result) {
+            return $matches[5];
+        }
+
+        return false;
+
 
     }
 }

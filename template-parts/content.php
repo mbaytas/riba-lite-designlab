@@ -1,14 +1,9 @@
-<?php if( has_post_format( 'image' ) ) { ?>
-        <article id="post-<?php the_ID(); ?>" <?php post_class('post-grid col-xs-12'); ?>>
-    <?php } else { ?>
-        <article id="post-<?php the_ID(); ?>" <?php post_class('post-grid col-xs-6'); ?>>
-<?php } ?>
-
+<article id="post-<?php the_ID(); ?>" <?php post_class('post-grid post-standard col-xs-6'); ?>>
     <div class="link-wrapper">
         <div class="post-cover-wrapper">
             <?php if( has_post_thumbnail() ) {
                     $featured_image =  wp_get_attachment_image_src(get_post_thumbnail_id(), 'riba-lite-2x' );
-                echo '<a href="'.esc_url( get_the_permalink() ).'" class="post-cover post-cover-'.get_the_ID().'"><img src="'.esc_url( $featured_image[0] ).'" width="'. esc_attr( $featured_image[1] ).'" height="'. esc_attr( $featured_image[2] ).'"></a>';
+                echo '<a href="'.esc_url( get_the_permalink() ).'" class="post-cover post-cover-'.get_the_ID().'"><img class="lazy" data-original="'.esc_url( $featured_image[0] ).'" width="'. esc_attr( $featured_image[1] ).'" height="'. esc_attr( $featured_image[2] ).'"></a>';
             } ?>
         </div><!-- .post-cover-wrapper -->
 

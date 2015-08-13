@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('post-grid'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('post-grid post-featured-image'); ?>>
 
 <div class="link-wrapper">
     <div class="post-cover-wrapper">

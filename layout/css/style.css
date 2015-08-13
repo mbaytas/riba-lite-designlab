@@ -1320,10 +1320,6 @@ a:visited {
     color: #333;
     text-decoration: none; }
 
-.has-padding{
-    padding-top: 60px;
-}
-
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -1411,6 +1407,7 @@ textarea {
     background-color: #f7f7f7;
     width: 100%;
     z-index: 99;
+    height: 100px;
 }
 
     .home #masthead {border-bottom: 0;}
@@ -1691,10 +1688,18 @@ article {
 
 .post-grid .link-wrapper{
     position: relative;
-    height: 500px;
     background-color: #282828;
     overflow: hidden;
 }
+
+    .post-grid.post-video .link-wrapper,
+    .post-grid.post-featured-image .link-wrapper {
+        height: 650px;
+    }
+
+    .post-grid.post-standard .link-wrapper {
+        height: 450px;
+    }
 
     article.post-grid.format-standard {
         border-right: 1px solid #FFF;
@@ -1714,13 +1719,6 @@ article {
     opacity: .5;
     overflow: hidden;
 }
-
-/* Styling image hover */
-.post-cover-wrapper img {
-    -webkit-transition: .3s ease-in-out;
-    transition: .3s ease-in-out;
-}
-
 
 
 .post-cover {
@@ -1799,6 +1797,28 @@ article {
                 margin-bottom: 1.5625rem;
                 font-weight: 700;
             }
+
+            /* Video Backgrounds */
+            div[id *= 'video-wrapper-'] iframe {
+                margin-left: 0 !important;
+            }
+
+            .video-wrapper-controls {
+                position: absolute;
+                bottom: 0;
+                right: 15px;
+                height: 50px;
+                z-index: 2;
+            }
+                .video-wrapper-controls button {
+                    display: inline-block;
+                    border: transparent;
+                    border-radius: 0;
+                    color: #FFF;
+                    padding: 0;
+                    outline: 0;
+                    margin-right: 15px;
+                }
 
 
 
@@ -1902,7 +1922,8 @@ article {
     padding-top: 25px;
     padding-bottom: 25px;
 }
-    #header-container:not(.home) {border-bottom: 1px solid #DDD;}
+
+    #header-container {margin-bottom: 105px;} /* margin bottom = height of fixed header */
 
     #header-container,
     #footer {background-color: #f7f7f7;}
@@ -2541,3 +2562,5 @@ ul.page-numbers {
         text-align: center;
         width: 100%;
     }
+
+    .lazy {display: none;}

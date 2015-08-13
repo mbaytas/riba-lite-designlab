@@ -21,7 +21,6 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
 			$content_width = 1140;
 		}
 
-
 		/**
 		 * Pixova Lite only works in WordPress 4.1 or later.
 		 */
@@ -72,7 +71,7 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
         /*
          * Add post formats
          */
-        add_theme_support( 'post-formats', array( 'image') );
+        add_theme_support( 'post-formats', array( 'image', 'video') );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -101,6 +100,7 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'primary'   => __( 'Header Menu', 'riba-lite' ),
+            'secondary' => __( 'Footer Menu', 'riba-lite' )
 		) );
 
 		// Setup the WordPress core custom background feature.
@@ -117,14 +117,12 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
 			'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
 		) );
 
-
-
 		/*
          * Add image sizes
          * @link http://codex.wordpress.org/Function_Reference/add_image_size
          */
-		add_image_size('riba-lite-2x', 1200, 900, true);
-		add_image_size('riba-lite-1x', 600, 450, true);
+		add_image_size( 'riba-lite-2x', 1200, 900, true );
+		add_image_size( 'riba-lite-1x', 600, 450, true );
 
 
 	} // function rl_theme_setup
@@ -145,13 +143,15 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 
 		/* WordPress _s default JS scripts that this theme is reusing */
 
-		// Navigation JS
-		wp_register_script( 'riba-lite-navigation-js', get_template_directory_uri() . '/layout/js/navigation/navigation.min.js', array('jquery'), '1.0', true);
+		    // Navigation JS
+            wp_register_script( 'riba-lite-navigation-js', get_template_directory_uri() . '/layout/js/navigation/navigation.min.js', array('jquery'), '1.0', true);
 
-		// Skip Link Focus JS
-		wp_register_script('riba-lite-skip-link-focus-js', get_template_directory_uri() . '/layout/js/skiplinkfocus/skiplinkfocus.min.js', array('jquery'), '1.0', true);
+            // Skip Link Focus JS
+            wp_register_script( 'riba-lite-skip-link-focus-js', get_template_directory_uri() . '/layout/js/skiplinkfocus/skiplinkfocus.min.js', array('jquery'), '1.0', true);
 
 		/* END WordPress scripts */
+
+
 
 		// Bootstrap JS (required for theme)
 		wp_register_script( 'bootstrap-min-js' , get_template_directory_uri() . '/layout/js/bootstrap/bootstrap.min.js', array('jquery'), '3.3.4', true);
@@ -162,6 +162,9 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 		// Pace Loader
 		wp_register_script( 'pace-loader-min-js', get_template_directory_uri() . '/layout/js/pace/pace.min.js', array('jquery'), '2.0', true );
 
+        // Lazy Loader for images
+        wp_register_script( 'lazy-load-min-js', get_template_directory_uri() . '/layout/js/lazyLoad/lazyLoad.min.js', array('jquery'), '1.9.5', true );
+
         // Headroom JS
         wp_register_script( 'headroom-min-js', get_template_directory_uri() . '/layout/js/headroom/headroom.min.js', array('jquery'), '0.7', true );
 
@@ -169,10 +172,13 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
         wp_register_script('headroom-jquery-min-js', get_template_directory_uri() . '/layout/js/headroom/headroom-jquery.min.js', array('jquery', 'headroom-min-js'), '0.7', true);
 
 		// Smooth Scroll JS
-		wp_register_script ( 'smooth-scroll-js', get_template_directory_uri() . '/layout/js/smoothscroll/smoothscroll.min.js', array('jquery'), '0.9.9', true);
+		wp_register_script ( 'smooth-scroll-min-js', get_template_directory_uri() . '/layout/js/smoothscroll/smoothscroll.min.js', array('jquery'), '0.9.9', true);
 
 		// Simple Placeholders JS
 		wp_register_script( 'simple-placeholder-js', get_template_directory_uri() . '/layout/js/simpleplaceholder/simplePlaceholder.min.js', array('jquery'), '1.0.0', true );
+
+		// YT Player JS
+		wp_register_script( 'mb-ytplayer-min-js', get_template_directory_uri() . '/layout/js/ytplayer/mb-ytplayer.min.js', array('jquery'), '2.9.4', true );
 
         // Parallax JS
         wp_register_script( ' parallax-js ', get_template_directory_uri() . '/layout/js/parallax.min.js', array('jquery'), '1.3.1', true );
@@ -184,9 +190,7 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 		wp_register_script( 'riba-lite-preloader-js', get_template_directory_uri() . '/layout/js/preloader.min.js', array('pace-loader-min-js'), '1.0', true );
 
 		// Plugins JS
-		wp_register_script( 'riba-lite-plugins-js', get_template_directory_uri() . '/layout/js/plugins.js', array('riba-lite-scripts-js', 'simple-placeholder-js'), '1.0', true );
-
-
+		wp_register_script( 'riba-lite-plugins-js', get_template_directory_uri() . '/layout/js/plugins.js', array('lazy-load-min-js', 'mb-ytplayer-min-js', 'simple-placeholder-js', 'owlCarousel-min-js'), '1.0', true );
 
 
 		/*
@@ -220,10 +224,13 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 		wp_enqueue_script( 'bootstrap-min-js' );
         wp_enqueue_script( 'owlCarousel-min-js' );
 		wp_enqueue_script( 'simple-placeholder-js' );
-		wp_enqueue_script( 'smooth-scroll-js' );
+		wp_enqueue_script( 'smooth-scroll-min-js' );
+        wp_enqueue_script( 'lazy-load-min-js' );
 		wp_enqueue_script( 'riba-lite-scripts-js' );
 		wp_enqueue_script( 'riba-lite-plugins-js' );
 		wp_enqueue_script( 'riba-lite-navigation-js' );
+        wp_enqueue_script( 'mb-ytplayer-min-js' );
+
 
 
 		/**
@@ -233,7 +240,7 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 		 */
 
 		// General theme Stylesheet
-		wp_enqueue_style( 'riba-min-style', get_stylesheet_uri() );
+		wp_enqueue_style( 'riba-main-style', get_stylesheet_uri() );
 
         // BS3 Components
         wp_enqueue_style( 'bootstrap-components', get_template_directory_uri() .'/layout/css/bootstrap-components.min.css' );
@@ -241,8 +248,6 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 		// Font Awesome Stylesheet
 		wp_enqueue_style ( 'font-awesome-min-css', get_template_directory_uri() . '/layout/css/font-awesome.min.css');
 
-		// Google Fonts StyleSheet
-		wp_enqueue_style( 'ga-fonts', '//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto+Slab:300,400|Lato:700' );
 
         // owlCarousel Stylesheet
         wp_enqueue_style( 'owlCarousel-main-css', get_template_directory_uri() .'/layout/css/owl-carousel.min.css' );
@@ -276,140 +281,6 @@ if( !function_exists( 'rl_comment_reply_js' ) ) {
 }
 
 
-if( !function_exists('rl_register_required_plugins') ) {
-	/**
-	 * Custom function to load TGMPA
-	 *
-	 * Riba Lite 1.0.0
-	 */
-	function rl_register_required_plugins()
-	{
-
-		/**
-		 * Array of plugin arrays. Required keys are name and slug.
-		 * If the source is NOT from the .org repo, then source is also required.
-		 */
-		$plugins = array(
-
-			// This is an example of how to include a plugin pre-packaged with a theme.
-			array(
-				'name' => 'Contact Form 7', // The plugin name.
-				'slug' => 'contact-form-7', // The plugin slug (typically the folder name).
-				'source' => '', // The plugin source.
-				'required' => false, // If false, the plugin is only 'recommended' instead of required.
-				'version' => '4.2', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
-				'force_activation' => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-				'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-				'external_url' => '', // If set, overrides default API URL and points to an external URL.
-			),
-		);
-
-		/**
-		 * Array of configuration settings. Amend each line as needed.
-		 * If you want the default strings to be available under your own theme domain,
-		 * leave the strings uncommented.
-		 * Some of the strings are added into a sprintf, so see the comments at the
-		 * end of each line for what each argument will be.
-		 */
-		$config = array(
-			'default_path' => '',                      // Default absolute path to pre-packaged plugins.
-			'menu' => 'mt-install-plugins', // Menu slug.
-			'has_notices' => true,                    // Show admin notices or not.
-			'dismissable' => false,                    // If false, a user cannot dismiss the nag message.
-			'dismiss_msg' => '',                      // If 'dismissable' is false, this message will be output at top of nag.
-			'is_automatic' => false,                   // Automatically activate plugins after installation or not.
-			'message' => '',                      // Message to output right before the plugins table.
-			'strings' => array(
-				'page_title' => __('Install Required Plugins', 'riba-lite'),
-				'menu_title' => __('Install Plugins', 'riba-lite'),
-				'installing' => __('Installing Plugin: %s', 'riba-lite'), // %s = plugin name.
-				'oops' => __('Something went wrong with the plugin API.', 'riba-lite'),
-				'notice_can_install_required' => _n_noop('This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.', 'riba-lite'), // %1$s = plugin name(s).
-				'notice_can_install_recommended' => _n_noop('This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.', 'riba-lite'), // %1$s = plugin name(s).
-				'notice_cannot_install' => _n_noop('Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.', 'riba-lite'), // %1$s = plugin name(s).
-				'notice_can_activate_required' => _n_noop('The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.', 'riba-lite'), // %1$s = plugin name(s).
-				'notice_can_activate_recommended' => _n_noop('The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.', 'riba-lite'), // %1$s = plugin name(s).
-				'notice_cannot_activate' => _n_noop('Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.', 'riba-lite'), // %1$s = plugin name(s).
-				'notice_ask_to_update' => _n_noop('The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.', 'riba-lite'), // %1$s = plugin name(s).
-				'notice_cannot_update' => _n_noop('Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.', 'riba-lite'), // %1$s = plugin name(s).
-				'install_link' => _n_noop('Begin installing plugin', 'Begin installing plugins', 'riba-lite'),
-				'activate_link' => _n_noop('Begin activating plugin', 'Begin activating plugins', 'riba-lite'),
-				'return' => __('Return to Required Plugins Installer', 'riba-lite'),
-				'plugin_activated' => __('Plugin activated successfully.', 'riba-lite'),
-				'complete' => __('All plugins installed and activated successfully. %s', 'riba-lite'), // %s = dashboard link.
-				'nag_type' => 'updated' // Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
-			)
-		);
-
-		tgmpa($plugins, $config);
-	}
-
-	add_action( 'tgmpa_register', 'rl_register_required_plugins' );
-}
-
-
-
-// Fallback nav menu
-if( !function_exists('rl_fallback_cb') ) {
-	/**
-	 * Nav menu fallback function
-	 *
-	 * Riba Lite 1.11
-	 *
-	 */
-
-	function rl_fallback_cb()
-	{
-
-		$html = '<ul id="menu-riba-lite-main-menu-container mt-default-menu">';
-		$html .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
-		$html .= '<a href="' . get_site_url() . '/#about" title="' . __('About', 'riba-lite') . '">';
-		$html .= __('About', 'riba-lite');
-		$html .= '</a>';
-		$html .= '</li>';
-
-		$html .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
-		$html .= '<a href="' . get_site_url() . '/#works" title="' . __('Recent Works', 'riba-lite') . '">';
-		$html .= __('Recent Works', 'riba-lite');
-		$html .= '</a>';
-		$html .= '</li>';
-
-		$html .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
-		$html .= '<a href="' . get_site_url() . '/#testimonials" title="' . __('Testimonials', 'riba-lite') . '">';
-		$html .= __('Testimonials', 'riba-lite');
-		$html .= '</a>';
-		$html .= '</li>';
-
-		$html .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
-		$html .= '<a href="' . get_site_url() . '/#team" title="' . __('Team', 'riba-lite') . '">';
-		$html .= __('Team', 'riba-lite');
-		$html .= '</a>';
-		$html .= '</li>';
-
-		$html .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
-		$html .= '<a href="' . get_site_url() . '/#news" title="' . __('News', 'riba-lite') . '">';
-		$html .= __('News', 'riba-lite');
-		$html .= '</a>';
-		$html .= '</li>';
-
-		$html .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
-		$html .= '<a href="' . get_site_url() . '/#contact" title="' . __('Contact', 'riba-lite') . '">';
-		$html .= __('Contact', 'riba-lite');
-		$html .= '</a>';
-		$html .= '</li>';
-
-
-		$html .= '<li class="menu-item menu-item-type-custom menu-item-object-custom">';
-		$html .= '<a href="' . get_site_url() . '/shop/" title="' . __('Shop', 'riba-lite') . '">';
-		$html .= __('Shop', 'riba-lite');
-		$html .= '</a>';
-		$html .= '</li>';
-
-		$html .= '</ul>';
-
-		echo $html;
-	}
-}
 
 if ( ! function_exists( 'rl_fonts_url' ) ) {
 	/**
@@ -480,7 +351,7 @@ if( !function_exists( 'rl_javascript_detection' ) ) {
 	 *
 	 * Adds a `js` class to the root `<html>` element when JavaScript is detected.
 	 *
-	 * Riba Lite 1.16
+	 * Riba Lite 1.0
 	 */
 	function rl_javascript_detection()
 	{
@@ -491,51 +362,11 @@ if( !function_exists( 'rl_javascript_detection' ) ) {
 }
 
 
-
-if ( !function_exists( 'rl_pagination' ) ) {
-	/**
-	 * Custom pagination function
-	 *
-	 * Riba Lite 1.09
-	 */
-
-	function rl_pagination() {
-
-		$prev_arrow = is_rtl() ? '&rarr;' : '&larr;';
-		$next_arrow = is_rtl() ? '&larr;' : '&rarr;';
-
-		global $wp_query;
-		$total = $wp_query->max_num_pages;
-		$big = 999999999; // need an unlikely integer
-		if( $total > 1 )  {
-			if( !$current_page = get_query_var('paged') )
-				$current_page = 1;
-			if( get_option('permalink_structure') ) {
-				$format = 'page/%#%/';
-			} else {
-				$format = '&paged=%#%';
-			}
-			echo paginate_links(array(
-				'base'			=> str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-				'format'		=> $format,
-				'current'		=> max( 1, get_query_var('paged') ),
-				'total' 		=> $total,
-				'mid_size'		=> 3,
-				'type' 			=> 'list',
-				'prev_text'		=> $prev_arrow,
-				'next_text'		=> $next_arrow,
-			) );
-		}
-	}
-}
-
 if( !function_exists( 'rl_print_layout_styles' ) ) {
     /**
      * Simple function to switch CSS for boxed / fluid layouts
      */
     function rl_print_layout_styles() {
-
-
 
         $layout = get_theme_mod('rl_site_layout', 'full');
 
