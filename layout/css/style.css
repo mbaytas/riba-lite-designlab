@@ -1709,9 +1709,9 @@ article {
                 color: #111;
             }
                 /* Post Format: Quote - homepage styling */
-                .format-quote h2 a{color: #111;}
-                .format-quote .entry-content {padding: 5%;}
-                .format-quote .entry-content p{
+                body:not(.single) .format-quote h2 a {color: #111;}
+                body:not(.single) .format-quote .entry-content {padding: 5%;}
+                body:not(.single) .format-quote .entry-content p{
                     color: #222;
                     margin: 1.5em 10px;
                     quotes: "\201C""\201D""\2018""\2019";
@@ -1728,10 +1728,10 @@ article {
                 }
 
 
-        .format-aside .link-wrapper {background-color: #F3F3F3;}
-        .format-aside .entry-content {padding: 5%;}
-        .format-aside .entry-content p,
-        .format-aside .entry-content a {
+        body:not(.single) .format-aside .link-wrapper {background-color: #F3F3F3;}
+        body:not(.single) .format-aside .entry-content {padding: 5%;}
+        body:not(.single) .format-aside .entry-content p,
+        body:not(.single) .format-aside .entry-content a {
             font-size: 16px;
             line-height: 28px !important;
             font-family: 'Roboto Slab';
