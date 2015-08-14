@@ -567,8 +567,9 @@ if( !function_exists( 'rl_get_first_video_from_post') ) {
             //check what is the first embed containg video tag, youtube or vimeo
             foreach( $embeds as $embed ) {
 
-                if( strpos( $embed, 'video' ) || strpos( $embed, 'youtube' ) || strpos( $embed, 'vimeo' ) ) {
-                    return $embed;
+                if( strpos( $embed, 'video' ) || strpos( $embed, 'youtube' ) ) {
+
+                    return rl_get_video_id_from_iframe( $embed );
                 }
             }
 
@@ -600,5 +601,62 @@ if( !function_exists( 'rl_get_video_id_from_iframe' ) ) {
         return false;
 
 
+    }
+}
+
+if( !function_exists( 'rl_fix_responsive_videos' ) ) {
+    /**
+     * Makes Embeddable videos to become responsive, cool eh ?
+     *
+     * @param $html
+     * @return string
+     */
+function rl_fix_responsive_videos($html) {
+    return '<div class="rl-video-container">' . $html . '</div>';
+}
+
+    add_filter('embed_oembed_html', 'rl_fix_responsive_videos', 10, 3);
+    add_filter('video_embed_html', 'rl_fix_responsive_videos'); // Jetpack
+}
+
+if( !function_exists( 'rl_render_author_box' ) ) {
+    /**
+     * Simple function that renders the Author Box Mark-up HTML code
+     *
+     * @return string
+     */
+    function rl_render_author_box() {
+
+        $return_string = '<div class="rl-author-area">';
+            $return_string .= '<div class="col-lg-1 col-md-1 hidden-sm hidden-xs">';
+                $return_string .='<a class="rl-author-link" href="'.esc_url( get_author_posts_url( get_the_author_meta() ) ).'" rel="author">';
+                    $return_string .= get_avatar( get_the_author_meta( 'user_email' ), 110 );
+                $return_string .= '</a>';
+            $return_string .= '</div>';
+
+            $return_string .= '<div class="col-lg-11 col-md-11 col-xs-12">';
+                $return_string .= '<h4>';
+                    $return_string .=  __('About the author: ', 'riba-lite').'<a class="rl-author-link" href="'.esc_url( get_author_posts_url( get_the_author_meta() ) ).'" rel="author">'.esc_html( get_the_author() ).'</a>';
+                $return_string .= '</h4>';
+                $return_string .= '<div class="rl-author-info">';
+                    $return_string .= '<p>' . esc_html( get_the_author_meta( 'description' ) ) . '</p>';
+                $return_string .= '</div>';
+            $return_string .= '</div><!--/.col-lg-9-->';
+        $return_string .= '</div> <!--/.rl-author-area-->';
+
+        return $return_string;
+
+    }
+}
+
+if( ! function_exists( 'rl_breadcrumbs' ) ) {
+    /**
+     * Render the breadcrumbs with help of class-breadcrumbs.php
+     *
+     * @return void
+     */
+    function rl_breadcrumbs() {
+        $breadcrumbs = new Riba_Breadcrumbs();
+        $breadcrumbs->get_breadcrumbs();
     }
 }

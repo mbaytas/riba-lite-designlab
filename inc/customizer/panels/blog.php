@@ -30,7 +30,6 @@
     $wp_customize->add_section( $prefix.'_blog_global_section' ,
         array(
             'title'       => __( 'Global', 'riba-lite' ),
-            'priority'    => 1,
             'panel' 	  => $panel_id
         )
     );
@@ -122,6 +121,24 @@
         )
     );
 
+    /* Breadcrumbs on single blog posts */
+    $wp_customize->add_setting( $prefix.'_enable_post_breadcrumbs',
+        array(
+            'sanitize_callback' => $prefix.'_sanitize_checkbox',
+            'default' => 1
+        )
+    );
+
+    $wp_customize->add_control(
+        $prefix.'_enable_post_breadcrumbs',
+        array(
+            'type'	=> 'checkbox',
+            'label' => __('Breadcrumbs on single blog posts', 'riba-lite'),
+            'description' => __('This will disable the breadcrumbs', 'riba-lite'),
+            'section' => $prefix.'_blog_global_section',
+        )
+    );
+
 
 
     /* Social Sharing on single blog posts */
@@ -193,6 +210,69 @@
     );
 
     /***********************************************/
+    /************** Breadcrumb Settings  ***************/
+    /***********************************************/
+
+    $wp_customize->add_section( $prefix.'_blog_breadcrumb_section' ,
+        array(
+            'title'       => __( 'Breadcrumbs', 'riba-lite' ),
+            'panel' 	  => $panel_id
+        )
+    );
+
+
+    /* BreadCrumb Menu:  Prefix */
+    $wp_customize->add_setting($prefix.'_blog_breadcrumb_menu_prefix',
+        array(
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => ''
+        )
+    );
+    $wp_customize->add_control(
+        $prefix.'_blog_breadcrumb_menu_prefix',
+        array(
+            'label' => __('Text before the breadcrumbs menu', 'riba-lite'),
+            'description' => __('Recommended: You are here','riba-lite'),
+            'section' => $prefix.'_blog_breadcrumb_section',
+        )
+    );
+
+    /* BreadCrumb Menu:  separator */
+    $wp_customize->add_setting($prefix.'_blog_breadcrumb_menu_separator',
+        array(
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => '&rarr;'
+        )
+    );
+    $wp_customize->add_control(
+        $prefix.'_blog_breadcrumb_menu_separator',
+        array(
+            'label' => __('Separator to be used between breadcrumb items', 'riba-lite'),
+            'description' => __('HTML accepted here', 'riba-lite'),
+            'section' => $prefix.'_blog_breadcrumb_section',
+        )
+    );
+
+    /* BreadCrumb Menu:  post category */
+    $wp_customize->add_setting($prefix.'_blog_breadcrumb_menu_post_category',
+        array(
+            'sanitize_callback' => $prefix.'_sanitize_checkbox',
+            'default' => 1
+        )
+    );
+    $wp_customize->add_control(
+        $prefix.'_blog_breadcrumb_menu_post_category',
+        array(
+            'type' => 'checkbox',
+            'label' => __('Show post category ?', 'riba-lite'),
+            'description' => __('Show the post category in the breadcrumb ?', 'riba-lite'),
+            'section' => $prefix.'_blog_breadcrumb_section',
+        )
+    );
+
+
+
+    /***********************************************/
     /************** Social Blog Settings  ***************/
     /***********************************************/
 
@@ -200,7 +280,6 @@
     $wp_customize->add_section( $prefix.'_blog_social_section' ,
         array(
             'title'       => __( 'Social Sharing', 'riba-lite' ),
-            'priority'    => 2,
             'panel' 	  => $panel_id
         )
     );
@@ -360,7 +439,6 @@
     $wp_customize->add_section( $prefix.'_blog_related_section' ,
         array(
             'title'       => __( 'Related posts', 'riba-lite' ),
-            'priority'    => 3,
             'panel' 	  => $panel_id
         )
     );

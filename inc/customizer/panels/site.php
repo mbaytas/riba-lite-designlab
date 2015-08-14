@@ -47,7 +47,7 @@
             'priority' => 29,
             'capability' => 'edit_theme_options',
             'theme_supports' => '',
-            'title' => __( 'General options', 'riba-lite' )
+            'title' => __( 'General Options', 'riba-lite' )
         )
     );
 
@@ -77,7 +77,7 @@
             array(
                 'type'          => 'radio-image',
                 'label' 		=> __('Select Site Layout', 'riba-lite'),
-                'description'   => __('Fixed / Fluid layout', 'macho-lite'),
+                'description'   => __('Fixed / Fluid layout', 'riba-lite'),
                 'section' 		=> $prefix.'_layout_section',
                 'priority' 		=> 2,
                 'choices'     => array(
@@ -112,7 +112,7 @@
         $prefix.'_text_logo',
         array(
             'label' 		=> __('Enter company name', 'riba-lite'),
-            'description'   => __('This field is best used when you don\'t have a professional image logo', 'macho-lite'),
+            'description'   => __('This field is best used when you don\'t have a professional image logo', 'riba-lite'),
             'section' 		=> $prefix.'_general_section',
             'priority' 		=> 2
         )

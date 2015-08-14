@@ -20,7 +20,9 @@
     ## Posts and pages
 	## Asides
 	## Comments
+	## Bread Crumbs
 	## Social Sharing
+	## Author
 	## Related Posts
 # Infinite scroll
 # Media
@@ -1407,30 +1409,18 @@ textarea {
     background-color: #f7f7f7;
     width: 100%;
     z-index: 99;
-    height: 100px;
+    height: 70px;
 }
-
-    .home #masthead {border-bottom: 0;}
-    .home #masthead:after {
-        position: absolute;
-        left: 15px;
-        right: 15px;
-        height: 1px;
-        width: calc(100% - 30px);
-        background-color: #DDD;
-        bottom: 0;
-        content: '';
-    }
+    /* Header adjustments for when we have an img */
+    #header-container.rl-img-logo {padding-bottom: 100px;}
+    #header-container.rl-img-logo #masthead{height: 100px;}
 
     .logged-in #masthead{
         top: 32px;
     }
 
-    header .site-branding {
-        padding-left: 30px;
-    }
         .site-branding img {
-            max-width: 70px;
+            max-width: 75px;
         }
 
         /* Text Logo*/
@@ -1450,11 +1440,6 @@ textarea {
                 line-height: 69px;
             }
 
-         /* Image Logo */
-        .rl-img-logo img {
-            padding: 15px 0;
-        }
-        .has-img-logo {padding: 15px 0;}
 
 /*--------------------------------------------------------------
 ## Menus
@@ -1477,10 +1462,9 @@ textarea {
     line-height: 70px;
     text-align: right;
     display: block;
-    padding: 12.5px 0;
+    padding: 12.5px 2% 0 0;
     margin: 0;
     width: auto;
-    padding-right: 2%;
 }
 
 #rl-main-menu > ul > li > ul > li a:hover {
@@ -1692,21 +1676,67 @@ article {
     overflow: hidden;
 }
 
-    .post-grid.post-video .link-wrapper,
-    .post-grid.post-featured-image .link-wrapper {
-        height: 650px;
+    .post-grid.format-video .link-wrapper,
+    .post-grid.format-image .link-wrapper {
+        height: 520px;
     }
 
-    .post-grid.post-standard .link-wrapper {
-        height: 450px;
+    .post-grid.format-standard .link-wrapper,
+    .post-grid.format-quote .link-wrapper,
+    .post-grid.format-aside .link-wrapper {
+        height: 420px;
     }
 
-    article.post-grid.format-standard {
-        border-right: 1px solid #FFF;
-        border-top: 1px solid #FFF;
-    }
-        article.post-grid.format-image {
+
+        .post-grid.format-standard {
             border-top: 1px solid #FFF;
+            border-right: 1px solid #FFF;
+        }
+
+        .post-grid.format-video {
+            border-top: 1px solid #FFF;
+        }
+
+        .post-grid.format-image {
+            border-top: 1px solid #FFF;
+        }
+
+        .post-grid.format-quote {
+            border-top: 1px solid #FFF;
+        }
+            .home .post-grid.format-quote .link-wrapper {
+                background-color: #FFF;
+                color: #111;
+            }
+                /* Post Format: Quote - homepage styling */
+                .format-quote h2 a{color: #111;}
+                .format-quote .entry-content {padding: 5%;}
+                .format-quote .entry-content p{
+                    color: #222;
+                    margin: 1.5em 10px;
+                    quotes: "\201C""\201D""\2018""\2019";
+
+                }
+
+                .post-grid.format-quote .entry-content p:before {
+                    color: #ccc;
+                    content: open-quote;
+                    font-size: 4em;
+                    line-height: 0.1em;
+                    margin-right: 0.25em;
+                    vertical-align: -0.4em;
+                }
+
+
+        .format-aside .link-wrapper {background-color: #F3F3F3;}
+        .format-aside .entry-content {padding: 5%;}
+        .format-aside .entry-content p,
+        .format-aside .entry-content a {
+            font-size: 16px;
+            line-height: 28px !important;
+            font-family: 'Roboto Slab';
+            color: #222;
+            font-weight: 300;
         }
 
 
@@ -1918,15 +1948,9 @@ article {
 
 #page {padding-bottom: 25px;}
 
-#footer {
-    padding-top: 25px;
-    padding-bottom: 25px;
-}
+    #header-container {padding-bottom: 70px; background-color: #f7f7f7; /* margin bottom = height of fixed header */ }
+    .home #header-container {border-bottom: 0;}
 
-    #header-container {margin-bottom: 105px;} /* margin bottom = height of fixed header */
-
-    #header-container,
-    #footer {background-color: #f7f7f7;}
 
     /*--------------------------------------------------------------
     ## Related Posts
@@ -2252,6 +2276,41 @@ article {
         padding: 6px 12px;
     }
 
+
+/*--------------------------------------------------------------
+## Bread Crumbs
+--------------------------------------------------------------*/
+
+.riba-lite-breadcrumbs {
+    width: 100%;
+    background-color: rgba(0,0,0, .7);
+    color: rgba(255,255,255,.7);
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    bottom: 0;
+    padding: 10px 15px;
+    font-size: 10px;
+    line-height: 10px;
+    font-family: 'Lato';
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+    .riba-lite-breadcrumbs a {
+        color: rgba(255,255, 255, .7);
+        font-family: 'Lato';
+        text-transform: uppercase;
+        font-size: 10px;
+        line-height: 10px;
+        letter-spacing: 1px;
+    }
+        .riba-lite-breadcrumbs span:hover,
+        .riba-lite-breadcrumbs a:hover {color: rgba(255, 255, 255, 1); }
+
+        .riba-lite-breadcrumbs a:hover {text-decoration: underline;}
+
+    .riba-lite-breadcrumbs span {margin-right: 5px;}
+
 /*--------------------------------------------------------------
 ## Social Sharing
 --------------------------------------------------------------*/
@@ -2268,6 +2327,29 @@ article {
     color: #CCC;
     font-size: 18px;
 }
+
+/*--------------------------------------------------------------
+## Author Area
+--------------------------------------------------------------*/
+
+.rl-author-area {
+    border-top: 1px solid #EEE;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+    .rl-author-area div[class *= "col-md-"] {
+        padding: 0 !important;
+    }
+
+.rl-author-area h4 {margin-top: 0;}
+.rl-author-area p {
+    margin-bottom: 0;
+    line-height: 22px !important;
+    font-weight: 300;
+    font-size: 14px !important;
+}
+
+.rl-author-area img {padding: 0 !important;}
 
 /*--------------------------------------------------------------
 # Infinite scroll
@@ -2298,6 +2380,15 @@ embed,
 iframe,
 object {
     max-width: 100%; }
+
+
+/* Fix for responsive videos */
+.rl-video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+.rl-video-container iframe,
+.rl-video-container object,
+.rl-video-container embed,
+.rl-video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
 
 /*--------------------------------------------------------------
 ## Captions
@@ -2377,8 +2468,10 @@ ul.page-numbers {
     text-align: center;
     border-top: 2px solid #000;
     padding-bottom: 0;
-    margin-top: 4px;
+    padding-top: 25px;
+    background-color: #f7f7f7;
 }
+
 
 
         /*--------------------------------------------------------------

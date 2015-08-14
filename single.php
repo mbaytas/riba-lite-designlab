@@ -13,6 +13,21 @@ get_header(); ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<?php get_template_part( 'template-parts/content', 'single' ); ?>
+
+            <div class="container">
+                <div class="row">
+                    <?php
+                    $author_box_enabled = get_theme_mod('rl_enable_author_box_blog_posts', 1);
+
+                    if( $author_box_enabled == 1 ) {
+                        echo rl_render_author_box();
+                    }
+
+
+                    ?>
+                </div>
+            </div>
+
 			<div class="container">
 				<div class="row">
 					<?php

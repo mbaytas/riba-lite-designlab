@@ -37,16 +37,11 @@ class RL_Customizer_Control_Typography extends WP_Customize_Control {
 	 */
 	public $l10n = array();
 
-	/**
-	 * Set up our control.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @param  object  $manager
-	 * @param  string  $id
-	 * @param  array   $args
-	 * @return void
-	 */
+    /**
+     * @param $manager
+     * @param $id
+     * @param array $args
+     */
 	public function __construct( $manager, $id, $args = array() ) {
 
 		// Let the parent class do its thing.

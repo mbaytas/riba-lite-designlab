@@ -21,7 +21,13 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
 			$content_width = 1140;
 		}
 
-		/**
+        /**
+         * Components
+         */
+        require get_template_directory() . '/inc/components/breadcrumbs/class.riba-breadcrumbs.php';
+
+
+        /**
 		 * Pixova Lite only works in WordPress 4.1 or later.
 		 */
 		if ( version_compare( $GLOBALS['wp_version'], '4.1-alpha', '<' ) ) {
@@ -60,6 +66,7 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
         require get_template_directory() . '/widgets/widget-social-icons.php';
         require get_template_directory() . '/widgets/widget-latest-posts.php';
 
+
 		/*
          * Make theme available for translation.
          * Translations can be filed in the /languages/ directory.
@@ -71,7 +78,7 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
         /*
          * Add post formats
          */
-        add_theme_support( 'post-formats', array( 'image', 'video') );
+        add_theme_support( 'post-formats', array( 'image', 'video', 'quote', 'aside') );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -197,7 +204,6 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 		*	Enqueue scripts
 		*/
 
-
 		// make sure we don't load our preloader script in the customizer
 		global $wp_customize;
 
@@ -209,14 +215,15 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 		} else {
 			function rl_output_css_to_head() {
 
-				echo '<style>';
-				    echo '#page-loader { display: none !important; }';
-					echo '#masthead {position: static !important; }';
-					echo '#page {padding-top: 0 !important; }';
+                echo '<!-- Customizer CSS Fixes-->'."\n";
+                echo '<style>';
+                    echo '#header-container { padding-bottom: 0 !important; } '."\n";
+					echo '#masthead {top : 0 !important }'."\n";
+					echo '#page {padding-top: 0 !important; }'."\n";
 				echo '</style>';
 			}
 
-			add_action('wp_head', 'rl_output_css_to_head');
+			add_action( 'wp_head', 'rl_output_css_to_head' );
 		}
 
 
@@ -248,6 +255,8 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 		// Font Awesome Stylesheet
 		wp_enqueue_style ( 'font-awesome-min-css', get_template_directory_uri() . '/layout/css/font-awesome.min.css');
 
+        // Google Fonts StyleSheet
+        wp_enqueue_style( 'ga-fonts', '//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto+Slab:300,400|Lato:700' );
 
         // owlCarousel Stylesheet
         wp_enqueue_style( 'owlCarousel-main-css', get_template_directory_uri() .'/layout/css/owl-carousel.min.css' );
@@ -361,6 +370,29 @@ if( !function_exists( 'rl_javascript_detection' ) ) {
 	add_action('wp_head', 'rl_javascript_detection', 0);
 }
 
+if( !function_exists(' rl_print_preloader_styles' ) ) {
+    /**
+     * Simple function to print out the CSS for the preloader
+     */
+    function rl_print_preloader_styles() {
+
+        $preloader_is_enabled = get_theme_mod('rl_enable_site_preloader', 1);
+
+        if( $preloader_is_enabled == 1 ) {
+
+            $preloader_bg_color = get_theme_mod('rl_preloader_bg_color', '#FFF');
+            $preloader_text_color = get_theme_mod('rl_preloader_text_color', '#000');
+
+            echo '<!-- Custom Preloader Styles -->'."\n";
+            echo "\n" . '<style type="text/css" id="riba-lite-preloader-css"> #page-loader { background: '.esc_attr( $preloader_bg_color ).' !important; } #page-loader .loader { color: '. esc_attr( $preloader_text_color ).' !important; } </style>' . "\n";
+            echo '<!-- END -->';
+        }
+    }
+
+    # Add custom styles to `<head>`.
+    add_action( 'wp_head', 'rl_print_preloader_styles', 1);
+}
+
 
 if( !function_exists( 'rl_print_layout_styles' ) ) {
     /**
@@ -373,14 +405,16 @@ if( !function_exists( 'rl_print_layout_styles' ) ) {
         // Output the styles.
         if ( $layout == 'boxed' ) {
             echo '<!-- Custom Layout Styles -->'."\n";
-            echo "\n" . '<style type="text/css" id="riba-lite-layout-css"> body {background-color: #111 !important; } body .container-fluid {max-width: 1170px; } body .container {width: auto !important; } body #masthead {width: 1140px; } </style>' . "\n";
+            echo "\n" . '<style type="text/css" id="riba-lite-layout-css"> body {background-color: #e2d9c8 !important; } body .container-fluid {max-width: 1170px; } body .container {width: auto !important; } body #masthead {width: 1140px; } </style>' . "\n";
             echo '<!-- END -->';
         }
     }
 
     # Add custom styles to `<head>`.
-    add_action( 'wp_head', 'rl_print_layout_styles', 1);
+    add_action( 'wp_head', 'rl_print_layout_styles', 2);
 }
+
+
 
 
 if( !function_exists( 'rl_print_font_styles' ) ) {
@@ -685,7 +719,7 @@ if( !function_exists( 'rl_print_font_styles' ) ) {
     }
 
     # Add custom styles to `<head>`.
-    add_action( 'wp_head', 'rl_print_font_styles' );
+    add_action( 'wp_head', 'rl_print_font_styles', 3);
 }
 
 if( !function_exists( 'rl_font_body_class' ) ) {

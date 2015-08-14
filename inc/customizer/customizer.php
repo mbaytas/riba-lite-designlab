@@ -10,7 +10,8 @@ function rl_customize_register( $wp_customize ) {
 	/*************** INIT ************************/
 	/**********************************************/
 
-
+    /* Preloader Site Panel */
+    require_once get_template_directory() . '/inc/customizer/panels/preloader.php';
 
     /* General Site Panel */
     require_once get_template_directory() . '/inc/customizer/panels/site.php';
@@ -23,6 +24,8 @@ function rl_customize_register( $wp_customize ) {
 
     /* Colors Panel */
 
+    /* Advanced Panel */
+    require_once get_template_directory() . '/inc/customizer/panels/advanced.php';
 
 }
 add_action( 'customize_register', 'rl_customize_register');

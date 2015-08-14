@@ -9,29 +9,45 @@
 	<?php wp_head(); ?>
 </head>
 
+<?php
+    $preloader_text = get_theme_mod('rl_preloader_text', __('Loading', 'riba-lite') );
+    $rl_logo_url = get_theme_mod('rl_img_logo', get_template_directory_uri() . '/layout/images/logo/riba-logo.png');
+    $rl_logo_text = get_theme_mod('rl_text_logo', __('Riba', 'riba-lite') );
+?>
+
+
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 
-    <!-- Site Preloader -->
-	<div id="page-loader">
-		<div class="page-loader-inner">
-			<div class="loader"><strong><?php _e('Loading', 'riba-lite'); ?></strong></div>
-		</div>
-	</div>
-	<!-- END Site Preloader -->
+
+    <?php
+        global $wp_customize;
+        $preloader_is_enabled = get_theme_mod('rl_enable_site_preloader', 1);
+
+    if( !isset($wp_customize) && $preloader_is_enabled == 1 ) { ?>
+        <!-- Site Preloader -->
+        <div id="page-loader">
+            <div class="page-loader-inner">
+                <div class="loader"><strong><?php echo esc_html( $preloader_text ); ?></strong></div>
+            </div>
+        </div>
+        <!-- END Site Preloader -->
+    <?php } ?>
 
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'riba-lite' ); ?></a>
 
-	<div id="header-container" class="container-fluid">
+    <?php if($rl_logo_url) {  ?>
+	    <div id="header-container" class="container-fluid rl-img-logo">
+    <?php } else { ?>
+        <div id="header-container" class="container-fluid">
+    <?php } ?>
+
+
 			<header id="masthead" class="site-header" role="banner">
 				<div class="site-branding col-lg-4 col-md-4 col-sm-4 col-xs-12 text-lg-left text-md-left text-sm-left text-xs-center">
 					<?php
-
-                        $rl_logo_url = get_theme_mod('rl_img_logo', get_template_directory_uri() . '/layout/images/logo/riba-logo.png');
-						$rl_logo_text = get_theme_mod('rl_text_logo', __('Riba', 'riba-lite') );
-
                         if($rl_logo_url) {
-                            echo '<a class="rl-img-logo" href="'.esc_url( home_url( '/' ) ).'" rel="home" ><img src="'.esc_url( $rl_logo_url ).'"></a>';
+                            echo '<a href="'.esc_url( home_url( '/' ) ).'" rel="home" ><img src="'.esc_url( $rl_logo_url ).'"></a>';
                         } else {
                             echo '<a class="rl-text-logo" href="'.esc_url( home_url( '/' ) ).'" rel="home" >'.esc_attr( $rl_logo_text ).'</a>';
                         }

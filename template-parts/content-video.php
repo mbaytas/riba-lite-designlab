@@ -1,7 +1,16 @@
+<?php
+
+    $display_video_controls = get_theme_mod('rl_enable_video_controls', 1);
+    $video_auto_play = get_theme_mod('rl_enable_video_auto_play', 1);
+    $video_loop_play = get_theme_mod('rl_enable_video_loop_play', 1);
+    $video_mute_play = get_theme_mod('rl_enable_video_mute_play', 1);
+
+?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class('post-grid post-video col-xs-12'); ?>>
     <div class="link-wrapper">
 
-
+    <?php if($display_video_controls == 1 ) { ?>
         <!-- Video Controls -->
         <div class="video-wrapper-controls">
             <button class="rl-video-control" data-toggle="tooltip" data-placement="top" title="<?php _e('Play', 'riba-lite'); ?>" onclick="jQuery('#P1-<?php echo get_the_ID(); ?>').YTPPlay()"><i class="fa fa-play"></i></button>
@@ -9,14 +18,18 @@
             <button class="rl-video-control" data-toggle="tooltip" data-placement="top" title="<?php _e('Stop', 'riba-lite'); ?>" onclick="jQuery('#P1-<?php echo get_the_ID(); ?>').YTPStop()"><i class="fa fa-stop"></i></button>
             <button class="rl-video-control" data-toggle="tooltip" data-placement="top" title="<?php _e('Maximize', 'riba-lite'); ?>" onclick="jQuery('#P1-<?php echo get_the_ID(); ?>').YTPFullscreen()"><i class="fa fa-arrows-alt"></i></button>
         </div>
+    <?php } ?>
 
         <div class="post-cover-wrapper" id="video-wrapper-<?php echo get_the_ID(); ?>">
 
-       <?php $video_url = rl_get_video_id_from_iframe( esc_url( rl_get_first_video_from_post($post->ID) ) ); // fetch video URL
-            $video_url = remove_query_arg('feature', $video_url);  // remove ?feature=oembed from URL
-       ?>
-            <!-- Mark-up for MB YTPlayer -->
-            <div id="P1-<?php echo get_the_ID(); ?>" class="player" data-property="{videoURL: '<?php echo $video_url; ?>',containment:'#video-wrapper-<?php echo get_the_ID(); ?>',startAt:0,mute:false,autoPlay:true,loop:true,opacity:1}"></div>
+       <?php $video_id = rl_get_first_video_from_post($post->ID); // fetch video URL  ?>
+
+
+    <!-- Mark-up for MB YTPlayer -->
+    <a href="<?php echo get_the_permalink(); ?>" rel="nofollow">
+        <div id="P1-<?php echo get_the_ID(); ?>" class="player" data-property="{videoURL: '<?php echo $video_id; ?>',containment:'#video-wrapper-<?php echo get_the_ID(); ?>', autoPlay: <?php echo esc_attr( $video_auto_play ); ?>, mute: <?php echo esc_attr( $video_mute_play ); ?>, loop: <?php echo esc_attr( $video_loop_play ); ?> }"></div>
+    </a>
+
         </div><!-- .post-cover-wrapper -->
 
         <div class="entry-content">
