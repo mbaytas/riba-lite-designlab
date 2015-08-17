@@ -23,7 +23,7 @@
     /* Layout */
     $wp_customize->add_section( $prefix.'_preloader_section' ,
         array(
-            'title'       => __( 'Customisation', 'riba-lite' ),
+            'title'       => __( 'General', 'riba-lite' ),
             'panel' 	  => $panel_id
         )
     );

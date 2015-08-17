@@ -5,6 +5,7 @@
                 <a href="<?php echo get_the_permalink(); ?>">
                     <?php echo get_the_content(); ?>
                 </a>
+                <a class="btn btn-read-more" href="<?php echo get_the_permalink(); ?>" title="<?php echo get_the_title(); ?>"><?php echo sprintf('%s %s', __('Read more', 'riba-lite'), '&raquo;'); ?></a>
             </header><!-- .entry-header -->
         </div><!-- .entry-content -->
     </div>

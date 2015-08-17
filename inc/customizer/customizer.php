@@ -23,6 +23,10 @@ function rl_customize_register( $wp_customize ) {
     require_once get_template_directory() . '/inc/customizer/panels/typography.php';
 
     /* Colors Panel */
+    require_once get_template_directory() . '/inc/customizer/panels/colors.php';
+
+    /* Post Formats Panel */
+    require_once get_template_directory() . '/inc/customizer/panels/post-formats.php';
 
     /* Advanced Panel */
     require_once get_template_directory() . '/inc/customizer/panels/advanced.php';
@@ -128,6 +132,9 @@ if( !function_exists( 'rl_customizer_preview_js' ) ) {
 
         // Typography Preview JS
         wp_enqueue_script( 'rl-typography-preview', get_template_directory_uri() . '/inc/customizer/assets/js/typography/typography-preview.js', array('jquery', 'customize-preview'), '1.0', true );
+
+        // Colors Preview JS
+        wp_enqueue_script('rl-colors-preview', get_template_directory_uri() . '/inc/customizer/assets/js/colors/color-preview.js', array('jquery', 'customize-preview'), '1.0', true);
 
     }
 

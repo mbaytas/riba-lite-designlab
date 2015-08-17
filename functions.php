@@ -256,7 +256,7 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 		wp_enqueue_style ( 'font-awesome-min-css', get_template_directory_uri() . '/layout/css/font-awesome.min.css');
 
         // Google Fonts StyleSheet
-        wp_enqueue_style( 'ga-fonts', '//fonts.googleapis.com/css?family=Montserrat:400,700|Roboto+Slab:300,400|Lato:700' );
+        wp_enqueue_style( 'ga-fonts', '//fonts.googleapis.com/css?family=Montserrat:400,700|Droid+Serif:400|Lato:700' );
 
         // owlCarousel Stylesheet
         wp_enqueue_style( 'owlCarousel-main-css', get_template_directory_uri() .'/layout/css/owl-carousel.min.css' );
@@ -384,13 +384,108 @@ if( !function_exists(' rl_print_preloader_styles' ) ) {
             $preloader_text_color = get_theme_mod('rl_preloader_text_color', '#000');
 
             echo '<!-- Custom Preloader Styles -->'."\n";
-            echo "\n" . '<style type="text/css" id="riba-lite-preloader-css"> #page-loader { background: '.esc_attr( $preloader_bg_color ).' !important; } #page-loader .loader { color: '. esc_attr( $preloader_text_color ).' !important; } </style>' . "\n";
+            echo "\n" . '<style type="text/css" id="rl-preloader"> #page-loader { background: '.esc_attr( $preloader_bg_color ).' !important; } #page-loader .loader { color: '. esc_attr( $preloader_text_color ).' !important; } </style>' . "\n";
             echo '<!-- END -->';
         }
     }
 
+    # Add custom body class for more CSS weight
+    add_filter( 'body_class', 'rl_preloader_body_class' );
+
     # Add custom styles to `<head>`.
     add_action( 'wp_head', 'rl_print_preloader_styles', 1);
+}
+
+if( !function_exists( 'rl_preloader_body_class' ) ) {
+    /**
+     * Add custom body class to give some more weight to our styles.
+     *
+     * @since  1.0.0
+     * @access public
+     * @param  array $classes
+     * @return array
+     */
+    function rl_preloader_body_class($classes)
+    {
+        return array_merge($classes, array('rl-preloader'));
+    }
+}
+
+
+
+if( !function_exists( 'rl_print_color_styles' ) ) {
+    /**
+     * Simple function to switch CSS for boxed / fluid layouts
+     */
+    function rl_print_color_styles() {
+
+        // Fetch stored values
+        $header_bg_color = get_theme_mod( 'rl_header_bg_color', '#FFF' );
+        $logo_color = get_theme_mod('rl_header_text_logo_color', '#222');
+        $h1_color = get_theme_mod('rl_heading_h1_color', '#222');
+        $h2_color = get_theme_mod('rl_heading_h2_color', '#222');
+        $h3_color = get_theme_mod('rl_heading_h3_color', '#222');
+        $h4_color = get_theme_mod('rl_heading_h4_color', '#222');
+        $h5_color = get_theme_mod('rl_heading_h5_color', '#222');
+        $h6_color = get_theme_mod('rl_heading_h6_color', '#222');
+        $p_color = get_theme_mod('rl_heading_p_color', '#222');
+        $link_color = get_theme_mod( 'rl_link_color', '#111' );
+        $link_color_hover = get_theme_mod( 'rl_link_color_hover', '#BBB' );
+        $footer_bg_color = get_theme_mod( 'rl_footer_bg_color', '#FFF');
+
+        /* Header Style */
+        $_header_bg_color = sprintf( "body.rl-colors header.site-header { background-color: %s; }", esc_attr( $header_bg_color ) )."\n";
+
+        /* Logo Style */
+        $_logo_color = sprintf( "body.rl-colors .site-header .site-branding a{ color: %s; }", esc_attr( $logo_color ) )."\n";
+
+        /* Headings */
+        $_h1_color = sprintf( "body.rl-colors h1 { color: %s; }", esc_attr( $h1_color ) )."\n";
+        $_h2_color = sprintf( "body.rl-colors h2 { color: %s; }", esc_attr( $h2_color ) )."\n";
+        $_h3_color = sprintf( "body.rl-colors h3 { color: %s; }", esc_attr( $h3_color ) )."\n";
+        $_h4_color = sprintf( "body.rl-colors h4 { color: %s; }", esc_attr( $h4_color ) )."\n";
+        $_h5_color = sprintf( "body.rl-colors h5 { color: %s; }", esc_attr( $h5_color ) )."\n";
+        $_h6_color = sprintf( "body.rl-colors h6 { color: %s; }", esc_attr( $h6_color ) )."\n";
+        $_p_color = sprintf( "body.rl-colors p { color: %s; }", esc_attr( $p_color ) )."\n";
+
+        /* Link Style */
+        $_a_style = sprintf("body.rl-colors a { color: %s; }", esc_attr( $link_color ) )."\n";
+        $_a_hover_style = sprintf("body.rl-colors #rl-main-menu > ul > li > a:hover, body.rl-colors a:hover { color: %s; } ", esc_attr( $link_color_hover ) )."\n";
+
+        /* Footer Style */
+        $_footer_style = sprintf( "body.rl-colors #footer { background-color: %s; }", esc_attr( $footer_bg_color ) )."\n";
+
+        $style = join('', array( $_header_bg_color, $_logo_color, $_h1_color, $_h2_color, $_h3_color, $_h4_color, $_h5_color, $_h6_color, $_p_color, $_a_style, $_a_hover_style, $_footer_style ) );
+
+
+        // Output the styles.
+        if ( $style ) {
+            echo '<!-- Custom Color Styles -->'."\n";
+                echo "\n" . '<style type="text/css" id="rl-colors">' . $style . '</style>' . "\n";
+            echo '<!-- END -->';
+        }
+    }
+
+    # Add custom body class for more CSS weight
+    add_filter( 'body_class', 'rl_colors_body_class' );
+
+    # Add custom styles to `<head>`.
+    add_action( 'wp_head', 'rl_print_color_styles', 3);
+}
+
+if( !function_exists( 'rl_colors_body_class' ) ) {
+    /**
+     * Add custom body class to give some more weight to our styles.
+     *
+     * @since  1.0.0
+     * @access public
+     * @param  array $classes
+     * @return array
+     */
+    function rl_colors_body_class($classes)
+    {
+        return array_merge($classes, array('rl-colors'));
+    }
 }
 
 
@@ -405,15 +500,32 @@ if( !function_exists( 'rl_print_layout_styles' ) ) {
         // Output the styles.
         if ( $layout == 'boxed' ) {
             echo '<!-- Custom Layout Styles -->'."\n";
-            echo "\n" . '<style type="text/css" id="riba-lite-layout-css"> body {background-color: #e2d9c8 !important; } body .container-fluid {max-width: 1170px; } body .container {width: auto !important; } body #masthead {width: 1140px; } </style>' . "\n";
+            echo "\n" . '<style type="text/css" id="rl-layout"> body .container-fluid {max-width: 1170px; } body .container {width: auto !important; } body .site-header {width: 1140px; } </style>' . "\n";
             echo '<!-- END -->';
         }
     }
+
+    # Add custom body class for more CSS weight
+    add_filter( 'body_class', 'rl_layout_body_class' );
 
     # Add custom styles to `<head>`.
     add_action( 'wp_head', 'rl_print_layout_styles', 2);
 }
 
+if( !function_exists( 'rl_layout_body_class' ) ) {
+    /**
+     * Add custom body class to give some more weight to our styles.
+     *
+     * @since  1.0.0
+     * @access public
+     * @param  array $classes
+     * @return array
+     */
+    function rl_layout_body_class($classes)
+    {
+        return array_merge($classes, array('rl-layout'));
+    }
+}
 
 
 
@@ -710,7 +822,7 @@ if( !function_exists( 'rl_print_font_styles' ) ) {
         // Output the styles.
         if ($style) {
             echo '<!-- Custom Font Styles -->'."\n";
-            echo "\n" . '<style type="text/css" id="riba-lite-font-css">' . $style . '</style>' . "\n";
+            echo "\n" . '<style type="text/css" id="rl-typography">' . $style . '</style>' . "\n";
             echo '<!-- END -->';
 
             // Body class filter.
@@ -719,7 +831,7 @@ if( !function_exists( 'rl_print_font_styles' ) ) {
     }
 
     # Add custom styles to `<head>`.
-    add_action( 'wp_head', 'rl_print_font_styles', 3);
+    add_action( 'wp_head', 'rl_print_font_styles', 4);
 }
 
 if( !function_exists( 'rl_font_body_class' ) ) {

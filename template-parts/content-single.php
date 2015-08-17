@@ -19,7 +19,7 @@
 
         if( $display_post_breadcrumbs == 1 ) {
             echo '<div class="hidden-xs">';
-                echo rl_breadcrumbs();
+                    echo rl_breadcrumbs();
             echo '</div>';
         }
 
@@ -44,6 +44,10 @@
                                 rl_posted_on();
                             }
                         ?>
+                        <?php if( $display_post_posted_on_meta == 1 && $display_post_esrt_meta == 1 ) { ?> 
+                            <?php echo ' - '; ?>
+                        <?php } ?>
+                        
                         <?php if( $display_post_esrt_meta == 1 ) {
                                 rl_estimated_reading_time();
                             }

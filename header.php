@@ -58,7 +58,7 @@
                 <?php
 
                 if($rl_logo_url) {
-                    echo '<nav id="site-navigation" class="main-navigation col-lg-8 col-md-8 col-sm-8 col-xs-12 has-img-logo" role="navigation">';
+                    echo '<nav id="site-navigation" class="main-navigation col-lg-8 col-md-8 col-sm-8 col-xs-12" role="navigation">';
                 } else {
                     echo '<nav id="site-navigation" class="main-navigation col-lg-8 col-md-8 col-sm-8 col-xs-12" role="navigation">';
                 }

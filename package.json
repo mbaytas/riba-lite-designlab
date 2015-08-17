@@ -1,9 +1,9 @@
 {
-  "name": "pixova-lite",
+  "name": "riba-lite",
   "main": "Gruntfile.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cristianraiber/pixova-wporg"
+    "url": "https://github.com/cristianraiber/riba-lite"
   },
   "keywords": [
     "responsive",

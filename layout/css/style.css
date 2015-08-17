@@ -5,6 +5,7 @@
 # Normalize
 # Typography
 # Elements
+    ## Buttons
 # Forms
 # Navigation
     ## Header
@@ -918,8 +919,9 @@ html {
 
 body {
     margin: 0;
-    background-color: #f7f7f7;
-    color: #333; }
+    background-color: #e2d9c8;
+    color: #333;
+}
 
 article,
 aside,
@@ -1005,7 +1007,7 @@ hr {
 }
 
 hr:before {
-    content: "\f097";
+    content: "\f02e";
     font-family: "FontAwesome";
     position: absolute;
     top: 50%;
@@ -1322,6 +1324,8 @@ a:visited {
     color: #333;
     text-decoration: none; }
 
+
+
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -1381,7 +1385,15 @@ textarea {
     padding-left: 3px;
     width: 100%; }
 
+.entry-content a.btn {
+    display: inline-block;
+}
 
+    .entry-content a.btn-read-more {
+        font-family: 'Droid Serif' !important;
+        font-size: 16px;
+        color: #d6a03a !important;
+    }
 
 
 /*--------------------------------------------------------------
@@ -1402,20 +1414,20 @@ textarea {
     transform: translateY(-100%);
 }
 
-#masthead {
+.site-header {
     position: fixed;
     top: 0;
     z-index: 2;
-    background-color: #f7f7f7;
     width: 100%;
-    z-index: 99;
+    z-index: 999;
+    background-color: #FFF;
     height: 70px;
 }
     /* Header adjustments for when we have an img */
     #header-container.rl-img-logo {padding-bottom: 100px;}
-    #header-container.rl-img-logo #masthead{height: 100px;}
+    #header-container.rl-img-logo .site-header{height: 100px;}
 
-    .logged-in #masthead{
+    .logged-in .site-header{
         top: 32px;
     }
 
@@ -1466,6 +1478,16 @@ textarea {
     margin: 0;
     width: auto;
 }
+
+.rl-img-logo #rl-main-menu {
+    height: 100px;
+    padding-top: 25px;
+}
+
+.rl-img-logo .site-branding img {
+    padding: 10px 0;
+}
+
 
 #rl-main-menu > ul > li > ul > li a:hover {
     background: #FFF;
@@ -1564,6 +1586,40 @@ textarea {
 #rl-main-menu ul ul a:hover {
     color: #111;
 }
+
+    /*--------------------------------------------------------------
+    ## Footer Menu
+    --------------------------------------------------------------*/
+    #rl-secondary-menu ul{
+        list-style: none;
+        text-align: right;
+        padding-top: 12px;
+    }
+
+        #rl-secondary-menu ul li {
+            display: inline-block;
+            margin-right: 15px;
+            position: relative;
+        }
+        #rl-secondary-menu ul li:after {
+            content: '\00b0';
+            position: absolute;
+            padding-left: 5px;
+            color: #111;
+            top: 35%;
+            left: 100%;
+        }
+
+        #rl-secondary-menu ul li:last-of-type:after {
+            content: '';
+        }
+
+        #rl-secondary-menu ul li a {
+            font-size: 11px;
+            font-family: 'Lato';
+            font-weight: 700;
+            text-transform: uppercase;
+        }
 
     /*--------------------------------------------------------------
     ## Small menu (responsive)
@@ -1674,17 +1730,18 @@ article {
     position: relative;
     background-color: #282828;
     overflow: hidden;
+    height: 420px;
 }
 
     .post-grid.format-video .link-wrapper,
     .post-grid.format-image .link-wrapper {
-        height: 520px;
+        height: 620px;
     }
 
     .post-grid.format-standard .link-wrapper,
     .post-grid.format-quote .link-wrapper,
     .post-grid.format-aside .link-wrapper {
-        height: 420px;
+        height: 520px;
     }
 
 
@@ -1710,10 +1767,18 @@ article {
             }
                 /* Post Format: Quote - homepage styling */
                 body:not(.single) .format-quote h2 a {color: #111;}
+                body:not(.single) .format-quote .link-wrapper {background-color: #F7F7F7;}
                 body:not(.single) .format-quote .entry-content {padding: 5%;}
                 body:not(.single) .format-quote .entry-content p{
                     color: #222;
                     margin: 1.5em 10px;
+                    line-height: 1.8;
+                    word-break: break-word;
+                    font-size: 20px;
+                    font-size: 1.2rem;
+                    font-family: 'Droid Serif';
+                    font-weight: 300;
+                    font-style: italic;
                     quotes: "\201C""\201D""\2018""\2019";
 
                 }
@@ -1727,15 +1792,26 @@ article {
                     vertical-align: -0.4em;
                 }
 
+                    .post-grid.format-quote .entry-content p:after {
+                    color: #ccc;
+                    content: close-quote;
+                    font-size: 4em;
+                    line-height: 0.1em;
+                    margin-left: 0.25em;
+                    vertical-align: -0.6em;
+                }
 
-        body:not(.single) .format-aside .link-wrapper {background-color: #F3F3F3;}
+
+        body:not(.single) .format-aside .link-wrapper {background-color: #F7F7F7;}
         body:not(.single) .format-aside .entry-content {padding: 5%;}
         body:not(.single) .format-aside .entry-content p,
         body:not(.single) .format-aside .entry-content a {
-            font-size: 16px;
-            line-height: 28px !important;
-            font-family: 'Roboto Slab';
             color: #222;
+            line-height: 1.8;
+            word-break: break-word;
+            font-size: 20px;
+            font-size: 1.2rem;
+            font-family: 'Droid Serif';
             font-weight: 300;
         }
 
@@ -1776,11 +1852,6 @@ article {
         left: 0;
         z-index: 100;
     }
-        .post-grid .entry-content:hover,
-        .post-grid .post-cover-wrapper:hover {
-            cursor: pointer;
-        }
-
 
         .post-grid .entry-content,
         .post-grid .entry-content p,
@@ -1791,8 +1862,6 @@ article {
 
         /* Estimated reading time*/
         .riba-lite-estimated-reading-time {
-            opacity: .5;
-            font-style: italic;
             padding: 5px 0;
         }
 
@@ -1811,7 +1880,7 @@ article {
             word-break: break-word;
             font-size: 20px;
             font-size: 1.20rem;
-            font-family: 'Roboto Slab';
+            font-family: 'Droid Serif';
             font-weight: 300;
         }
 
@@ -1942,13 +2011,17 @@ article {
 --------------------------------------------------------------*/
 
 #content {
-    background-color: #f7f7f7;
+    background-color: #FFF;
     padding-bottom: 25px;
 }
 
 #page {padding-bottom: 25px;}
 
-    #header-container {padding-bottom: 70px; background-color: #f7f7f7; /* margin bottom = height of fixed header */ }
+    #header-container {
+        padding-bottom: 70px;
+        background-color: #FFF; /* margin bottom = height of fixed header */
+    }
+
     .home #header-container {border-bottom: 0;}
 
 
@@ -2046,7 +2119,7 @@ article {
 .cat-links a  {
     color: #FFF;
     font-size: 0.875em;
-    font-family: 'Roboto Slab';
+    font-family: 'Droid Serif';
 }
 
 .entry-date,
@@ -2070,8 +2143,10 @@ article {
 .entry-meta {
     font-size: 0.75em;
     color: #FFF;
-    font-family: 'Roboto Slab';
+    font-family: 'Droid Serif';
 }
+
+    .entry-meta .author {margin-bottom: 10px;}
 
 /*--------------------------------------------------------------
 ## Asides
@@ -2224,7 +2299,7 @@ article {
     .comment-content p {
         color: #111;
         font-size: 14px;
-        font-family: 'Roboto Slab';
+        font-family: 'Droid Serif';
         font-weight: 100;
         line-height: 1.5;
     }
@@ -2297,7 +2372,7 @@ article {
     letter-spacing: 1px;
 }
     .riba-lite-breadcrumbs a {
-        color: rgba(255,255, 255, .7);
+        color: rgba(255,255, 255, .7) !important;
         font-family: 'Lato';
         text-transform: uppercase;
         font-size: 10px;
@@ -2317,16 +2392,17 @@ article {
 .riba-lite-social-sharing-box {
     font-style: italic;
     font-weight: 300;
-    font-family: 'Roboto Slab';
+    font-family: 'Droid Serif';
     font-size: 14px;
     color: #BBB;
 }
 .riba-lite-social-sharing-box a {
     display: inline-block;
     margin-right: 10px;
-    color: #CCC;
+    opacity: .2;
     font-size: 18px;
 }
+    .riba-lite-social-sharing-box a:hover {opacity: .75;}
 
 /*--------------------------------------------------------------
 ## Author Area
@@ -2338,7 +2414,7 @@ article {
     padding-bottom: 25px;
 }
     .rl-author-area div[class *= "col-md-"] {
-        padding: 0 !important;
+        padding: 2.5px !important;
     }
 
 .rl-author-area h4 {margin-top: 0;}
@@ -2469,7 +2545,7 @@ ul.page-numbers {
     border-top: 2px solid #000;
     padding-bottom: 0;
     padding-top: 25px;
-    background-color: #f7f7f7;
+    background-color: #FFF;
 }
 
 
@@ -2487,7 +2563,7 @@ ul.page-numbers {
             */
             .footer-widget-container .footer-descr,
             .footer-widget-container p {
-                font-family: 'Roboto Slab';
+                font-family: 'Droid Serif';
                 font-size: 16px;
                 line-height: 1.8;
             }
@@ -2497,7 +2573,7 @@ ul.page-numbers {
             */
 
             .riba_lite_widget_social_media ul {
-                font-family: 'Roboto Slab';
+                font-family: 'Droid Serif';
                 font-size: 16px;
                 line-height: 1.8;
                 margin: 0;
@@ -2509,17 +2585,47 @@ ul.page-numbers {
         /*--------------------------------------------------------------
         ## Footer copyright container
         --------------------------------------------------------------*/
-        body p.footer-copyright,
-        body.riba-lite p.footer-copyright {
+
+        .footer-copyright-container {
             background-color: #EEE;
             color: #111;
             margin-top: 15px;
+            padding: 5px 15px;
+        }
+
+        body p.footer-copyright,
+        body.riba-lite p.footer-copyright {
             font-size: 13px;
-            padding: 15px 0;
+            padding-top: 3px;
+            font-weight: 400 !important;
+            font-family: 'Montserrat' !important;
+
         }
             .footer-copyright a{
-                color: #8C8C8C;
+                opacity: .55;
             }
+                .footer-copyright a:hover {text-decoration: underline; opacity: 1}
+
+        /*--------------------------------------------------------------
+        ## Footer contact container
+        --------------------------------------------------------------*/
+        .footer-contact-container {
+            border-top: 1px solid #EEE;
+        }
+
+            .footer-contact-container small {
+                margin-top: 15px;
+                display: block;
+            }
+
+            .footer-contact-container a {
+                opacity: .55;
+            }
+
+                .footer-contact-container a:hover {
+                    text-decoration: underline;
+                    opacity: 1;
+                }
 
         /*--------------------------------------------------------------
         ## Back to top

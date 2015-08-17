@@ -73,7 +73,7 @@
     $wp_customize->add_setting( $prefix.'_enable_post_category_blog_posts',
         array(
             'sanitize_callback' => $prefix.'_sanitize_checkbox',
-            'default' => 1
+            'default' => 0
         )
     );
     $wp_customize->add_control(
@@ -90,7 +90,7 @@
     $wp_customize->add_setting( $prefix.'_enable_post_tags_blog_posts',
         array(
             'sanitize_callback' => $prefix.'_sanitize_checkbox',
-            'default' => 1
+            'default' => 0
         )
     );
     $wp_customize->add_control(
@@ -107,7 +107,7 @@
     $wp_customize->add_setting( $prefix.'_enable_post_comments_blog_posts',
         array(
             'sanitize_callback' => $prefix.'_sanitize_checkbox',
-            'default' => 1
+            'default' => 0
         )
     );
 

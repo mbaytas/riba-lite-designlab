@@ -153,7 +153,7 @@
     /* email */
     $wp_customize->add_setting( $prefix.'_email',
         array(
-            'sanitize_callback' => 'sanitize_text_field',
+            'sanitize_callback' => 'sanitize_email',
             'default' => 'contact@site.com'
         )
     );

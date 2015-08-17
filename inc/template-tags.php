@@ -94,31 +94,39 @@ if ( ! function_exists( 'rl_posted_on' ) ) {
      */
     function rl_posted_on()
     {
+        global $post;
 
-        $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-        if (get_the_time('U') !== get_the_modified_time('U')) {
-            $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+
+
+        if( get_post_format() !== false ) {
+            $display_author = get_theme_mod('rl_post_'.esc_attr( get_post_format( $post->ID ) ).'_enable_author', 1);
+            $display_date = get_theme_mod('rl_post_'.esc_attr( get_post_format( $post-> ID ) ).'_enable_posted', 1);
+        } else {
+            $display_author = get_theme_mod('rl_post_standard_enable_author', 1);
+            $display_date = get_theme_mod('rl_post_standard_enable_posted', 1);
         }
 
-        $time_string = sprintf($time_string,
-            esc_attr(get_the_date('c')),
-            esc_html(get_the_date()),
-            esc_attr(get_the_modified_date('c')),
-            esc_html(get_the_modified_date())
-        );
 
         $posted_on = sprintf(
-            esc_html_x('Posted on %s', 'post date', 'riba-lite'),
-            '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
+             esc_html_x( '%s ago', '%s = human-readable time difference', 'riba-lite' ), 
+                human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) )
         );
 
         $byline = sprintf(
-            esc_html_x('by %s', 'post author', 'riba-lite'),
-            '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
+            esc_html_x('%s', 'post author', 'riba-lite'),
+            '<div class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></div>'
         );
 
+        if( $display_author == 1 ) {
+            echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+        }
 
-        echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+
+        if( $display_date == 1 ) {
+            echo '<span class="posted-on">' . $posted_on . '</span>';
+        }
+
+
 
     }
 }
@@ -129,15 +137,16 @@ if ( ! function_exists( 'rl_entry_footer' ) ) {
      */
     function rl_entry_footer()
     {
-        $display_category_post_meta = get_theme_mod('rl_enable_post_category_blog_posts', 1);
-        $display_tags_post_meta = get_theme_mod('rl_enable_post_tags_blog_posts', 1);
-        $display_number_comments = get_theme_mod('rl_enable_post_comments_blog_posts', 1);
+        $display_category_post_meta = get_theme_mod('rl_enable_post_category_blog_posts', 0);
+        $display_tags_post_meta = get_theme_mod('rl_enable_post_tags_blog_posts', 0);
+        $display_number_comments = get_theme_mod('rl_enable_post_comments_blog_posts', 0);
 
         // Hide category and tag text for pages.
         if ('post' == get_post_type() ) {
 
             // check if category post meta is enabled
             if( $display_category_post_meta == 1 ) {
+
                 /* translators: used between list items, there is a space after the comma */
                 $categories_list = get_the_category_list(esc_html__(', ', 'riba-lite'));
 

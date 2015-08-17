@@ -163,15 +163,15 @@ if( !function_exists( 'rl_estimated_reading_time' ) ) {
 
         $words = str_word_count(strip_tags($post->post_content));
         $minutes = floor($words / 200);
-        $seconds = floor($words % 200 / (200 / 60));
+      
 
-        if (1 <= $minutes) {
-            $estimated_time = $minutes . ' minute' . ($minutes == 1 ? '' : 's') . ', ' . $seconds . ' second' . ($seconds == 1 ? '' : 's');
+        if ( $minutes >= 1 ) {
+            $estimated_time = $minutes . ' min.';
         } else {
-            $estimated_time = $seconds . ' second' . ($seconds == 1 ? '' : 's');
+            $estimated_time = sprintf('%s', __('1 min.', 'riba-lite') );
         }
 
-        echo '<div class="riba-lite-estimated-reading-time">'.__('Estimated reading: ', 'riba-lite').$estimated_time.'</div>';
+        echo '<span class="riba-lite-estimated-reading-time">'. $estimated_time . __(' read', 'riba-lite'). '</span>';
     }
 }
 if(!class_exists('RibaLiteMyExtendedMenuWalker') ) {
