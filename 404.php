@@ -11,7 +11,7 @@
 						<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'riba-lite' ); ?></h1>
 					</header><!-- .page-header -->
 
-					<div class="page-content">
+					<div class="entry-content">
 						<p><?php _e( 'It looks like nothing was found at this location. Maybe try a better search?', 'riba-lite' ); ?></p>
 
 						<?php get_search_form(); ?>

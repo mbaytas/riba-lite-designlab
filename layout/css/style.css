@@ -34,7 +34,7 @@
     ## Back to Top
 # CSS3 Effects
     ## Selection
-
+# Responsive
 
 
 --------------------------------------------------------------*/
@@ -1625,67 +1625,8 @@ textarea {
     /*--------------------------------------------------------------
     ## Small menu (responsive)
     --------------------------------------------------------------*/
-    .menu-toggle,
-    .main-navigation.toggled ul {
-        display: block; 
-        margin: 15px auto;
-    }
-
-    @media screen and (min-width: 37.5em) {
-        .menu-toggle {
-            display: none; }
-
-        .main-navigation ul {
-            display: block; } }
-
-    #riba-single-post-nav {
-        margin-top: 25px;
-        border: 2px solid #777;
-        border-radius: 4px;
-    }
-
-    .site-main .comment-navigation, .site-main
-    .posts-navigation, .site-main
-    .post-navigation {
-        margin: 0 0 1.5em;
-        overflow: hidden; }
-    .comment-navigation .nav-previous,
-    .posts-navigation .nav-previous,
-    .post-navigation .nav-previous {
-        float: left;
-        width: 50%;
-        text-align: left;
-        font-size: 28px;
-        text-align: center;
-        border-right: 1px solid #777;}
-    .comment-navigation .nav-next,
-    .posts-navigation .nav-next,
-    .post-navigation .nav-next {
-        float: right;
-        text-align: center;
-        width: 50%;
-        font-size: 28px; }
-
-    /* Hover effects */
-    .comment-navigation .nav-previous,
-    .posts-navigation .nav-previous,
-    .post-navigation .nav-previous,
-    .comment-navigation .nav-next,
-    .posts-navigation .nav-next,
-    .post-navigation .nav-next {
-        transition: .3s ease-in;
-    }
-
-    .comment-navigation .nav-previous:hover,
-    .posts-navigation .nav-previous:hover,
-    .post-navigation .nav-previous:hover {
-        padding-right: 10%;
-    }
-
-    .comment-navigation .nav-next:hover,
-    .posts-navigation .nav-next:hover,
-    .post-navigation .nav-next:hover {
-        padding-left: 10%;
+    .rl-styled-select {
+        display: none;
     }
 
     /*--------------------------------------------------------------
@@ -1899,10 +1840,11 @@ article {
 
         .post-grid .entry-content,
         .post-grid .entry-content p,
-        .post-grid .entry-content a {
-            color: #FFF;
+        .post-grid:not(.format-quote) .entry-content a {
             text-decoration: none;
+            color: #FFF;
         }
+
 
         /* Estimated reading time*/
         .riba-lite-estimated-reading-time {
@@ -2060,7 +2002,7 @@ article {
 
 #page {padding-bottom: 25px;}
 
-    #header-container {
+    .rl-layout #header-container {
         padding-bottom: 70px;
         padding-left: 0;
 
@@ -2227,6 +2169,13 @@ article {
     .single .post-grid .entry-title {
         color: #FFF !important;
     }
+
+    .error404 .page-header .page-title,
+    .search .page-header .page-title {
+        color: #000 !important;
+    }
+
+
 
 .entry-meta {
     font-size: 0.75em;
@@ -2886,3 +2835,249 @@ ul.page-numbers {
     }
 
     .lazy {display: none;}
+
+/*--------------------------------------------------------------
+# Responsive
+--------------------------------------------------------------*/
+@media (max-width: 480px) {
+
+    /* Author Area */
+    .rl-author-area {
+        padding: 15px 0;
+    }
+
+    .post-grid .entry-content {
+        padding: 0;
+    }
+
+    /* Comment Area */
+    .comment-list {
+        margin: 0;
+        padding: 0;
+    }
+
+    .comment-list ol.children {
+        padding-left: 0;
+        margin-left: 0;
+        background-color: #EEE;
+        padding: 10px;
+    }
+
+    footer.comment-meta {
+        display: block;
+    }
+
+    .comment-form-comment {
+        float: none;
+        padding: 0;
+
+    }
+
+    /* Grid */
+    .container,
+    .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .post-grid .entry-content .entry-meta
+    {display: none;}
+
+
+    .post-grid .link-wrapper{
+        position: relative;
+        background-color: #000;
+        overflow: hidden;
+        height: 420px;
+    }
+
+    .post-grid.format-video .link-wrapper,
+    .post-grid.format-image .link-wrapper {
+        height: 220px;
+    }
+    /* Different heights when using the boxed layout */
+    .rl-layout .post-grid.format-video .link-wrapper,
+    .rl-layout .post-grid.format-image .link-wrapper {
+        height: 220px;
+    }
+
+    .rl-layout.single .post-grid.format-video .link-wrapper,
+    .rl-layout.single .post-grid.format-image .link-wrapper {
+        height: 220px;
+    }
+
+    .post-grid.format-standard .link-wrapper,
+    .post-grid.format-quote .link-wrapper,
+    .post-grid.format-aside .link-wrapper {
+        height: 220px;
+    }
+    .rl-layout .post-grid.format-standard .link-wrapper,
+    .rl-layout .post-grid.format-quote .link-wrapper,
+    .rl-layout .post-grid.format-aside .link-wrapper {
+        height: 220px;
+    }
+
+    .rl-layout.single .post-grid.format-standard .link-wrapper,
+    .rl-layout.single .post-grid.format-standard .link-wrapper,
+    .rl-layout.single .post-grid.format-aside .link-wrapper {
+        height: 220px;
+    }
+
+    .tags-links a {
+        margin-top: 5px;
+    }
+
+
+}
+
+
+@media (max-width: 767px ) {
+
+    .rl-layout #header-container {
+        padding-bottom: 0;
+    }
+
+    .post-grid .entry-meta {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .rl-styled-select {
+        display: block;
+        float: left;
+        width: 80%;
+        margin-left: 10%;
+        text-align: center;
+        position: relative;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    .rl-styled-select:after {
+        content:'<>';
+        font: 16px "Consolas", monospace;
+        color: #FFF;
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+        right: 20px;
+        top: 15px;
+        padding: 0 0 2px;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .rl-styled-select:before {
+        content: '';
+        right: 6px;
+        top: 0;
+        width: 50px;
+        height: 49px;
+        position: absolute;
+        pointer-events: none;
+        display: block;
+        border-left: 1px solid #EEE;
+    }
+
+        .rl-styled-select select {
+            width: 100%;
+            padding: 15px;
+            margin: 0;
+            -webkit-border-radius:4px;
+            -moz-border-radius:4px;
+            border-radius:4px;
+            background: #222;
+            color: #FFF;
+            border:none;
+            outline:none;
+            display: inline-block;
+            -webkit-appearance:none;
+            -moz-appearance:none;
+            appearance:none;
+            cursor:pointer;
+        }
+
+
+
+    #masthead {
+        position: static;
+    }
+
+    body .site-header {
+        width: auto;
+    }
+
+    #header-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
+}
+
+
+@media (min-width: 768px) {
+
+    .rl-styled-select {
+       display: none;
+    }
+
+    .post-grid .link-wrapper{
+        position: relative;
+        background-color: #000;
+        overflow: hidden;
+        height: 420px;
+    }
+
+    .post-grid.format-video .link-wrapper,
+    .post-grid.format-image .link-wrapper {
+        height: 520px;
+    }
+    /* Different heights when using the boxed layout */
+    .rl-layout .post-grid.format-video .link-wrapper,
+    .rl-layout .post-grid.format-image .link-wrapper {
+        height: 320px;
+    }
+
+    .rl-layout.single .post-grid.format-video .link-wrapper,
+    .rl-layout.single .post-grid.format-image .link-wrapper {
+        height: 520px;
+    }
+
+    .post-grid.format-standard .link-wrapper,
+    .post-grid.format-quote .link-wrapper,
+    .post-grid.format-aside .link-wrapper {
+        height: 420px;
+    }
+    .rl-layout .post-grid.format-standard .link-wrapper,
+    .rl-layout .post-grid.format-quote .link-wrapper,
+    .rl-layout .post-grid.format-aside .link-wrapper {
+        height: 320px;
+    }
+
+    .rl-layout.single .post-grid.format-standard .link-wrapper,
+    .rl-layout.single .post-grid.format-standard .link-wrapper,
+    .rl-layout.single .post-grid.format-aside .link-wrapper {
+        height: 420px;
+    }
+
+
+
+
+
+}
+@media (min-width: 992px) {
+    .rl-styled-select {
+        display: none;
+        padding: 0;
+    }
+
+}
+@media (min-width: 1200px) {
+    .rl-styled-select{
+        display: none;
+        padding: 0;
+    }
+
+}

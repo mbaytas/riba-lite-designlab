@@ -185,7 +185,7 @@ if ( ! function_exists( 'rl_entry_footer' ) ) {
 }
 
 /**
- * Pixova Lite only works in WordPress 4.1 or later.
+ * Riba Lite only works in WordPress 4.1 or later.
  */
 
 

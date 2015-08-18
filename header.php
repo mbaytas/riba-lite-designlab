@@ -58,14 +58,14 @@
                 <?php
 
                 if($rl_logo_url) {
-                    echo '<nav id="site-navigation" class="main-navigation col-lg-8 col-md-8 col-sm-8 col-xs-12" role="navigation">';
+                    echo '<nav id="site-navigation" class="main-navigation col-lg-8 col-md-8 col-sm-8 hidden-xs" role="navigation">';
                 } else {
-                    echo '<nav id="site-navigation" class="main-navigation col-lg-8 col-md-8 col-sm-8 col-xs-12" role="navigation">';
+                    echo '<nav id="site-navigation" class="main-navigation col-lg-8 col-md-8 col-sm-8 hidden-xs" role="navigation">';
                 }
                 ?>
 
 
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'riba-lite' ); ?></button>
+
 					<?php wp_nav_menu( array(
 						'theme_location' => 'primary',
 						'menu_id' => 'primary-menu',

@@ -1,81 +1,44 @@
 /**
- * navigation.js
+ * Custom script that builds a SELECT drop-down with all menu links.
  *
- * Handles toggling the navigation menu for small screens and enables tab
- * support for dropdown menus.
+ * Selects are great since they support CSS3
+ *
  */
-( function() {
-	var container, button, menu, links, subMenus;
+jQuery(document).ready(function(){
 
-	container = document.getElementById( 'site-navigation' );
-	if ( ! container ) {
-		return;
-	}
+	jQuery('ul:first').attr("id", "primary-menu");
+	jQuery("ul#primary-menu > li:has(ul)").addClass("hasChildren");
+	jQuery("ul#primary-menu > li:has(ul) > ul > li > a").addClass("isChild");
+});
 
-	button = container.getElementsByTagName( 'button' )[0];
-	if ( 'undefined' === typeof button ) {
-		return;
-	}
+jQuery(function() {
+	jQuery("<select id='rl-navMenu' />").appendTo("#masthead");
+	jQuery("#rl-navMenu").wrap('<div class="rl-styled-select"></div>');
+	jQuery("<option />", {
+		"selected": "selected",
+		"value"   : "",
+		"text"    : "Menu",
+	}).appendTo("#masthead select");
 
-	menu = container.getElementsByTagName( 'ul' )[0];
+	jQuery("nav a").each(function() {
+		var el = jQuery(this);
+		jQuery("<option />", {
+			"value"   : el.attr("href"),
+			"text"    : el.text(),
+			"class"   : el.attr("class")
+		}).appendTo("#masthead select");
+	});
 
-	// Hide menu toggle button if menu is empty and return early.
-	if ( 'undefined' === typeof menu ) {
-		button.style.display = 'none';
-		return;
-	}
+	jQuery("nav select").change(function() {
+		window.location = jQuery(this).find("option:selected").val();
+	});
+});
 
-	menu.setAttribute( 'aria-expanded', 'false' );
-	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
-		menu.className += ' nav-menu';
-	}
-
-	button.onclick = function() {
-		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-			container.className = container.className.replace( ' toggled', '' );
-			button.setAttribute( 'aria-expanded', 'false' );
-			menu.setAttribute( 'aria-expanded', 'false' );
-		} else {
-			container.className += ' toggled';
-			button.setAttribute( 'aria-expanded', 'true' );
-			menu.setAttribute( 'aria-expanded', 'true' );
+jQuery(document).ready(function() {
+	jQuery("#masthead select option").each(function() {
+		var el = jQuery(this);
+		if(el.hasClass("isChild")){
+			jQuery(el.prepend("- "))
 		}
-	};
-
-	// Get all the link elements within the menu.
-	links    = menu.getElementsByTagName( 'a' );
-	subMenus = menu.getElementsByTagName( 'ul' );
-
-	// Set menu items with submenus to aria-haspopup="true".
-	for ( var i = 0, len = subMenus.length; i < len; i++ ) {
-		subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
-	}
-
-	// Each time a menu link is focused or blurred, toggle focus.
-	for ( i = 0, len = links.length; i < len; i++ ) {
-		links[i].addEventListener( 'focus', toggleFocus, true );
-		links[i].addEventListener( 'blur', toggleFocus, true );
-	}
-
-	/**
-	 * Sets or removes .focus class on an element.
-	 */
-	function toggleFocus() {
-		var self = this;
-
-		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
-
-			// On li elements toggle the class .focus.
-			if ( 'li' === self.tagName.toLowerCase() ) {
-				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
-				} else {
-					self.className += ' focus';
-				}
-			}
-
-			self = self.parentElement;
-		}
-	}
-} )();
+	});
+});

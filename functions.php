@@ -28,7 +28,7 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
 
 
         /**
-		 * Pixova Lite only works in WordPress 4.1 or later.
+		 * Riba Lite only works in WordPress 4.1 or later.
 		 */
 		if ( version_compare( $GLOBALS['wp_version'], '4.1-alpha', '<' ) ) {
 			require get_template_directory() . '/inc/back-compat.php';
@@ -150,9 +150,6 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 
 		/* WordPress _s default JS scripts that this theme is reusing */
 
-		    // Navigation JS
-            wp_register_script( 'riba-lite-navigation-js', get_template_directory_uri() . '/layout/js/navigation/navigation.min.js', array('jquery'), '1.0', true);
-
             // Skip Link Focus JS
             wp_register_script( 'riba-lite-skip-link-focus-js', get_template_directory_uri() . '/layout/js/skiplinkfocus/skiplinkfocus.min.js', array('jquery'), '1.0', true);
 
@@ -199,6 +196,10 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 		// Plugins JS
 		wp_register_script( 'riba-lite-plugins-js', get_template_directory_uri() . '/layout/js/plugins.js', array('lazy-load-min-js', 'mb-ytplayer-min-js', 'simple-placeholder-js', 'owlCarousel-min-js'), '1.0', true );
 
+        // Menu JS
+        //if( !wp_is_mobile() ) {
+            wp_register_script('riba-lite-navigation-js', get_template_directory_uri() . '/layout/js/navigation/navigation.js', array('jquery'), '1.0', true);
+        //}
 
 		/*
 		*	Enqueue scripts
@@ -237,6 +238,10 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
         wp_enqueue_script( 'mb-ytplayer-min-js' );
         wp_enqueue_script( 'headroom-min-js' );
         wp_enqueue_script( 'headroom-jquery-min-js' );
+        wp_enqueue_script( 'riba-lite-skip-link-focus-js' );
+        //if( !wp_is_mobile() ) {
+            wp_enqueue_script('riba-lite-navigation-js');
+        //}
 
 
 		/**
@@ -385,11 +390,14 @@ if( !function_exists(' rl_print_preloader_styles' ) ) {
             echo '<!-- Custom Preloader Styles -->'."\n";
             echo "\n" . '<style type="text/css" id="rl-preloader"> #page-loader { background: '.esc_attr( $preloader_bg_color ).' !important; } #page-loader .loader { color: '. esc_attr( $preloader_text_color ).' !important; } </style>' . "\n";
             echo '<!-- END -->';
+
+            # Add custom body class for more CSS weight
+            add_filter( 'body_class', 'rl_preloader_body_class' );
+
         }
     }
 
-    # Add custom body class for more CSS weight
-    add_filter( 'body_class', 'rl_preloader_body_class' );
+
 
     # Add custom styles to `<head>`.
     add_action( 'wp_head', 'rl_print_preloader_styles', 1);
@@ -470,11 +478,14 @@ if( !function_exists( 'rl_print_color_styles' ) ) {
             echo '<!-- Custom Color Styles -->'."\n";
                 echo "\n" . '<style type="text/css" id="rl-colors">' . $style . '</style>' . "\n";
             echo '<!-- END -->';
+
+        # Add custom body class for more CSS weight
+        add_filter( 'body_class', 'rl_colors_body_class' );
+
         }
     }
 
-    # Add custom body class for more CSS weight
-    add_filter( 'body_class', 'rl_colors_body_class' );
+
 
     # Add custom styles to `<head>`.
     add_action( 'wp_head', 'rl_print_color_styles', 3);
@@ -507,7 +518,7 @@ if( !function_exists( 'rl_print_layout_styles' ) ) {
         // Output the styles.
         if ( $layout == 'boxed' ) {
             echo '<!-- Custom Layout Styles -->'."\n";
-            echo "\n" . '<style type="text/css" id="rl-layout"> body .container-fluid {max-width: 1170px; } body .container {width: auto !important; } body .site-header {width: 1170px; } </style>' . "\n";
+            echo "\n" . '<style type="text/css" id="rl-layout"> body .container-fluid {max-width: 1170px; } body .container {width: auto !important; } body .site-header {width: 1170px; max-width: 100% !important;} </style>' . "\n";
             echo '<!-- END -->';
 
             # Add custom body class for more CSS weight
