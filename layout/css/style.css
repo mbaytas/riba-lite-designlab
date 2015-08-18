@@ -44,8 +44,8 @@
 .container {
     margin-right: auto;
     margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px; }
+    padding-left: 30px;
+    padding-right: 30px; }
 .container:before, .container:after {
     content: " ";
     display: table; }
@@ -90,8 +90,8 @@
 .container-fluid {
     margin-right: auto;
     margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
     position: relative;
 }
 .container-fluid:before, .container-fluid:after {
@@ -919,7 +919,7 @@ html {
 
 body {
     margin: 0;
-    background-color: #e2d9c8;
+    background-color: #e1e3e4;
     color: #333;
 }
 
@@ -1390,7 +1390,7 @@ textarea {
 }
 
     .entry-content a.btn-read-more {
-        font-family: 'Droid Serif' !important;
+        font-family: 'Domine' !important;
         font-size: 16px;
         color: #d6a03a !important;
     }
@@ -1420,8 +1420,8 @@ textarea {
     z-index: 2;
     width: 100%;
     z-index: 999;
-    background-color: #FFF;
     height: 70px;
+    border-bottom: 1px solid #EEE;
 }
     /* Header adjustments for when we have an img */
     #header-container.rl-img-logo {padding-bottom: 100px;}
@@ -1484,6 +1484,7 @@ textarea {
     padding-top: 25px;
 }
 
+.site-branding {padding-left: 30px;}
 .rl-img-logo .site-branding img {
     padding: 10px 0;
 }
@@ -1534,7 +1535,7 @@ textarea {
     -moz-osx-font-smoothing: grayscale;
     position: absolute;
     right: 0;
-    color: #333;
+    color: #FFF;
 }
 
 #rl-main-menu ul li.has-sub:hover > a {
@@ -1546,7 +1547,7 @@ textarea {
     display: block;
 }
 #rl-main-menu ul li.has-sub > a:hover {
-    background: #FFF;
+    background: #eee;
 }
 #rl-main-menu ul li > ul,
 #rl-main-menu ul li > div {
@@ -1555,7 +1556,7 @@ textarea {
     position: absolute;
     top: 38px;
     padding: 10px 0;
-    background: #FFF;
+    background: #EEE;
     z-index: 999999;
     text-align: left;
 }
@@ -1721,14 +1722,19 @@ textarea {
 /*--------------------------------------------------------------
 # Front Page
 --------------------------------------------------------------*/
-
 article {
     padding: 0 !important;
 }
 
+.rl-layout article:first-of-type {
+   padding-top: 30px !important;
+}
+
+
+
 .post-grid .link-wrapper{
     position: relative;
-    background-color: #282828;
+    background-color: #000;
     overflow: hidden;
     height: 420px;
 }
@@ -1737,12 +1743,33 @@ article {
     .post-grid.format-image .link-wrapper {
         height: 620px;
     }
+            /* Different heights when using the boxed layout */
+            .rl-layout .post-grid.format-video .link-wrapper,
+            .rl-layout .post-grid.format-image .link-wrapper {
+                height: 420px;
+            }
+
+                .rl-layout.single .post-grid.format-video .link-wrapper,
+                .rl-layout.single .post-grid.format-image .link-wrapper {
+                    height: 620px;
+                }
 
     .post-grid.format-standard .link-wrapper,
     .post-grid.format-quote .link-wrapper,
     .post-grid.format-aside .link-wrapper {
         height: 520px;
     }
+        .rl-layout .post-grid.format-standard .link-wrapper,
+        .rl-layout .post-grid.format-quote .link-wrapper,
+        .rl-layout .post-grid.format-aside .link-wrapper {
+            height: 320px;
+        }
+
+            .rl-layout.single .post-grid.format-standard .link-wrapper,
+            .rl-layout.single .post-grid.format-standard .link-wrapper,
+            .rl-layout.single .post-grid.format-aside .link-wrapper {
+                height: 520px;
+            }
 
 
         .post-grid.format-standard {
@@ -1776,7 +1803,7 @@ article {
                     word-break: break-word;
                     font-size: 20px;
                     font-size: 1.2rem;
-                    font-family: 'Droid Serif';
+                    font-family: 'Domine';
                     font-weight: 300;
                     font-style: italic;
                     quotes: "\201C""\201D""\2018""\2019";
@@ -1807,11 +1834,11 @@ article {
         body:not(.single) .format-aside .entry-content p,
         body:not(.single) .format-aside .entry-content a {
             color: #222;
-            line-height: 1.8;
+            line-height: 1.6;
             word-break: break-word;
             font-size: 20px;
-            font-size: 1.2rem;
-            font-family: 'Droid Serif';
+            font-size: 1rem;
+            font-family: 'Domine';
             font-weight: 300;
         }
 
@@ -1822,7 +1849,7 @@ article {
     top: 0;
     right: 0;
     bottom: 0;
-    opacity: .5;
+    opacity: .65;
     overflow: hidden;
 }
 
@@ -1853,6 +1880,23 @@ article {
         z-index: 100;
     }
 
+    .post-grid .entry-title {padding: 0 15px;}
+    .post-grid .entry-meta {
+        visibility: hidden;
+        opacity: 0;
+        -webkit-backface-visibility: hidden;
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        -moz-transition: all 0.3s ease-in-out 0s;
+        -o-transition: all 0.3s ease-in-out 0s;
+        -ms-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+    }
+
+        .link-wrapper:hover .entry-meta {
+            visibility: visible;
+            opacity: 1;
+        }
+
         .post-grid .entry-content,
         .post-grid .entry-content p,
         .post-grid .entry-content a {
@@ -1870,7 +1914,7 @@ article {
 
         /* Actual post content */
         .post-grid .post-content {
-            padding: 30px 0;
+            padding: 30px 15px;
         }
 
         .post-grid .post-title {padding: 0 !important;}
@@ -1878,10 +1922,9 @@ article {
         .post-content p {
             line-height: 1.8;
             word-break: break-word;
-            font-size: 20px;
-            font-size: 1.20rem;
-            font-family: 'Droid Serif';
-            font-weight: 300;
+            font-size: 16px;
+            font-size: 1rem;
+            font-family: 'Domine';
         }
 
             .post-content h1,
@@ -2019,10 +2062,10 @@ article {
 
     #header-container {
         padding-bottom: 70px;
-        background-color: #FFF; /* margin bottom = height of fixed header */
+        padding-left: 0;
+
     }
 
-    .home #header-container {border-bottom: 0;}
 
 
     /*--------------------------------------------------------------
@@ -2041,6 +2084,22 @@ article {
     .mt-related-posts h3 {
         padding: 15px;
     }
+
+    .mt-related-posts .caption {
+        visibility: hidden;
+        opacity: 0;
+        -webkit-backface-visibility: hidden;
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        -moz-transition: all 0.3s ease-in-out 0s;
+        -o-transition: all 0.3s ease-in-out 0s;
+        -ms-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+    }
+
+        .mt-related-posts .item:hover .caption {
+            opacity: 1;
+            visibility: visible;
+        }
 
     .mt-related-posts .item > div[class*="col-sm-"] {
         padding: 0 !important;
@@ -2119,7 +2178,7 @@ article {
 .cat-links a  {
     color: #FFF;
     font-size: 0.875em;
-    font-family: 'Droid Serif';
+    font-family: 'Domine';
 }
 
 .entry-date,
@@ -2131,6 +2190,31 @@ article {
     padding: 5px 0;
 }
 
+.tags-links {
+    padding: 5px 15px;
+}
+
+.tags-links a {
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid #e5e5e5;
+    color: #151515;
+    margin-right: 5px;
+    font-family: 'Lato';
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 11px;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    -ms-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+    .tags-links a:hover {
+        border: 2px solid #000;
+    }
+
 .entry-title {
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -2140,10 +2224,14 @@ article {
         font-weight: 400;
     }
 
+    .single .post-grid .entry-title {
+        color: #FFF !important;
+    }
+
 .entry-meta {
     font-size: 0.75em;
     color: #FFF;
-    font-family: 'Droid Serif';
+    font-family: 'Domine';
 }
 
     .entry-meta .author {margin-bottom: 10px;}
@@ -2299,7 +2387,7 @@ article {
     .comment-content p {
         color: #111;
         font-size: 14px;
-        font-family: 'Droid Serif';
+        font-family: 'Domine';
         font-weight: 100;
         line-height: 1.5;
     }
@@ -2358,7 +2446,7 @@ article {
 
 .riba-lite-breadcrumbs {
     width: 100%;
-    background-color: rgba(0,0,0, .7);
+    background-color: rgba(0,0,0, .4);
     color: rgba(255,255,255,.7);
     position: absolute;
     z-index: 2;
@@ -2389,10 +2477,22 @@ article {
 /*--------------------------------------------------------------
 ## Social Sharing
 --------------------------------------------------------------*/
+
+.riba-lite-social-sharing-box-wrapper {
+    margin: 30px auto;
+}
+
+.riba-lite-social-sharing-box-title {
+    font-family: 'Lato';
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
 .riba-lite-social-sharing-box {
     font-style: italic;
     font-weight: 300;
-    font-family: 'Droid Serif';
+    font-family: 'Domine';
     font-size: 14px;
     color: #BBB;
 }
@@ -2404,20 +2504,38 @@ article {
 }
     .riba-lite-social-sharing-box a:hover {opacity: .75;}
 
+
+
+    /* Icon Coloring */
+    .fa-facebook:hover {color: #6788CE !important; }
+    .fa-twitter:hover {color: #29C5F6 !important; }
+    .fa-linkedin:hover {color: #3A9BDC !important; }
+    .fa-reddit:hover {color: red !important; }
+    .fa-tumblr:hover {color: red !important; }
+    .fa-google-plus:hover {color: #E75C3C !important; }
+    .fa-pinterest:hover {color: #FE4445 !important;}
+    .fa-vk:hover {color: #6383A8 !important;}
+
 /*--------------------------------------------------------------
 ## Author Area
 --------------------------------------------------------------*/
 
 .rl-author-area {
     border-top: 1px solid #EEE;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding: 25px 50px;
+    font-family: 'Domine';
+    font-weight: 400;
 }
-    .rl-author-area div[class *= "col-md-"] {
-        padding: 2.5px !important;
+
+    .rl-author-area .col-lg-1 {
+        padding: 0 !important;
     }
 
-.rl-author-area h4 {margin-top: 0;}
+
+.rl-author-area h4 {
+    margin-top: 0;
+
+}
 .rl-author-area p {
     margin-bottom: 0;
     line-height: 22px !important;
@@ -2425,7 +2543,9 @@ article {
     font-size: 14px !important;
 }
 
-.rl-author-area img {padding: 0 !important;}
+.rl-author-area img {
+    border-radius: 50%;
+}
 
 /*--------------------------------------------------------------
 # Infinite scroll
@@ -2548,6 +2668,8 @@ ul.page-numbers {
     background-color: #FFF;
 }
 
+    #footer a {opacity: .75;}
+    #footer a:hover {opacity: 1;}
 
 
         /*--------------------------------------------------------------
@@ -2563,7 +2685,7 @@ ul.page-numbers {
             */
             .footer-widget-container .footer-descr,
             .footer-widget-container p {
-                font-family: 'Droid Serif';
+                font-family: 'Domine';
                 font-size: 16px;
                 line-height: 1.8;
             }
@@ -2573,7 +2695,7 @@ ul.page-numbers {
             */
 
             .riba_lite_widget_social_media ul {
-                font-family: 'Droid Serif';
+                font-family: 'Domine';
                 font-size: 16px;
                 line-height: 1.8;
                 margin: 0;
@@ -2590,21 +2712,22 @@ ul.page-numbers {
             background-color: #EEE;
             color: #111;
             margin-top: 15px;
-            padding: 5px 15px;
+            padding: 0 15px 15px 15px;
+            margin-bottom: 15px;
         }
+
+
 
         body p.footer-copyright,
         body.riba-lite p.footer-copyright {
             font-size: 13px;
             padding-top: 3px;
+            margin-bottom: 0;
             font-weight: 400 !important;
             font-family: 'Montserrat' !important;
 
         }
-            .footer-copyright a{
-                opacity: .55;
-            }
-                .footer-copyright a:hover {text-decoration: underline; opacity: 1}
+
 
         /*--------------------------------------------------------------
         ## Footer contact container

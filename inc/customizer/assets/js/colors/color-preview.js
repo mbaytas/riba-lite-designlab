@@ -103,11 +103,18 @@ jQuery( document ).ready( function() {
     );
 
 
-
-
-
-
     /* === <links> === */
+
+    wp.customize(
+        'rl_header_menu_link_color',
+        function ( value ) {
+            value.bind(
+                function ( to ) {
+                    jQuery('body.rl-colors #rl-main-menu > ul > li > a').css('color', to);
+                }
+            );
+        }
+    );
 
     wp.customize(
         'rl_link_color',
@@ -125,7 +132,7 @@ jQuery( document ).ready( function() {
         function (value) {
             value.bind(
                 function (to) {
-                    jQuery('body.rl-colors a:hover').css('color', to);
+                    jQuery('body.rl-colors #rl-main-menu > ul > li > a:hover, body.rl-colors a:hover').css('color', to);
                 }
             );
         }

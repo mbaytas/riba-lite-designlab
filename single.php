@@ -15,7 +15,6 @@ get_header(); ?>
 			<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
             <div class="container">
-                <div class="row">
                     <?php
                     $author_box_enabled = get_theme_mod('rl_enable_author_box_blog_posts', 1);
 
@@ -25,7 +24,6 @@ get_header(); ?>
 
 
                     ?>
-                </div>
             </div>
 
 			<div class="container">

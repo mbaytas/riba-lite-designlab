@@ -23,7 +23,7 @@ if ( ! function_exists( 'rl_content_nav' ) ) {
 
         $nav_class = (is_single()) ? 'post-navigation' : 'paging-navigation';
         ?>
-        <nav role="navigation" id="<?php echo esc_attr($nav_id); ?>" class="<?php echo $nav_class; ?> col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 hidden-xs">
+        <nav role="navigation" id="<?php echo esc_attr($nav_id); ?>" class="<?php echo $nav_class; ?>">
             <h1 class="screen-reader-text"><?php _e('Post navigation', 'riba-lite'); ?></h1>
 
             <?php if (is_single()) : // navigation links for single posts ?>
@@ -137,36 +137,40 @@ if ( ! function_exists( 'rl_entry_footer' ) ) {
      */
     function rl_entry_footer()
     {
-        $display_category_post_meta = get_theme_mod('rl_enable_post_category_blog_posts', 0);
-        $display_tags_post_meta = get_theme_mod('rl_enable_post_tags_blog_posts', 0);
-        $display_number_comments = get_theme_mod('rl_enable_post_comments_blog_posts', 0);
+        //$display_category_post_meta = get_theme_mod('rl_enable_post_category_blog_posts', 0);
+        $display_tags_post_meta = get_theme_mod('rl_enable_post_tags_blog_posts', 1);
+        //$display_number_comments = get_theme_mod('rl_enable_post_comments_blog_posts', 0);
 
         // Hide category and tag text for pages.
         if ('post' == get_post_type() ) {
 
+
             // check if category post meta is enabled
+            /*
             if( $display_category_post_meta == 1 ) {
 
-                /* translators: used between list items, there is a space after the comma */
+                // translators: used between list items, there is a space after the comma
                 $categories_list = get_the_category_list(esc_html__(', ', 'riba-lite'));
 
                 if ($categories_list && rl_categorized_blog()) {
                     printf('<span class="cat-links">' . esc_html__('Posted in: %1$s', 'riba-lite') . '</span>', $categories_list); // WPCS: XSS OK.
                 }
             }
+            */
 
             // check if tags post meta is enabled
             if( $display_tags_post_meta == 1 ) {
 
                 /* translators: used between list items, there is a space after the comma */
-                $tags_list = get_the_tag_list('', esc_html__(', ', 'riba-lite'));
+                $tags_list = get_the_tag_list('', esc_html__(' ', 'riba-lite'));
                 if ($tags_list) {
-                    printf('<span class="tags-links">' . esc_html__('Tagged with: %1$s', 'riba-lite') . '</span>', $tags_list); // WPCS: XSS OK.
+                    echo '<span class="tags-links">'. $tags_list .'</span>'; // WPCS: XSS OK.
                 }
             }
         }
 
         // check if comment meta is enabled
+        /*
         if( $display_number_comments == 1 ) {
 
             if (!post_password_required() && (comments_open() || get_comments_number())) {
@@ -175,6 +179,7 @@ if ( ! function_exists( 'rl_entry_footer' ) ) {
                 echo '</span>';
             }
         }
+        */
 
     }
 }

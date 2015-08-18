@@ -55,12 +55,6 @@
                     </div><!-- .entry-meta -->
                 <?php endif; ?>
             </header><!-- .entry-header -->
-            <footer>
-                <div class="entry-footer">
-                    <?php rl_entry_footer(); ?>
-                </div>
-            </footer>
-
         </div>
     </div><!-- .entry-content -->
 
@@ -68,19 +62,29 @@
 
     <div class="container">
         <div class="row">
-            <?php the_title( sprintf( '<h2 class="post-title col-lg-10 col-md-10 col-sm-10 col-xs-12"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-
-            <?php if( $display_prev_next_links == 1 ) {
-                echo '<div class="">' . rl_content_nav('riba-single-post-nav') . '</div>';
-            } ?>
-
-            <?php if( $display_social_sharing == 1 ) {
-                rl_output_social_sharing_box();
-            } ?>
-            <div class="clearfix"></div>
             <div class="post-content">
                 <?php the_content(); ?>
             </div>
+
+            <div class="clearfix"></div>
+
+
+            <footer>
+                <div class="entry-footer">
+                    <?php rl_entry_footer(); ?>
+                </div>
+            </footer>
+
+            <div class="text-center riba-lite-social-sharing-box-wrapper">
+                <h4 class="riba-lite-social-sharing-box-title"><?php _e('Share this: ', 'riba-lite'); ?></h4>
+                <?php if( $display_social_sharing == 1 ) {
+                    rl_output_social_sharing_box();
+                } ?>
+            </div>
+
+            <div class="clearfix"></div>
+
+
         </div>
     </div>
 

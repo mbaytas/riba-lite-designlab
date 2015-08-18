@@ -115,7 +115,7 @@ $wp_customize->add_setting( 'h6_font_size',   array( 'default' => '16',      'sa
 $wp_customize->add_setting( 'h6_line_height', array( 'default' => '20',      'sanitize_callback' => 'absint',              'transport' => 'postMessage' ) );
 
 // Add the `<p>` typography settings.
-$wp_customize->add_setting( 'p_font_family', array( 'default' => 'Droid Serif',  'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage' ) );
+$wp_customize->add_setting( 'p_font_family', array( 'default' => 'Domine',  'sanitize_callback' => 'sanitize_text_field', 'transport' => 'postMessage' ) );
 $wp_customize->add_setting( 'p_font_weight', array( 'default' => '300',    'sanitize_callback' => 'absint',              'transport' => 'postMessage' ) );
 $wp_customize->add_setting( 'p_font_style',  array( 'default' => 'normal', 'sanitize_callback' => 'sanitize_key',        'transport' => 'postMessage' ) );
 $wp_customize->add_setting( 'p_font_size',   array( 'default' => '19',     'sanitize_callback' => 'absint',              'transport' => 'postMessage' ) );

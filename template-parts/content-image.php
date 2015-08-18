@@ -15,7 +15,7 @@ $display_ert = get_theme_mod('rl_post_'.esc_attr( get_post_format( $post->ID ) )
 
             <div class="entry-content">
                 <header class="entry-header">
-                    <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+                    <?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
                     <?php if($display_separator == 1 ) { ?>
                         <!-- SEPARATOR -->
                         <hr />

@@ -210,14 +210,12 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 		if( !isset($wp_customize) ) {
 			wp_enqueue_script( 'pace-loader-min-js' );
 			wp_enqueue_script( 'riba-lite-preloader-js' );
-            wp_enqueue_script( 'headroom-min-js' );
-            wp_enqueue_script( 'headroom-jquery-min-js' );
+
 		} else {
 			function rl_output_css_to_head() {
 
                 echo '<!-- Customizer CSS Fixes-->'."\n";
                 echo '<style>';
-                    echo '#header-container { padding-bottom: 0 !important; } '."\n";
 					echo '#masthead {top : 0 !important }'."\n";
 					echo '#page {padding-top: 0 !important; }'."\n";
 				echo '</style>';
@@ -237,7 +235,8 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 		wp_enqueue_script( 'riba-lite-plugins-js' );
 		wp_enqueue_script( 'riba-lite-navigation-js' );
         wp_enqueue_script( 'mb-ytplayer-min-js' );
-
+        wp_enqueue_script( 'headroom-min-js' );
+        wp_enqueue_script( 'headroom-jquery-min-js' );
 
 
 		/**
@@ -256,7 +255,7 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 		wp_enqueue_style ( 'font-awesome-min-css', get_template_directory_uri() . '/layout/css/font-awesome.min.css');
 
         // Google Fonts StyleSheet
-        wp_enqueue_style( 'ga-fonts', '//fonts.googleapis.com/css?family=Montserrat:400,700|Droid+Serif:400|Lato:700' );
+        wp_enqueue_style( 'ga-fonts', '//fonts.googleapis.com/css?family=Montserrat:400,700|Domine:400|Lato:300,700' );
 
         // owlCarousel Stylesheet
         wp_enqueue_style( 'owlCarousel-main-css', get_template_directory_uri() .'/layout/css/owl-carousel.min.css' );
@@ -420,8 +419,9 @@ if( !function_exists( 'rl_print_color_styles' ) ) {
     function rl_print_color_styles() {
 
         // Fetch stored values
-        $header_bg_color = get_theme_mod( 'rl_header_bg_color', '#FFF' );
-        $logo_color = get_theme_mod('rl_header_text_logo_color', '#222');
+        $header_bg_color = get_theme_mod( 'rl_header_bg_color', '#222' );
+        $logo_color = get_theme_mod('rl_header_text_logo_color', '#FFF');
+		$header_menu_link_color = get_theme_mod('rl_header_menu_link_color', '#FFF');
         $h1_color = get_theme_mod('rl_heading_h1_color', '#222');
         $h2_color = get_theme_mod('rl_heading_h2_color', '#222');
         $h3_color = get_theme_mod('rl_heading_h3_color', '#222');
@@ -432,6 +432,9 @@ if( !function_exists( 'rl_print_color_styles' ) ) {
         $link_color = get_theme_mod( 'rl_link_color', '#111' );
         $link_color_hover = get_theme_mod( 'rl_link_color_hover', '#BBB' );
         $footer_bg_color = get_theme_mod( 'rl_footer_bg_color', '#FFF');
+        $footer_title_color = get_theme_mod('rl_footer_heading_color', '#222');
+        $footer_link_color = get_theme_mod('rl_footer_link_color', '#222');
+        $footer_paragraph_color = get_theme_mod('rl_footer_p_color', '#222');
 
         /* Header Style */
         $_header_bg_color = sprintf( "body.rl-colors header.site-header { background-color: %s; }", esc_attr( $header_bg_color ) )."\n";
@@ -450,10 +453,14 @@ if( !function_exists( 'rl_print_color_styles' ) ) {
 
         /* Link Style */
         $_a_style = sprintf("body.rl-colors a { color: %s; }", esc_attr( $link_color ) )."\n";
+        $_a_style .= sprintf("body.rl-colors #rl-main-menu > ul > li > a { color : %s; }", esc_attr( $header_menu_link_color ) ) ."\n";
         $_a_hover_style = sprintf("body.rl-colors #rl-main-menu > ul > li > a:hover, body.rl-colors a:hover { color: %s; } ", esc_attr( $link_color_hover ) )."\n";
 
         /* Footer Style */
         $_footer_style = sprintf( "body.rl-colors #footer { background-color: %s; }", esc_attr( $footer_bg_color ) )."\n";
+        $_footer_style .= sprintf( "body.rl-colors #footer .widgettitle { color: %s }", esc_attr( $footer_title_color ) ) ."\n";
+        $_footer_style .= sprintf( "body.rl-colors #footer a { color: %s ;}", esc_attr( $footer_link_color ) ) ."\n";
+        $_footer_style .= sprintf( "body.rl-colors #footer p {color: %s; } ", esc_attr( $footer_paragraph_color ) ) ."\n";
 
         $style = join('', array( $_header_bg_color, $_logo_color, $_h1_color, $_h2_color, $_h3_color, $_h4_color, $_h5_color, $_h6_color, $_p_color, $_a_style, $_a_hover_style, $_footer_style ) );
 
@@ -495,18 +502,19 @@ if( !function_exists( 'rl_print_layout_styles' ) ) {
      */
     function rl_print_layout_styles() {
 
-        $layout = get_theme_mod('rl_site_layout', 'full');
+        $layout = get_theme_mod('rl_site_layout', 'boxed');
 
         // Output the styles.
         if ( $layout == 'boxed' ) {
             echo '<!-- Custom Layout Styles -->'."\n";
-            echo "\n" . '<style type="text/css" id="rl-layout"> body .container-fluid {max-width: 1170px; } body .container {width: auto !important; } body .site-header {width: 1140px; } </style>' . "\n";
+            echo "\n" . '<style type="text/css" id="rl-layout"> body .container-fluid {max-width: 1170px; } body .container {width: auto !important; } body .site-header {width: 1170px; } </style>' . "\n";
             echo '<!-- END -->';
+
+            # Add custom body class for more CSS weight
+            add_filter( 'body_class', 'rl_layout_body_class' );
+
         }
     }
-
-    # Add custom body class for more CSS weight
-    add_filter( 'body_class', 'rl_layout_body_class' );
 
     # Add custom styles to `<head>`.
     add_action( 'wp_head', 'rl_print_layout_styles', 2);

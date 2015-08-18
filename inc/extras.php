@@ -274,7 +274,7 @@ if(!class_exists('RibaLiteMyExtendedMenuWalker') ) {
                 if ( $menu_class )
                     $fb_output .= ' class="' . $menu_class . '"';
                 $fb_output .= '>';
-                $fb_output .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">Add a menu</a></li>';
+                $fb_output .= '<li><a href="' . admin_url( 'nav-menus.php' ) . '">'. __('Add a menu', 'riba-lite'). '</a></li>';
                 $fb_output .= '</ul>';
                 if ( $container )
                     $fb_output .= '</' . $container . '>';
@@ -465,18 +465,27 @@ if( ! function_exists( 'rl_render_related_posts' ) ) {
         $related_posts = rl_get_related_posts(get_the_ID(), get_option('posts_per_page') );
 
         // Number of posts to show / view
-        $limit = get_theme_mod('rl_howmany_blog_posts', 4);
+        $limit = get_theme_mod('rl_howmany_blog_posts', 3);
 
-        // No more than 4 per view !
-        if($limit > 4 ) {
-            $limit = 4;
-        }
 
         // Auto play
-        $auto_play = get_theme_mod('rl_autoplay_blog_posts', true);
+        $auto_play = get_theme_mod('rl_autoplay_blog_posts', 1);
+
+        if( $auto_play == 0 ) {
+            $auto_play = false;
+        } else {
+            $auto_play = true;
+        }
 
         // Pagination
-        $pagination = get_theme_mod('rl_pagination_blog_posts', false);
+        $pagination = get_theme_mod('rl_pagination_blog_posts', 0);
+
+        if( $pagination == 0 ) {
+            $pagination = false;
+        } else {
+            $pagination = true;
+        }
+
 
 
         $return_string .= '<div class="row">';
@@ -627,7 +636,7 @@ if( !function_exists( 'rl_render_author_box' ) ) {
      */
     function rl_render_author_box() {
 
-        $return_string = '<div class="rl-author-area">';
+        $return_string = '<div class="rl-author-area row">';
             $return_string .= '<div class="col-lg-1 col-md-1 hidden-sm hidden-xs">';
                 $return_string .='<a class="rl-author-link" href="'.esc_url( get_author_posts_url( get_the_author_meta() ) ).'" rel="author">';
                     $return_string .= get_avatar( get_the_author_meta( 'user_email' ), 110 );
@@ -636,7 +645,7 @@ if( !function_exists( 'rl_render_author_box' ) ) {
 
             $return_string .= '<div class="col-lg-11 col-md-11 col-xs-12">';
                 $return_string .= '<h4>';
-                    $return_string .=  __('About the author: ', 'riba-lite').'<a class="rl-author-link" href="'.esc_url( get_author_posts_url( get_the_author_meta() ) ).'" rel="author">'.esc_html( get_the_author() ).'</a>';
+                    $return_string .=  '<a class="rl-author-link" href="'.esc_url( get_author_posts_url( get_the_author_meta() ) ).'" rel="author">'.esc_html( get_the_author() ).'</a>';
                 $return_string .= '</h4>';
                 $return_string .= '<div class="rl-author-info">';
                     $return_string .= '<p>' . esc_html( get_the_author_meta( 'description' ) ) . '</p>';

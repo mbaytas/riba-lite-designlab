@@ -91,6 +91,27 @@ if( !function_exists( 'rl_sanitize_hex_color' ) ) {
     }
 }
 
+if( !function_exists( 'rl_sanitize_radio_buttons' ) ) {
+    /**
+     * Simple function to validate choices from radio buttons
+     *
+     * @param $input
+     * @return string
+     */
+    function rl_sanitize_radio_buttons( $input, $setting ) {
+
+        global $wp_customize;
+
+        $control = $wp_customize->get_control( $setting->id );
+
+        if ( array_key_exists( $input, $control->choices ) ) {
+            return $input;
+        } else {
+            return $setting->default;
+        }
+    }
+}
+
 if( !function_exists( 'rl_sanitize_checkbox' ) ) {
     /**
      * Function to sanitize checkboxes

@@ -70,6 +70,7 @@
     );
 
     /* Post Category on single blog posts */
+    /*
     $wp_customize->add_setting( $prefix.'_enable_post_category_blog_posts',
         array(
             'sanitize_callback' => $prefix.'_sanitize_checkbox',
@@ -85,12 +86,14 @@
             'section' => $prefix.'_blog_global_section',
         )
     );
+    */
+
 
     /* Post Tags on single blog posts */
     $wp_customize->add_setting( $prefix.'_enable_post_tags_blog_posts',
         array(
             'sanitize_callback' => $prefix.'_sanitize_checkbox',
-            'default' => 0
+            'default' => 1
         )
     );
     $wp_customize->add_control(
@@ -104,6 +107,7 @@
     );
 
     /* Post Comments on single blog posts */
+    /*
     $wp_customize->add_setting( $prefix.'_enable_post_comments_blog_posts',
         array(
             'sanitize_callback' => $prefix.'_sanitize_checkbox',
@@ -120,6 +124,7 @@
             'section' => $prefix.'_blog_global_section',
         )
     );
+    */
 
     /* Breadcrumbs on single blog posts */
     $wp_customize->add_setting( $prefix.'_enable_post_breadcrumbs',
@@ -511,7 +516,7 @@
                     'step' => 1,
                 ),
                 'section' => $prefix.'_blog_related_section',
-                'default' => 2
+                'default' => 3
             )
         )
     );

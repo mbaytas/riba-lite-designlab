@@ -13,12 +13,16 @@
                 echo '<div class="mt-footer-widget col-md-6">';
                 if( is_active_sidebar( 'footer-sidebar-1' ) ) {
                     dynamic_sidebar('footer-sidebar-1');
+                } else {
+                    the_widget('riba_lite_widget_about', sprintf( 'title=%s', __('About', 'riba-lite') ) .'&'. sprintf('about_text=%s.', __('The many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected true of a humour', 'riba-lite') ) );
                 }
                 echo '</div><!--/.mt--foter--widget.col-md-6-->';
 
                 echo '<div class="mt-footer-widget col-md-6">';
                 if( is_active_sidebar( 'footer-sidebar-2' ) ) {
                     dynamic_sidebar('footer-sidebar-2');
+                } else {
+                    the_widget('riba_lite_widget_social_media', sprintf( 'title=%s', __('Follow us', 'riba-lite') ).'&profile_facebook=#&profile_twitter=#&profile_plus=#&profile_pinterest=#&profile_youtube=#&profile_dribbble=#&profile_tumblr=#&profile_instagram=#.');
                 }
                 echo '</div><!--/.mt--foter--widget.col-md-6-->';
 

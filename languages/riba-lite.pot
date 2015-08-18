@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Riba Lite 1.0.0\n"
 "Report-Msgid-Bugs-To: http://www.machothemes.com/\n"
-"POT-Creation-Date: 2015-08-16 16:30:35+00:00\n"
+"POT-Creation-Date: 2015-08-17 16:21:43+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,15 +48,27 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: footer.php:31
+#: footer.php:6 inc/customizer/panels/site.php:205
+msgid "Macho Themes 2015. All Rights Reserved"
+msgstr ""
+
+#: footer.php:36
+msgid "Mail: "
+msgstr ""
+
+#: footer.php:37
+msgid "Phone: "
+msgstr ""
+
+#: footer.php:64
 msgid "Powered by"
 msgstr ""
 
-#: footer.php:31
+#: footer.php:64
 msgid "http://www.machothemes.com"
 msgstr ""
 
-#: footer.php:31
+#: footer.php:64
 msgid "Premium WordPress Themes"
 msgstr ""
 
@@ -64,19 +76,19 @@ msgstr ""
 msgid "Macho Themes"
 msgstr ""
 
-#: footer.php:33
+#: footer.php:66
 msgid "Running on:"
 msgstr ""
 
-#: footer.php:33
+#: footer.php:66
 msgid "http://www.wordpress.org"
 msgstr ""
 
-#: footer.php:33
+#: footer.php:66
 msgid "WordPress"
 msgstr ""
 
-#: footer.php:42
+#: footer.php:76
 msgid "Top"
 msgstr ""
 
@@ -200,40 +212,27 @@ msgstr ""
 msgid "Enable site preloader"
 msgstr ""
 
-#: inc/customizer/panels/advanced.php:44 inc/customizer/panels/advanced.php:62
-#: inc/customizer/panels/advanced.php:79 inc/customizer/panels/advanced.php:109
-#: inc/customizer/panels/advanced.php:127
-#: inc/customizer/panels/advanced.php:144
-#: inc/customizer/panels/advanced.php:161
+#: inc/customizer/panels/advanced.php:44 inc/customizer/panels/advanced.php:61
+#: inc/customizer/panels/post-formats.php:48
+#: inc/customizer/panels/post-formats.php:65
+#: inc/customizer/panels/post-formats.php:82
+#: inc/customizer/panels/post-formats.php:99
+#: inc/customizer/panels/post-formats.php:129
+#: inc/customizer/panels/post-formats.php:146
+#: inc/customizer/panels/post-formats.php:163
+#: inc/customizer/panels/post-formats.php:180
+#: inc/customizer/panels/post-formats.php:214
+#: inc/customizer/panels/post-formats.php:231
+#: inc/customizer/panels/post-formats.php:248
+#: inc/customizer/panels/post-formats.php:265
+#: inc/customizer/panels/post-formats.php:282
+#: inc/customizer/panels/post-formats.php:317
+#: inc/customizer/panels/post-formats.php:334
 msgid "Initial status: enabled"
 msgstr ""
 
-#: inc/customizer/panels/advanced.php:61
-msgid "Enable LazyLoad for images"
-msgstr ""
-
-#: inc/customizer/panels/advanced.php:78
+#: inc/customizer/panels/advanced.php:60
 msgid "Enable smoothscroll"
-msgstr ""
-
-#: inc/customizer/panels/advanced.php:92
-msgid "Post Format Settings"
-msgstr ""
-
-#: inc/customizer/panels/advanced.php:108
-msgid "Enable Video Controls"
-msgstr ""
-
-#: inc/customizer/panels/advanced.php:126
-msgid "Enable Video AutoPlay"
-msgstr ""
-
-#: inc/customizer/panels/advanced.php:143
-msgid "Enable Video Loop Play"
-msgstr ""
-
-#: inc/customizer/panels/advanced.php:160
-msgid "Enable Video Mute Play"
 msgstr ""
 
 #: inc/customizer/panels/blog.php:22
@@ -420,12 +419,176 @@ msgstr ""
 msgid "Will be displayed as navigation bullets"
 msgstr ""
 
+#: inc/customizer/panels/colors.php:21
+msgid "Color Options"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:30
+msgid "Header"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:46
+msgid "Header BG Color"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:47 inc/customizer/panels/colors.php:270
+msgid "Default value: #FFF"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:64
+msgid "Header Text Logo Color"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:65
+msgid "Default value: #333"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:76 inc/customizer/panels/typography.php:21
+msgid "Typography"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:92
+msgid "Heading H1 Color"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:93 inc/customizer/panels/colors.php:110
+#: inc/customizer/panels/colors.php:127 inc/customizer/panels/colors.php:144
+#: inc/customizer/panels/colors.php:161 inc/customizer/panels/colors.php:178
+#: inc/customizer/panels/colors.php:195
+msgid "Default Value: #222"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:109
+msgid "Heading H2 Color"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:126
+msgid "Heading H3 Color"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:143
+msgid "Heading H4 Color"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:160
+msgid "Heading H5 Color"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:177
+msgid "Heading H6 Color"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:194
+msgid "Paragraph Color"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:207
+msgid "Links"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:223
+msgid "Link color normally"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:224
+msgid "Default value: #111"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:240
+msgid "Link color on hover"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:241
+msgid "Default value: #BBB"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:253 inc/customizer/panels/typography.php:69
+msgid "Footer"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:269
+msgid "Footer Background Color"
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:19
+msgid "Post Formats"
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:30
+msgid "Standard"
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:31
+#: inc/customizer/panels/post-formats.php:112
+msgid ""
+" These settings affect front-pages. To control the settings for the single "
+"post, go go Blog Settings."
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:47
+#: inc/customizer/panels/post-formats.php:128
+#: inc/customizer/panels/post-formats.php:213
+msgid "Enable Separator"
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:64
+#: inc/customizer/panels/post-formats.php:145
+#: inc/customizer/panels/post-formats.php:230
+msgid "Enable Author"
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:81
+#: inc/customizer/panels/post-formats.php:162
+#: inc/customizer/panels/post-formats.php:247
+msgid "Enable Posted ago"
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:98
+#: inc/customizer/panels/post-formats.php:179
+#: inc/customizer/panels/post-formats.php:264
+msgid "Enable Estimated Reading Time"
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:111
+msgid "Image"
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:196
+msgid "Video"
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:197
+msgid ""
+" These settings affect front-pages (homepage, archive, tag, etc). To "
+"control the settings for the single post, go go Blog Settings."
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:281
+msgid "Enable Video Controls"
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:299
+msgid "Enable Video AutoPlay"
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:300
+msgid "Initial status: disabled"
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:316
+msgid "Enable Video Loop Play"
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:333
+msgid "Enable Video Mute Play"
+msgstr ""
+
 #: inc/customizer/panels/preloader.php:19
 msgid "Preloader Options"
 msgstr ""
 
 #: inc/customizer/panels/preloader.php:26
-msgid "Customisation"
+msgid "General"
 msgstr ""
 
 #: inc/customizer/panels/preloader.php:42
@@ -509,16 +672,8 @@ msgstr ""
 msgid "Footer Details"
 msgstr ""
 
-#: inc/customizer/panels/site.php:205
-msgid "Macho Themes 2015. All Rights Reserved"
-msgstr ""
-
 #: inc/customizer/panels/site.php:212
 msgid "Footer Copyright."
-msgstr ""
-
-#: inc/customizer/panels/typography.php:21
-msgid "Typography"
 msgstr ""
 
 #: inc/customizer/panels/typography.php:29
@@ -535,10 +690,6 @@ msgstr ""
 
 #: inc/customizer/panels/typography.php:61
 msgid "Sidebar"
-msgstr ""
-
-#: inc/customizer/panels/typography.php:69
-msgid "Footer"
 msgstr ""
 
 #: inc/customizer/panels/typography.php:147
@@ -627,6 +778,10 @@ msgstr ""
 msgid " read"
 msgstr ""
 
+#: inc/extras.php:277
+msgid "Add a menu"
+msgstr ""
+
 #: inc/extras.php:488
 msgid "Related posts: "
 msgstr ""
@@ -647,65 +802,65 @@ msgstr ""
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: inc/template-tags.php:142 inc/template-tags.php:153
+#: inc/template-tags.php:151 inc/template-tags.php:162
 #. translators: used between list items, there is a space after the comma
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:145
+#: inc/template-tags.php:154
 msgid "Posted in: %1$s"
 msgstr ""
 
-#: inc/template-tags.php:155
+#: inc/template-tags.php:164
 msgid "Tagged with: %1$s"
 msgstr ""
 
-#: inc/template-tags.php:165
+#: inc/template-tags.php:174
 msgid "Leave a comment"
 msgstr ""
 
-#: inc/template-tags.php:165
+#: inc/template-tags.php:174
 msgid "1 Comment"
 msgstr ""
 
-#: inc/template-tags.php:165
+#: inc/template-tags.php:174
 msgid "% Comments"
 msgstr ""
 
-#: inc/template-tags.php:192
+#: inc/template-tags.php:201
 msgid "Category: %s"
 msgstr ""
 
-#: inc/template-tags.php:194
+#: inc/template-tags.php:203
 msgid "Tag: %s"
 msgstr ""
 
-#: inc/template-tags.php:196
+#: inc/template-tags.php:205
 msgid "Author: %s"
 msgstr ""
 
-#: inc/template-tags.php:198
+#: inc/template-tags.php:207
 msgid "Year: %s"
 msgstr ""
 
-#: inc/template-tags.php:200
+#: inc/template-tags.php:209
 msgid "Month: %s"
 msgstr ""
 
-#: inc/template-tags.php:202
+#: inc/template-tags.php:211
 msgid "Day: %s"
 msgstr ""
 
-#: inc/template-tags.php:224
+#: inc/template-tags.php:233
 msgid "Archives: %s"
 msgstr ""
 
-#: inc/template-tags.php:228
+#: inc/template-tags.php:237
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 msgid "%1$s: %2$s"
 msgstr ""
 
-#: inc/template-tags.php:230
+#: inc/template-tags.php:239
 msgid "Archives"
 msgstr ""
 
@@ -769,20 +924,28 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: template-parts/content-video.php:16
+#: template-parts/content-video.php:22
 msgid "Play"
 msgstr ""
 
-#: template-parts/content-video.php:17
+#: template-parts/content-video.php:23
 msgid "Pause"
 msgstr ""
 
-#: template-parts/content-video.php:18
+#: template-parts/content-video.php:24
 msgid "Stop"
 msgstr ""
 
-#: template-parts/content-video.php:19
+#: template-parts/content-video.php:25
 msgid "Maximize"
+msgstr ""
+
+#: template-parts/content-video.php:26
+msgid "Unmute"
+msgstr ""
+
+#: template-parts/content-video.php:27
+msgid "Mute"
 msgstr ""
 
 #: widgets/widget-about-sm.php:10
@@ -960,62 +1123,62 @@ msgctxt "post author"
 msgid "%s"
 msgstr ""
 
-#: inc/template-tags.php:198
+#: inc/template-tags.php:207
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: inc/template-tags.php:200
+#: inc/template-tags.php:209
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr ""
 
-#: inc/template-tags.php:202
+#: inc/template-tags.php:211
 msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr ""
 
-#: inc/template-tags.php:205
+#: inc/template-tags.php:214
 msgctxt "post format archive title"
 msgid "Asides"
 msgstr ""
 
-#: inc/template-tags.php:207
+#: inc/template-tags.php:216
 msgctxt "post format archive title"
 msgid "Galleries"
 msgstr ""
 
-#: inc/template-tags.php:209
+#: inc/template-tags.php:218
 msgctxt "post format archive title"
 msgid "Images"
 msgstr ""
 
-#: inc/template-tags.php:211
+#: inc/template-tags.php:220
 msgctxt "post format archive title"
 msgid "Videos"
 msgstr ""
 
-#: inc/template-tags.php:213
+#: inc/template-tags.php:222
 msgctxt "post format archive title"
 msgid "Quotes"
 msgstr ""
 
-#: inc/template-tags.php:215
+#: inc/template-tags.php:224
 msgctxt "post format archive title"
 msgid "Links"
 msgstr ""
 
-#: inc/template-tags.php:217
+#: inc/template-tags.php:226
 msgctxt "post format archive title"
 msgid "Statuses"
 msgstr ""
 
-#: inc/template-tags.php:219
+#: inc/template-tags.php:228
 msgctxt "post format archive title"
 msgid "Audio"
 msgstr ""
 
-#: inc/template-tags.php:221
+#: inc/template-tags.php:230
 msgctxt "post format archive title"
 msgid "Chats"
 msgstr ""

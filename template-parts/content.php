@@ -4,7 +4,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('post-grid post-standard col-xs-6'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('post-grid post-standard col-sm-6 col-xs-12'); ?>>
     <div class="link-wrapper">
         <div class="post-cover-wrapper">
             <?php if( has_post_thumbnail() ) {
@@ -15,7 +15,7 @@
 
         <div class="entry-content">
             <header class="entry-header">
-                <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+                <?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
                 <?php if($display_separator == 1 ) { ?>
                     <!-- SEPARATOR -->
                     <hr />

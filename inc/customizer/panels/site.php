@@ -67,8 +67,8 @@
     /* Site Layout */
     $wp_customize->add_setting($prefix.'_site_layout',
         array(
-            'sanitize_callback' => 'sanitize_text_field',
-            'default' => __('Riba', 'riba-lite'),
+            'sanitize_callback' => $prefix.'_sanitize_radio_buttons',
+            'default' => 'boxed'
         )
     );
 
@@ -141,6 +141,7 @@
     /***********************************************/
     /************** Contact Details  ***************/
     /***********************************************/
+
     $wp_customize->add_section( $prefix.'_general_contact_section' ,
         array(
             'title'       => __( 'Contact Details', 'riba-lite' ),

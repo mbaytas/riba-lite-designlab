@@ -36,7 +36,7 @@ $wp_customize->add_panel( $panel_id,
     $wp_customize->add_setting( $prefix.'_header_bg_color',
         array(
             'sanitize_callback' => $prefix.'_sanitize_hex_color',
-            'default' => '#FFF'
+            'default' => '#222'
         )
     );
 
@@ -54,7 +54,7 @@ $wp_customize->add_panel( $panel_id,
     $wp_customize->add_setting( $prefix.'_header_text_logo_color',
         array(
             'sanitize_callback' => $prefix.'_sanitize_hex_color',
-            'default' => '#333'
+            'default' => '#FFF'
         )
     );
 
@@ -67,6 +67,26 @@ $wp_customize->add_panel( $panel_id,
             )
         )
     );
+
+    /* Header: Menu Link Color */
+    $wp_customize->add_setting( $prefix.'_header_menu_link_color',
+        array(
+            'sanitize_callback' => $prefix.'_sanitize_hex_color',
+            'default' => '#FFF'
+        )
+    );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control ( $wp_customize,
+            $prefix.'_header_menu_link_color',
+            array(
+                'label' => __('Header Menu Link Color', 'riba-lite'),
+                'description' => __('Default value: #222', 'riba-lite'),
+                'section' => $prefix.'_header_colors',
+            )
+        )
+    );
+
+
 
     /***********************************************/
     /************** Fonts  ***************/
@@ -256,7 +276,7 @@ $wp_customize->add_panel( $panel_id,
     );
 
 
-    /* Enable Site Preloader*/
+    /* Footer Background Color */
     $wp_customize->add_setting( $prefix.'_footer_bg_color',
         array(
             'sanitize_callback' => $prefix.'_sanitize_hex_color',
@@ -273,3 +293,53 @@ $wp_customize->add_panel( $panel_id,
         )
     );
 
+    /* Footer Title Color */
+    $wp_customize->add_setting( $prefix.'_footer_heading_color',
+        array(
+            'sanitize_callback' => $prefix.'_sanitize_hex_color',
+            'default' => '#222'
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Color_Control ($wp_customize,
+            $prefix.'_footer_heading_color',
+            array(
+                'label' => __('Footer Heading Color', 'riba-lite'),
+                'description' => __('Default value: #222', 'riba-lite'),
+                'section' => $prefix.'_footer_colors',
+            )
+        )
+    );
+
+    /* Footer Link Color */
+    $wp_customize->add_setting( $prefix.'_footer_link_color',
+        array(
+            'sanitize_callback' => $prefix.'_sanitize_hex_color',
+            'default' => '#222'
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Color_Control ($wp_customize,
+            $prefix.'_footer_link_color',
+            array(
+                'label' => __('Footer Link Color', 'riba-lite'),
+                'description' => __('Default value: #222', 'riba-lite'),
+                'section' => $prefix.'_footer_colors',
+            )
+        )
+    );
+
+    /* Footer Paragraph Color */
+    $wp_customize->add_setting( $prefix.'_footer_p_color',
+        array(
+            'sanitize_callback' => $prefix.'_sanitize_hex_color',
+            'default' => '#222'
+        )
+    );
+    $wp_customize->add_control( new WP_Customize_Color_Control ($wp_customize,
+            $prefix.'_footer_p_color',
+            array(
+                'label' => __('Footer Paragraph Color', 'riba-lite'),
+                'description' => __('Default value: #222', 'riba-lite'),
+                'section' => $prefix.'_footer_colors',
+            )
+        )
+    );
