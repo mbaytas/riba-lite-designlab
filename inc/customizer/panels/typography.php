@@ -18,7 +18,8 @@ $wp_customize->register_control_type( 'RL_Customizer_Control_Typography' );
 $wp_customize->add_panel( $panel_id,
     array(
         'priority' => 31,
-        'title' => esc_html__( 'Typography', 'riba-lite' )
+        'title' => esc_html__( 'Typography', 'riba-lite' ),
+        'description' => esc_html__( 'This section allows you to control the font families, heights, weights, line-heights, letter spacing and styles of the website. If you are looking for a way to change the colors, please take a look at the colors section. ', 'riba-lite'),
     )
 );
 
@@ -26,7 +27,8 @@ $wp_customize->add_panel( $panel_id,
 $wp_customize->add_section( $prefix.'_p_typography',
     array(
         'panel' => $panel_id,
-        'title' => esc_html__( 'Paragraphs', 'riba-lite' )
+        'title' => esc_html__( 'Paragraphs', 'riba-lite' ),
+        'description' => esc_html__( 'Paragraph Styles Below', 'riba-lite'),
     )
 );
 
@@ -34,7 +36,8 @@ $wp_customize->add_section( $prefix.'_p_typography',
 $wp_customize->add_section( $prefix.'_headings_typography',
     array(
         'panel' => $panel_id,
-        'title' => esc_html__( 'Headings', 'riba-lite' )
+        'title' => esc_html__( 'Headings', 'riba-lite' ),
+        'description' => esc_html__( 'Heading Styles Below', 'riba-lite'),
     )
 );
 
@@ -42,7 +45,8 @@ $wp_customize->add_section( $prefix.'_headings_typography',
 $wp_customize->add_section( $prefix.'_logo_typography',
     array(
         'panel' => $panel_id,
-        'title' => esc_html__( 'Logo', 'riba-lite' )
+        'title' => esc_html__( 'Logo', 'riba-lite' ),
+        'description' => esc_html__( 'Text logo styles below', 'riba-lite' ),
     )
 );
 
@@ -50,23 +54,28 @@ $wp_customize->add_section( $prefix.'_logo_typography',
 $wp_customize->add_section( $prefix.'_menu_typography',
     array(
         'panel' => $panel_id,
-        'title' => esc_html__( 'Menu', 'riba-lite' )
+        'title' => esc_html__( 'Menu', 'riba-lite' ),
+        'description' => esc_html__( 'Menu styles below', 'riba-lite' )
     )
 );
 
 // Add the `Sidebar` typography section.
+/*
 $wp_customize->add_section( $prefix.'_sidebar_typography',
     array(
         'panel' => $panel_id,
-        'title' => esc_html__( 'Sidebar', 'riba-lite' )
+        'title' => esc_html__( 'Sidebar', 'riba-lite' ),
+        'description' => esc_html__( 'Sidebar Styles below', 'riba-lite'),
     )
 );
+*/
 
 // Add the `Footer` typography section.
 $wp_customize->add_section( $prefix.'_footer_typography',
     array(
         'panel' => $panel_id,
-        'title' => esc_html__( 'Footer', 'riba-lite' )
+        'title' => esc_html__( 'Footer', 'riba-lite' ),
+        'description' => esc_html__( 'Footer Styles Below', 'riba-lite'),
     )
 );
 

@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Riba Lite 1.0.0\n"
+"Project-Id-Version: Riba Lite 1.0.2\n"
 "Report-Msgid-Bugs-To: http://www.machothemes.com/\n"
-"POT-Creation-Date: 2015-08-17 16:21:43+00:00\n"
+"POT-Creation-Date: 2015-08-25 15:38:35+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,27 +48,41 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: footer.php:6 inc/customizer/panels/site.php:205
+#: footer.php:6 inc/customizer/panels/site.php:207
 msgid "Macho Themes 2015. All Rights Reserved"
 msgstr ""
 
-#: footer.php:36
+#: footer.php:17
+msgid "About"
+msgstr ""
+
+#: footer.php:17
+msgid ""
+"The many variations of passages of Lorem Ipsum available, but the majority "
+"have suffered alteration in some form, by injected true of a humour"
+msgstr ""
+
+#: footer.php:25
+msgid "Follow us"
+msgstr ""
+
+#: footer.php:40
 msgid "Mail: "
 msgstr ""
 
-#: footer.php:37
+#: footer.php:41
 msgid "Phone: "
 msgstr ""
 
-#: footer.php:64
+#: footer.php:68
 msgid "Powered by"
 msgstr ""
 
-#: footer.php:64
+#: footer.php:68
 msgid "http://www.machothemes.com"
 msgstr ""
 
-#: footer.php:64
+#: footer.php:68
 msgid "Premium WordPress Themes"
 msgstr ""
 
@@ -76,45 +90,36 @@ msgstr ""
 msgid "Macho Themes"
 msgstr ""
 
-#: footer.php:66
+#: footer.php:70
 msgid "Running on:"
 msgstr ""
 
-#: footer.php:66
+#: footer.php:70
 msgid "http://www.wordpress.org"
 msgstr ""
 
-#: footer.php:66
+#: footer.php:70
 msgid "WordPress"
 msgstr ""
 
-#: footer.php:76
+#: footer.php:80
 msgid "Top"
 msgstr ""
 
-#: functions.php:109
+#: functions.php:120
 msgid "Header Menu"
 msgstr ""
 
-#: functions.php:110
+#: functions.php:121
 msgid "Footer Menu"
 msgstr ""
 
-#: header.php:13 inc/customizer/panels/preloader.php:35
-msgid "Loading"
-msgstr ""
-
-#: header.php:15 inc/customizer/panels/site.php:71
-#: inc/customizer/panels/site.php:107
+#: header.php:15 inc/customizer/panels/site.php:106
 msgid "Riba"
 msgstr ""
 
-#: header.php:37
+#: header.php:27
 msgid "Skip to content"
-msgstr ""
-
-#: header.php:68
-msgid "Primary Menu"
 msgstr ""
 
 #: inc/back-compat.php:42 inc/back-compat.php:55 inc/back-compat.php:72
@@ -123,24 +128,50 @@ msgid ""
 "%s. Please upgrade and try again."
 msgstr ""
 
-#: inc/components/breadcrumbs/class.riba-breadcrumbs.php:74
+#: inc/components/breadcrumbs/class.mt-breadcrumbs.php:73
 msgid "You Are Here"
 msgstr ""
 
-#: inc/components/breadcrumbs/class.riba-breadcrumbs.php:78
+#: inc/components/breadcrumbs/class.mt-breadcrumbs.php:77
 msgid "Home"
 msgstr ""
 
-#: inc/components/breadcrumbs/class.riba-breadcrumbs.php:79
+#: inc/components/breadcrumbs/class.mt-breadcrumbs.php:78
 msgid "Tag:"
 msgstr ""
 
-#: inc/components/breadcrumbs/class.riba-breadcrumbs.php:80
+#: inc/components/breadcrumbs/class.mt-breadcrumbs.php:79
 msgid "Search:"
 msgstr ""
 
-#: inc/components/breadcrumbs/class.riba-breadcrumbs.php:81
+#: inc/components/breadcrumbs/class.mt-breadcrumbs.php:80
 msgid "404 - Page not Found"
+msgstr ""
+
+#: inc/components/entry-meta/class.mt-entry-meta.php:107
+msgid " min. read"
+msgstr ""
+
+#: inc/components/entry-meta/class.mt-entry-meta.php:109
+msgid "1 min. read"
+msgstr ""
+
+#: inc/components/nav-walker/class.mt-nav-walker.php:124
+msgid "Add a menu"
+msgstr ""
+
+#: inc/components/preloader/class.mt-preloader-output.php:45
+#: inc/customizer/panels/preloader.php:40
+#: inc/customizer/panels/preloader.php:129
+msgid "Loading"
+msgstr ""
+
+#: inc/components/related-posts/class.mt-related-posts.php:176
+msgid "Related posts: "
+msgstr ""
+
+#: inc/components/social-sharing/class.mt-social-sharing.php:195
+msgid "Share This"
 msgstr ""
 
 #: inc/customizer/custom-controls/typography-control.php:54
@@ -213,21 +244,21 @@ msgid "Enable site preloader"
 msgstr ""
 
 #: inc/customizer/panels/advanced.php:44 inc/customizer/panels/advanced.php:61
-#: inc/customizer/panels/post-formats.php:48
-#: inc/customizer/panels/post-formats.php:65
-#: inc/customizer/panels/post-formats.php:82
-#: inc/customizer/panels/post-formats.php:99
-#: inc/customizer/panels/post-formats.php:129
-#: inc/customizer/panels/post-formats.php:146
-#: inc/customizer/panels/post-formats.php:163
-#: inc/customizer/panels/post-formats.php:180
-#: inc/customizer/panels/post-formats.php:214
-#: inc/customizer/panels/post-formats.php:231
-#: inc/customizer/panels/post-formats.php:248
-#: inc/customizer/panels/post-formats.php:265
-#: inc/customizer/panels/post-formats.php:282
-#: inc/customizer/panels/post-formats.php:317
-#: inc/customizer/panels/post-formats.php:334
+#: inc/customizer/panels/post-formats.php:49
+#: inc/customizer/panels/post-formats.php:66
+#: inc/customizer/panels/post-formats.php:83
+#: inc/customizer/panels/post-formats.php:100
+#: inc/customizer/panels/post-formats.php:130
+#: inc/customizer/panels/post-formats.php:147
+#: inc/customizer/panels/post-formats.php:164
+#: inc/customizer/panels/post-formats.php:181
+#: inc/customizer/panels/post-formats.php:215
+#: inc/customizer/panels/post-formats.php:232
+#: inc/customizer/panels/post-formats.php:249
+#: inc/customizer/panels/post-formats.php:266
+#: inc/customizer/panels/post-formats.php:283
+#: inc/customizer/panels/post-formats.php:318
+#: inc/customizer/panels/post-formats.php:335
 msgid "Initial status: enabled"
 msgstr ""
 
@@ -235,419 +266,588 @@ msgstr ""
 msgid "Enable smoothscroll"
 msgstr ""
 
+#: inc/customizer/panels/advanced.php:79
+msgid "Enable YouTube Player ?"
+msgstr ""
+
+#: inc/customizer/panels/advanced.php:80
+msgid ""
+"Initial status: enabled. If you do not plan on using videos in your post "
+"(or featuring them), go ahead and uncheck this."
+msgstr ""
+
+#: inc/customizer/panels/advanced.php:97
+msgid "Enable Sticky Header behavior ?"
+msgstr ""
+
+#: inc/customizer/panels/advanced.php:98
+msgid ""
+"Initial status: enabled. If you don't like the fact that the header is "
+"hidden when you scroll down, uncheck this."
+msgstr ""
+
+#: inc/customizer/panels/advanced.php:115
+msgid "Enable Lazy Load behavior for images ?"
+msgstr ""
+
+#: inc/customizer/panels/advanced.php:116
+msgid ""
+"Initial status: enabled. If you don't like the fact that images are being "
+"loaded as you scroll them into view, uncheck this."
+msgstr ""
+
 #: inc/customizer/panels/blog.php:22
 msgid "Blog options"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:32
+#: inc/customizer/panels/blog.php:23
+msgid ""
+"Control various blog options from here. Most of the options from this panel "
+"refer to the blog single page view. If you're not familiar with that term, "
+"please perform a Google search."
+msgstr ""
+
+#: inc/customizer/panels/blog.php:33
 msgid "Global"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:48
+#: inc/customizer/panels/blog.php:34
+msgid ""
+"This section allows you to control how certain elements are displayed on "
+"the blog single page."
+msgstr ""
+
+#: inc/customizer/panels/blog.php:50
 msgid "Posted on meta on single blog post"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:49
-msgid "This will disable the posted on zone."
+#: inc/customizer/panels/blog.php:51
+msgid "This will disable the posted on zone as well as the author name"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:66
+#: inc/customizer/panels/blog.php:68
 msgid "Estimated reading time meta on single blog post"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:67
+#: inc/customizer/panels/blog.php:69
 msgid "This will disable the estimated reading time zone."
 msgstr ""
 
-#: inc/customizer/panels/blog.php:83
-msgid "Category meta on single blog post"
-msgstr ""
-
-#: inc/customizer/panels/blog.php:84
-msgid "This will disable the posted in zone."
-msgstr ""
-
-#: inc/customizer/panels/blog.php:100
+#: inc/customizer/panels/blog.php:105
 msgid "Tags meta on single blog post"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:101
+#: inc/customizer/panels/blog.php:106
 msgid "This will disable the tagged with zone."
 msgstr ""
 
-#: inc/customizer/panels/blog.php:118
-msgid "Coments meta on single blog post"
-msgstr ""
-
-#: inc/customizer/panels/blog.php:119
-msgid "This will disable the comments header zone."
-msgstr ""
-
-#: inc/customizer/panels/blog.php:136
+#: inc/customizer/panels/blog.php:143
 msgid "Breadcrumbs on single blog posts"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:137
+#: inc/customizer/panels/blog.php:144
 msgid "This will disable the breadcrumbs"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:155
+#: inc/customizer/panels/blog.php:162
 msgid "Social sharing on single blog post"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:156
+#: inc/customizer/panels/blog.php:163
 msgid "Displayed right under the post title"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:172
-msgid "Nav links on single blog post"
-msgstr ""
-
-#: inc/customizer/panels/blog.php:173
-msgid "Displayed on the opposite side of the post title (usually, the right side)"
-msgstr ""
-
-#: inc/customizer/panels/blog.php:189
+#: inc/customizer/panels/blog.php:199
 msgid "Author info box on single blog post"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:190
+#: inc/customizer/panels/blog.php:200
 msgid "Displayed right at the end of the post"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:206
+#: inc/customizer/panels/blog.php:216
 msgid "Related posts carousel ?"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:207
+#: inc/customizer/panels/blog.php:217
 msgid "Displayed after the author box"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:218
+#: inc/customizer/panels/blog.php:228
 msgid "Breadcrumbs"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:234
+#: inc/customizer/panels/blog.php:229
+msgid ""
+"Various breadcrumb related settings, like: breadcrumb prefix, breadcrumb "
+"item separator & breadcrumb menu post category visibility setting."
+msgstr ""
+
+#: inc/customizer/panels/blog.php:245
 msgid "Text before the breadcrumbs menu"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:235
+#: inc/customizer/panels/blog.php:246
 msgid "Recommended: You are here"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:250
+#: inc/customizer/panels/blog.php:268
 msgid "Separator to be used between breadcrumb items"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:251
+#: inc/customizer/panels/blog.php:269
 msgid "HTML accepted here"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:267
+#: inc/customizer/panels/blog.php:285
 msgid "Show post category ?"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:268
+#: inc/customizer/panels/blog.php:286
 msgid "Show the post category in the breadcrumb ?"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:282
+#: inc/customizer/panels/blog.php:300
 msgid "Social Sharing"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:299
+#: inc/customizer/panels/blog.php:301
+msgid ""
+"Control visibility of various social sharing networks. The changes made "
+"here will reflect on the blog single post view."
+msgstr ""
+
+#: inc/customizer/panels/blog.php:319
+msgid "After content"
+msgstr ""
+
+#: inc/customizer/panels/blog.php:320
+msgid "Before Content"
+msgstr ""
+
+#: inc/customizer/panels/blog.php:322
+msgid "Sharing Bar Postion: After / Before Content"
+msgstr ""
+
+#: inc/customizer/panels/blog.php:323
+msgid "Initial position: after content"
+msgstr ""
+
+#: inc/customizer/panels/blog.php:332
+msgid "Share this"
+msgstr ""
+
+#: inc/customizer/panels/blog.php:339
+msgid "Text to display above icons"
+msgstr ""
+
+#: inc/customizer/panels/blog.php:340
+msgid ""
+"This is the text that will be displayed above the icons. Change this to "
+"whatever you feel like"
+msgstr ""
+
+#: inc/customizer/panels/blog.php:356
 msgid "Display share on Facebook ?"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:315
+#: inc/customizer/panels/blog.php:372
 msgid "Display share on Twitter ?"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:331
+#: inc/customizer/panels/blog.php:388
 msgid "Display share on LinkedIN ?"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:347
+#: inc/customizer/panels/blog.php:404
 msgid "Display share on Reddit?"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:363
+#: inc/customizer/panels/blog.php:420
 msgid "Display share on Tumblr ?"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:379
+#: inc/customizer/panels/blog.php:436
 msgid "Display share on Google+ ?"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:395
+#: inc/customizer/panels/blog.php:452
 msgid "Display share on Pinterest ?"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:411 inc/customizer/panels/blog.php:428
+#: inc/customizer/panels/blog.php:468 inc/customizer/panels/blog.php:485
 msgid "Display share on VK ?"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:441
+#: inc/customizer/panels/blog.php:498
 msgid "Related posts"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:458
+#: inc/customizer/panels/blog.php:499
+msgid ""
+"Control various related posts settings from here. For a demo-like "
+"experience, we recommend you don't change these settings."
+msgstr ""
+
+#: inc/customizer/panels/blog.php:516
 msgid "Show posts title in the carousel ?"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:474
+#: inc/customizer/panels/blog.php:532
 msgid "Show posts date in the carousel ?"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:491
+#: inc/customizer/panels/blog.php:549
 msgid "Autoplay related posts carousel ?"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:506
+#: inc/customizer/panels/blog.php:564
 msgid "How many blog posts to display in the carousel at once ?"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:507
+#: inc/customizer/panels/blog.php:565
 msgid "No more than 4 posts at once;"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:530
+#: inc/customizer/panels/blog.php:588
 msgid "Display pagination controls ?"
 msgstr ""
 
-#: inc/customizer/panels/blog.php:531
+#: inc/customizer/panels/blog.php:589
 msgid "Will be displayed as navigation bullets"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:21
+#: inc/customizer/panels/colors.php:17
 msgid "Color Options"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:30
+#: inc/customizer/panels/colors.php:18
+msgid "From this panel you will be able to change theme colors"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:28
 msgid "Header"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:46
+#: inc/customizer/panels/colors.php:29
+msgid "Header related color controls below"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:45
 msgid "Header BG Color"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:47 inc/customizer/panels/colors.php:270
+#: inc/customizer/panels/colors.php:46 inc/customizer/panels/colors.php:294
 msgid "Default value: #FFF"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:64
+#: inc/customizer/panels/colors.php:63
 msgid "Header Text Logo Color"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:65
+#: inc/customizer/panels/colors.php:64
 msgid "Default value: #333"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:76 inc/customizer/panels/typography.php:21
+#: inc/customizer/panels/colors.php:81
+msgid "Header Menu Link Color"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:82 inc/customizer/panels/colors.php:311
+#: inc/customizer/panels/colors.php:328 inc/customizer/panels/colors.php:345
+msgid "Default value: #222"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:97 inc/customizer/panels/typography.php:21
 msgid "Typography"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:92
+#: inc/customizer/panels/colors.php:98
+msgid "Change headings ( h1- h6 ) & paragraph colors from here."
+msgstr ""
+
+#: inc/customizer/panels/colors.php:114
 msgid "Heading H1 Color"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:93 inc/customizer/panels/colors.php:110
-#: inc/customizer/panels/colors.php:127 inc/customizer/panels/colors.php:144
-#: inc/customizer/panels/colors.php:161 inc/customizer/panels/colors.php:178
-#: inc/customizer/panels/colors.php:195
+#: inc/customizer/panels/colors.php:115 inc/customizer/panels/colors.php:132
+#: inc/customizer/panels/colors.php:149 inc/customizer/panels/colors.php:166
+#: inc/customizer/panels/colors.php:183 inc/customizer/panels/colors.php:200
+#: inc/customizer/panels/colors.php:217
 msgid "Default Value: #222"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:109
+#: inc/customizer/panels/colors.php:131
 msgid "Heading H2 Color"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:126
+#: inc/customizer/panels/colors.php:148
 msgid "Heading H3 Color"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:143
+#: inc/customizer/panels/colors.php:165
 msgid "Heading H4 Color"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:160
+#: inc/customizer/panels/colors.php:182
 msgid "Heading H5 Color"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:177
+#: inc/customizer/panels/colors.php:199
 msgid "Heading H6 Color"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:194
+#: inc/customizer/panels/colors.php:216
 msgid "Paragraph Color"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:207
+#: inc/customizer/panels/colors.php:229
 msgid "Links"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:223
+#: inc/customizer/panels/colors.php:230
+msgid ""
+"Change the way links look on this website. To change the way links in the "
+"header look, please go to the \"Header\" Section above. "
+msgstr ""
+
+#: inc/customizer/panels/colors.php:246
 msgid "Link color normally"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:224
+#: inc/customizer/panels/colors.php:247
 msgid "Default value: #111"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:240
+#: inc/customizer/panels/colors.php:263
 msgid "Link color on hover"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:241
+#: inc/customizer/panels/colors.php:264
 msgid "Default value: #BBB"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:253 inc/customizer/panels/typography.php:69
+#: inc/customizer/panels/colors.php:276 inc/customizer/panels/typography.php:77
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer/panels/colors.php:269
+#: inc/customizer/panels/colors.php:277
+msgid "Change footer related colors here."
+msgstr ""
+
+#: inc/customizer/panels/colors.php:293
 msgid "Footer Background Color"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:310
+msgid "Footer Heading Color"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:327
+msgid "Footer Link Color"
+msgstr ""
+
+#: inc/customizer/panels/colors.php:344
+msgid "Footer Paragraph Color"
 msgstr ""
 
 #: inc/customizer/panels/post-formats.php:19
 msgid "Post Formats"
 msgstr ""
 
-#: inc/customizer/panels/post-formats.php:30
-msgid "Standard"
+#: inc/customizer/panels/post-formats.php:20
+msgid ""
+"This section allows you to control various settings specific to each "
+"post-format. Making changes in these sections will be reflected on the "
+"homepage."
 msgstr ""
 
 #: inc/customizer/panels/post-formats.php:31
-#: inc/customizer/panels/post-formats.php:112
-msgid ""
-" These settings affect front-pages. To control the settings for the single "
-"post, go go Blog Settings."
+msgid "Standard"
 msgstr ""
 
-#: inc/customizer/panels/post-formats.php:47
-#: inc/customizer/panels/post-formats.php:128
-#: inc/customizer/panels/post-formats.php:213
+#: inc/customizer/panels/post-formats.php:32
+msgid "Post format: Standard (or default) settings"
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:48
+#: inc/customizer/panels/post-formats.php:129
+#: inc/customizer/panels/post-formats.php:214
 msgid "Enable Separator"
 msgstr ""
 
-#: inc/customizer/panels/post-formats.php:64
-#: inc/customizer/panels/post-formats.php:145
-#: inc/customizer/panels/post-formats.php:230
+#: inc/customizer/panels/post-formats.php:65
+#: inc/customizer/panels/post-formats.php:146
+#: inc/customizer/panels/post-formats.php:231
 msgid "Enable Author"
 msgstr ""
 
-#: inc/customizer/panels/post-formats.php:81
-#: inc/customizer/panels/post-formats.php:162
-#: inc/customizer/panels/post-formats.php:247
+#: inc/customizer/panels/post-formats.php:82
+#: inc/customizer/panels/post-formats.php:163
+#: inc/customizer/panels/post-formats.php:248
 msgid "Enable Posted ago"
 msgstr ""
 
-#: inc/customizer/panels/post-formats.php:98
-#: inc/customizer/panels/post-formats.php:179
-#: inc/customizer/panels/post-formats.php:264
+#: inc/customizer/panels/post-formats.php:99
+#: inc/customizer/panels/post-formats.php:180
+#: inc/customizer/panels/post-formats.php:265
 msgid "Enable Estimated Reading Time"
 msgstr ""
 
-#: inc/customizer/panels/post-formats.php:111
+#: inc/customizer/panels/post-formats.php:112
 msgid "Image"
 msgstr ""
 
-#: inc/customizer/panels/post-formats.php:196
-msgid "Video"
+#: inc/customizer/panels/post-formats.php:113
+msgid "Post format: Image or (featured image) settings here."
 msgstr ""
 
 #: inc/customizer/panels/post-formats.php:197
-msgid ""
-" These settings affect front-pages (homepage, archive, tag, etc). To "
-"control the settings for the single post, go go Blog Settings."
+msgid "Video"
 msgstr ""
 
-#: inc/customizer/panels/post-formats.php:281
+#: inc/customizer/panels/post-formats.php:198
+msgid "Post format: Video (or featured video) settings here."
+msgstr ""
+
+#: inc/customizer/panels/post-formats.php:282
 msgid "Enable Video Controls"
 msgstr ""
 
-#: inc/customizer/panels/post-formats.php:299
+#: inc/customizer/panels/post-formats.php:300
 msgid "Enable Video AutoPlay"
 msgstr ""
 
-#: inc/customizer/panels/post-formats.php:300
+#: inc/customizer/panels/post-formats.php:301
 msgid "Initial status: disabled"
 msgstr ""
 
-#: inc/customizer/panels/post-formats.php:316
+#: inc/customizer/panels/post-formats.php:317
 msgid "Enable Video Loop Play"
 msgstr ""
 
-#: inc/customizer/panels/post-formats.php:333
+#: inc/customizer/panels/post-formats.php:334
 msgid "Enable Video Mute Play"
 msgstr ""
 
-#: inc/customizer/panels/preloader.php:19
+#: inc/customizer/panels/preloader.php:21
 msgid "Preloader Options"
 msgstr ""
 
-#: inc/customizer/panels/preloader.php:26
+#: inc/customizer/panels/preloader.php:22
+msgid "This panel allows you to control the way the site pre-loader looks"
+msgstr ""
+
+#: inc/customizer/panels/preloader.php:29
 msgid "General"
 msgstr ""
 
-#: inc/customizer/panels/preloader.php:42
+#: inc/customizer/panels/preloader.php:30
+msgid ""
+"Change pre-loader text color, background-color as well as the text message "
+"that's being displayed."
+msgstr ""
+
+#: inc/customizer/panels/preloader.php:47
 msgid "Preloader text"
 msgstr ""
 
-#: inc/customizer/panels/preloader.php:43
+#: inc/customizer/panels/preloader.php:48
 msgid "Current text: Loading"
 msgstr ""
 
-#: inc/customizer/panels/preloader.php:60
+#: inc/customizer/panels/preloader.php:66
+msgid "Preloader Loading Color"
+msgstr ""
+
+#: inc/customizer/panels/preloader.php:67
+msgid "Current value: #000 (black)"
+msgstr ""
+
+#: inc/customizer/panels/preloader.php:85
 msgid "Preloader background color"
 msgstr ""
 
-#: inc/customizer/panels/preloader.php:61
+#: inc/customizer/panels/preloader.php:86
 msgid "Current color: #FFF (white) "
 msgstr ""
 
-#: inc/customizer/panels/preloader.php:78
+#: inc/customizer/panels/preloader.php:103
 msgid "Preloader text color"
 msgstr ""
 
-#: inc/customizer/panels/preloader.php:79
+#: inc/customizer/panels/preloader.php:104
 msgid "Current color: #000 (black) "
 msgstr ""
 
-#: inc/customizer/panels/site.php:50
+#: inc/customizer/panels/preloader.php:119
+msgid "Styles"
+msgstr ""
+
+#: inc/customizer/panels/preloader.php:120
+msgid ""
+"This section allows you to pick your preloader style. More styles coming "
+"soon"
+msgstr ""
+
+#: inc/customizer/panels/preloader.php:139
+msgid "Default"
+msgstr ""
+
+#: inc/customizer/panels/preloader.php:141
+msgid "Preloader style"
+msgstr ""
+
+#: inc/customizer/panels/preloader.php:142
+msgid "Current style: Default"
+msgstr ""
+
+#: inc/customizer/panels/site.php:47
 msgid "General Options"
 msgstr ""
 
-#: inc/customizer/panels/site.php:61
+#: inc/customizer/panels/site.php:48
+msgid ""
+"You can change the site layout in this area as well as your contact details "
+"(the ones displayed in the footer) "
+msgstr ""
+
+#: inc/customizer/panels/site.php:59
 msgid "Site Layout"
 msgstr ""
 
-#: inc/customizer/panels/site.php:79
+#: inc/customizer/panels/site.php:60
+msgid ""
+"Depending on the quality of your pictures / videos, you can switch the site "
+"layout. We do recommend the boxed one so you can also set a nice looking "
+"background image."
+msgstr ""
+
+#: inc/customizer/panels/site.php:78
 msgid "Select Site Layout"
 msgstr ""
 
-#: inc/customizer/panels/site.php:80
+#: inc/customizer/panels/site.php:79
 msgid "Fixed / Fluid layout"
 msgstr ""
 
-#: inc/customizer/panels/site.php:96 inc/customizer/panels/typography.php:45
+#: inc/customizer/panels/site.php:95 inc/customizer/panels/typography.php:48
 msgid "Logo"
 msgstr ""
 
-#: inc/customizer/panels/site.php:114
+#: inc/customizer/panels/site.php:113
 msgid "Enter company name"
 msgstr ""
 
-#: inc/customizer/panels/site.php:115
+#: inc/customizer/panels/site.php:114
 msgid "This field is best used when you don't have a professional image logo"
 msgstr ""
 
-#: inc/customizer/panels/site.php:132
+#: inc/customizer/panels/site.php:131
 msgid "Site Logo"
 msgstr ""
 
-#: inc/customizer/panels/site.php:133
+#: inc/customizer/panels/site.php:132
 msgid "Recommended size: 100 x 100"
 msgstr ""
 
@@ -655,139 +855,150 @@ msgstr ""
 msgid "Contact Details"
 msgstr ""
 
-#: inc/customizer/panels/site.php:163
+#: inc/customizer/panels/site.php:147
+msgid "These are the contact details displayed in the footer of the website."
+msgstr ""
+
+#: inc/customizer/panels/site.php:164
 msgid "Email addr."
 msgstr ""
 
-#: inc/customizer/panels/site.php:164 inc/customizer/panels/site.php:183
-#: inc/customizer/panels/site.php:213
+#: inc/customizer/panels/site.php:165 inc/customizer/panels/site.php:184
+#: inc/customizer/panels/site.php:215
 msgid "Will be displayed in the footer"
 msgstr ""
 
-#: inc/customizer/panels/site.php:182
+#: inc/customizer/panels/site.php:183
 msgid "Phone number"
 msgstr ""
 
-#: inc/customizer/panels/site.php:195
+#: inc/customizer/panels/site.php:196
 msgid "Footer Details"
 msgstr ""
 
-#: inc/customizer/panels/site.php:212
+#: inc/customizer/panels/site.php:197
+msgid "Change the footer copyright message from here. Note: no HTML allowed."
+msgstr ""
+
+#: inc/customizer/panels/site.php:214
 msgid "Footer Copyright."
 msgstr ""
 
-#: inc/customizer/panels/typography.php:29
+#: inc/customizer/panels/typography.php:22
+msgid ""
+"This section allows you to control the font families, heights, weights, "
+"line-heights, letter spacing and styles of the website. If you are looking "
+"for a way to change the colors, please take a look at the colors section. "
+msgstr ""
+
+#: inc/customizer/panels/typography.php:30
 msgid "Paragraphs"
 msgstr ""
 
-#: inc/customizer/panels/typography.php:37
+#: inc/customizer/panels/typography.php:31
+msgid "Paragraph Styles Below"
+msgstr ""
+
+#: inc/customizer/panels/typography.php:39
 msgid "Headings"
 msgstr ""
 
-#: inc/customizer/panels/typography.php:53
+#: inc/customizer/panels/typography.php:40
+msgid "Heading Styles Below"
+msgstr ""
+
+#: inc/customizer/panels/typography.php:49
+msgid "Text logo styles below"
+msgstr ""
+
+#: inc/customizer/panels/typography.php:57
 msgid "Menu"
 msgstr ""
 
-#: inc/customizer/panels/typography.php:61
-msgid "Sidebar"
+#: inc/customizer/panels/typography.php:58
+msgid "Menu styles below"
 msgstr ""
 
-#: inc/customizer/panels/typography.php:147
+#: inc/customizer/panels/typography.php:78
+msgid "Footer Styles Below"
+msgstr ""
+
+#: inc/customizer/panels/typography.php:156
 msgid "Paragraph Typography"
 msgstr ""
 
-#: inc/customizer/panels/typography.php:148
+#: inc/customizer/panels/typography.php:157
 msgid "Select how you want your paragraphs to appear."
 msgstr ""
 
-#: inc/customizer/panels/typography.php:169
+#: inc/customizer/panels/typography.php:178
 msgid "Heading 1"
 msgstr ""
 
-#: inc/customizer/panels/typography.php:170
+#: inc/customizer/panels/typography.php:179
 msgid "Select how heading 1 should appear."
 msgstr ""
 
-#: inc/customizer/panels/typography.php:191
+#: inc/customizer/panels/typography.php:200
 msgid "Heading 2"
 msgstr ""
 
-#: inc/customizer/panels/typography.php:192
+#: inc/customizer/panels/typography.php:201
 msgid "Select how heading 2 should appear."
 msgstr ""
 
-#: inc/customizer/panels/typography.php:213
+#: inc/customizer/panels/typography.php:222
 msgid "Heading 3"
 msgstr ""
 
-#: inc/customizer/panels/typography.php:214
+#: inc/customizer/panels/typography.php:223
 msgid ""
 "Select how heading 3 should appear. This is the same heading used for the "
 "widget titles in the footer"
 msgstr ""
 
-#: inc/customizer/panels/typography.php:236
+#: inc/customizer/panels/typography.php:245
 msgid "Heading 4"
 msgstr ""
 
-#: inc/customizer/panels/typography.php:237
+#: inc/customizer/panels/typography.php:246
 msgid "Select how heading 4 should appear."
 msgstr ""
 
-#: inc/customizer/panels/typography.php:259
+#: inc/customizer/panels/typography.php:268
 msgid "Heading 5"
 msgstr ""
 
-#: inc/customizer/panels/typography.php:260
+#: inc/customizer/panels/typography.php:269
 msgid "Select how heading 5 should appear."
 msgstr ""
 
-#: inc/customizer/panels/typography.php:282
+#: inc/customizer/panels/typography.php:291
 msgid "Heading 6"
 msgstr ""
 
-#: inc/customizer/panels/typography.php:283
+#: inc/customizer/panels/typography.php:292
 msgid "Select how heading 6 should appear."
 msgstr ""
 
-#: inc/customizer/panels/typography.php:305
+#: inc/customizer/panels/typography.php:314
 msgid "Logo Typography"
 msgstr ""
 
-#: inc/customizer/panels/typography.php:306
+#: inc/customizer/panels/typography.php:315
 msgid "Select how the logo is displayed."
 msgstr ""
 
-#: inc/customizer/panels/typography.php:329
+#: inc/customizer/panels/typography.php:338
 msgid "Menu Typography"
 msgstr ""
 
-#: inc/customizer/panels/typography.php:330
+#: inc/customizer/panels/typography.php:339
 msgid "Select how Menu items should appear."
 msgstr ""
 
 #: inc/extras.php:54
 msgid "Page %s"
-msgstr ""
-
-#: inc/extras.php:171
-msgid "1 min."
-msgstr ""
-
-#: inc/extras.php:174
-msgid " read"
-msgstr ""
-
-#: inc/extras.php:277
-msgid "Add a menu"
-msgstr ""
-
-#: inc/extras.php:488
-msgid "Related posts: "
-msgstr ""
-
-#: inc/extras.php:639
-msgid "About the author: "
 msgstr ""
 
 #: inc/template-tags.php:27
@@ -802,65 +1013,45 @@ msgstr ""
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: inc/template-tags.php:151 inc/template-tags.php:162
+#: inc/template-tags.php:122
 #. translators: used between list items, there is a space after the comma
-msgid ", "
+msgid " "
 msgstr ""
 
-#: inc/template-tags.php:154
-msgid "Posted in: %1$s"
-msgstr ""
-
-#: inc/template-tags.php:164
-msgid "Tagged with: %1$s"
-msgstr ""
-
-#: inc/template-tags.php:174
-msgid "Leave a comment"
-msgstr ""
-
-#: inc/template-tags.php:174
-msgid "1 Comment"
-msgstr ""
-
-#: inc/template-tags.php:174
-msgid "% Comments"
-msgstr ""
-
-#: inc/template-tags.php:201
+#: inc/template-tags.php:163
 msgid "Category: %s"
 msgstr ""
 
-#: inc/template-tags.php:203
+#: inc/template-tags.php:165
 msgid "Tag: %s"
 msgstr ""
 
-#: inc/template-tags.php:205
+#: inc/template-tags.php:167
 msgid "Author: %s"
 msgstr ""
 
-#: inc/template-tags.php:207
+#: inc/template-tags.php:169
 msgid "Year: %s"
 msgstr ""
 
-#: inc/template-tags.php:209
+#: inc/template-tags.php:171
 msgid "Month: %s"
 msgstr ""
 
-#: inc/template-tags.php:211
+#: inc/template-tags.php:173
 msgid "Day: %s"
 msgstr ""
 
-#: inc/template-tags.php:233
+#: inc/template-tags.php:195
 msgid "Archives: %s"
 msgstr ""
 
-#: inc/template-tags.php:237
+#: inc/template-tags.php:199
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
 msgid "%1$s: %2$s"
 msgstr ""
 
-#: inc/template-tags.php:239
+#: inc/template-tags.php:201
 msgid "Archives"
 msgstr ""
 
@@ -924,27 +1115,27 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: template-parts/content-video.php:22
+#: template-parts/content-video.php:28
 msgid "Play"
 msgstr ""
 
-#: template-parts/content-video.php:23
+#: template-parts/content-video.php:32
 msgid "Pause"
 msgstr ""
 
-#: template-parts/content-video.php:24
+#: template-parts/content-video.php:36
 msgid "Stop"
 msgstr ""
 
-#: template-parts/content-video.php:25
+#: template-parts/content-video.php:40
 msgid "Maximize"
 msgstr ""
 
-#: template-parts/content-video.php:26
+#: template-parts/content-video.php:44
 msgid "Unmute"
 msgstr ""
 
-#: template-parts/content-video.php:27
+#: template-parts/content-video.php:48
 msgid "Mute"
 msgstr ""
 
@@ -1076,7 +1267,7 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: functions.php:312 functions.php:320
+#: functions.php:337 functions.php:345
 #. Translators: If there are characters in your language that are not supported
 #. by Source Sans Pro Sans Serif, translate this to 'off'. Do not translate
 #. into your own language.
@@ -1087,7 +1278,7 @@ msgctxt "Montserrat: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:328
+#: functions.php:353
 #. Translators: If there are characters in your language that are not supported
 #. by Inconsolata, translate this to 'off'. Do not translate into your own
 #. language.
@@ -1095,12 +1286,22 @@ msgctxt "Inconsolata font: on or off"
 msgid "on"
 msgstr ""
 
-#: functions.php:337
+#: functions.php:362
 #. Translators: To add an additional character subset specific to your
 #. language, translate this to 'greek', 'cyrillic', 'devanagari' or
 #. 'vietnamese'. Do not translate into your own language.
 msgctxt "Add new subset (latin-extended, vietnamese)"
 msgid "no-subset"
+msgstr ""
+
+#: inc/components/entry-meta/class.mt-entry-meta.php:133
+msgctxt "%s = human-readable time difference"
+msgid "%s ago"
+msgstr ""
+
+#: inc/components/entry-meta/class.mt-entry-meta.php:138
+msgctxt "post author"
+msgid "%s"
 msgstr ""
 
 #: inc/template-tags.php:31
@@ -1113,72 +1314,62 @@ msgctxt "Next post link"
 msgid "&rarr;"
 msgstr ""
 
-#: inc/template-tags.php:111
-msgctxt "%s = human-readable time difference"
-msgid "%s ago"
-msgstr ""
-
-#: inc/template-tags.php:116
-msgctxt "post author"
-msgid "%s"
-msgstr ""
-
-#: inc/template-tags.php:207
+#: inc/template-tags.php:169
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: inc/template-tags.php:209
+#: inc/template-tags.php:171
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr ""
 
-#: inc/template-tags.php:211
+#: inc/template-tags.php:173
 msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr ""
 
-#: inc/template-tags.php:214
+#: inc/template-tags.php:176
 msgctxt "post format archive title"
 msgid "Asides"
 msgstr ""
 
-#: inc/template-tags.php:216
+#: inc/template-tags.php:178
 msgctxt "post format archive title"
 msgid "Galleries"
 msgstr ""
 
-#: inc/template-tags.php:218
+#: inc/template-tags.php:180
 msgctxt "post format archive title"
 msgid "Images"
 msgstr ""
 
-#: inc/template-tags.php:220
+#: inc/template-tags.php:182
 msgctxt "post format archive title"
 msgid "Videos"
 msgstr ""
 
-#: inc/template-tags.php:222
+#: inc/template-tags.php:184
 msgctxt "post format archive title"
 msgid "Quotes"
 msgstr ""
 
-#: inc/template-tags.php:224
+#: inc/template-tags.php:186
 msgctxt "post format archive title"
 msgid "Links"
 msgstr ""
 
-#: inc/template-tags.php:226
+#: inc/template-tags.php:188
 msgctxt "post format archive title"
 msgid "Statuses"
 msgstr ""
 
-#: inc/template-tags.php:228
+#: inc/template-tags.php:190
 msgctxt "post format archive title"
 msgid "Audio"
 msgstr ""
 
-#: inc/template-tags.php:230
+#: inc/template-tags.php:192
 msgctxt "post format archive title"
 msgid "Chats"
 msgstr ""

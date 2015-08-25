@@ -16,7 +16,8 @@ $prefix = 'rl';
             'priority' => 34,
             'capability' => 'edit_theme_options',
             'theme_supports' => '',
-            'title' => __( 'Post Formats', 'riba-lite' )
+            'title' => esc_html__( 'Post Formats', 'riba-lite' ),
+            'description' => esc_html__('This section allows you to control various settings specific to each post-format. Making changes in these sections will be reflected on the homepage.', 'riba-lite'),
         )
     );
 
@@ -27,8 +28,8 @@ $prefix = 'rl';
 
     $wp_customize->add_section( $prefix.'_post_standard_format_section' ,
         array(
-            'title'       => __( 'Standard', 'riba-lite' ),
-            'description' => __(' These settings affect front-pages. To control the settings for the single post, go go Blog Settings.', 'riba-lite'),
+            'title'       => esc_html__( 'Standard', 'riba-lite' ),
+            'description' => esc_html__( 'Post format: Standard (or default) settings', 'riba-lite'),
             'panel' 	  => $panel_id
         )
     );
@@ -44,8 +45,8 @@ $prefix = 'rl';
         $prefix.'_post_standard_enable_separator',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Enable Separator', 'riba-lite'),
-            'description' => __('Initial status: enabled', 'riba-lite'),
+            'label' => esc_html__('Enable Separator', 'riba-lite'),
+            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
             'section' => $prefix.'_post_standard_format_section',
         )
     );
@@ -61,8 +62,8 @@ $prefix = 'rl';
         $prefix.'_post_standard_enable_author',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Enable Author', 'riba-lite'),
-            'description' => __('Initial status: enabled', 'riba-lite'),
+            'label' => esc_html__('Enable Author', 'riba-lite'),
+            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
             'section' => $prefix.'_post_standard_format_section',
         )
     );
@@ -78,8 +79,8 @@ $prefix = 'rl';
         $prefix.'_post_standard_enable_posted',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Enable Posted ago', 'riba-lite'),
-            'description' => __('Initial status: enabled', 'riba-lite'),
+            'label' => esc_html__('Enable Posted ago', 'riba-lite'),
+            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
             'section' => $prefix.'_post_standard_format_section',
         )
     );
@@ -95,8 +96,8 @@ $prefix = 'rl';
         $prefix.'_post_standard_enable_ert',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Enable Estimated Reading Time', 'riba-lite'),
-            'description' => __('Initial status: enabled', 'riba-lite'),
+            'label' => esc_html__('Enable Estimated Reading Time', 'riba-lite'),
+            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
             'section' => $prefix.'_post_standard_format_section',
         )
     );
@@ -108,8 +109,8 @@ $prefix = 'rl';
 
     $wp_customize->add_section( $prefix.'_post_image_format_section' ,
         array(
-            'title'       => __( 'Image', 'riba-lite' ),
-            'description' => __(' These settings affect front-pages. To control the settings for the single post, go go Blog Settings.', 'riba-lite'),
+            'title'       => esc_html__( 'Image', 'riba-lite' ),
+            'description' => esc_html__( 'Post format: Image or (featured image) settings here.', 'riba-lite'),
             'panel'       => $panel_id
         )
     );
@@ -125,8 +126,8 @@ $prefix = 'rl';
         $prefix.'_post_image_enable_separator',
         array(
             'type'  => 'checkbox',
-            'label' => __('Enable Separator', 'riba-lite'),
-            'description' => __('Initial status: enabled', 'riba-lite'),
+            'label' => esc_html__('Enable Separator', 'riba-lite'),
+            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
             'section' => $prefix.'_post_image_format_section',
         )
     );
@@ -142,8 +143,8 @@ $prefix = 'rl';
         $prefix.'_post_image_enable_author',
         array(
             'type'  => 'checkbox',
-            'label' => __('Enable Author', 'riba-lite'),
-            'description' => __('Initial status: enabled', 'riba-lite'),
+            'label' => esc_html__('Enable Author', 'riba-lite'),
+            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
             'section' => $prefix.'_post_image_format_section',
         )
     );
@@ -159,8 +160,8 @@ $prefix = 'rl';
         $prefix.'_post_image_enable_posted',
         array(
             'type'  => 'checkbox',
-            'label' => __('Enable Posted ago', 'riba-lite'),
-            'description' => __('Initial status: enabled', 'riba-lite'),
+            'label' => esc_html__('Enable Posted ago', 'riba-lite'),
+            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
             'section' => $prefix.'_post_image_format_section',
         )
     );
@@ -176,8 +177,8 @@ $prefix = 'rl';
         $prefix.'_post_image_enable_ert',
         array(
             'type'  => 'checkbox',
-            'label' => __('Enable Estimated Reading Time', 'riba-lite'),
-            'description' => __('Initial status: enabled', 'riba-lite'),
+            'label' => esc_html__('Enable Estimated Reading Time', 'riba-lite'),
+            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
             'section' => $prefix.'_post_image_format_section',
         )
     );
@@ -193,8 +194,8 @@ $prefix = 'rl';
     /* Post Format Options */
     $wp_customize->add_section( $prefix.'_post_video_format_section' ,
         array(
-            'title'       => __( 'Video', 'riba-lite' ),
-            'description' => __(' These settings affect front-pages (homepage, archive, tag, etc). To control the settings for the single post, go go Blog Settings.', 'riba-lite'),
+            'title'       => esc_html__( 'Video', 'riba-lite' ),
+            'description' => esc_html__( 'Post format: Video (or featured video) settings here.', 'riba-lite'),
             'panel' 	  => $panel_id
         )
     );
@@ -210,8 +211,8 @@ $prefix = 'rl';
         $prefix.'_post_video_enable_separator',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Enable Separator', 'riba-lite'),
-            'description' => __('Initial status: enabled', 'riba-lite'),
+            'label' => esc_html__('Enable Separator', 'riba-lite'),
+            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
             'section' => $prefix.'_post_video_format_section',
         )
     );
@@ -227,8 +228,8 @@ $prefix = 'rl';
         $prefix.'_post_video_enable_author',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Enable Author', 'riba-lite'),
-            'description' => __('Initial status: enabled', 'riba-lite'),
+            'label' => esc_html__('Enable Author', 'riba-lite'),
+            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
             'section' => $prefix.'_post_video_format_section',
         )
     );
@@ -244,8 +245,8 @@ $prefix = 'rl';
         $prefix.'_post_video_enable_posted',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Enable Posted ago', 'riba-lite'),
-            'description' => __('Initial status: enabled', 'riba-lite'),
+            'label' => esc_html__('Enable Posted ago', 'riba-lite'),
+            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
             'section' => $prefix.'_post_video_format_section',
         )
     );
@@ -261,8 +262,8 @@ $prefix = 'rl';
         $prefix.'_post_video_enable_ert',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Enable Estimated Reading Time', 'riba-lite'),
-            'description' => __('Initial status: enabled', 'riba-lite'),
+            'label' => esc_html__('Enable Estimated Reading Time', 'riba-lite'),
+            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
             'section' => $prefix.'_post_video_format_section',
         )
     );
@@ -278,8 +279,8 @@ $prefix = 'rl';
         $prefix.'_enable_video_controls',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Enable Video Controls', 'riba-lite'),
-            'description' => __('Initial status: enabled', 'riba-lite'),
+            'label' => esc_html__('Enable Video Controls', 'riba-lite'),
+            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
             'section' => $prefix.'_post_video_format_section',
         )
     );
@@ -296,8 +297,8 @@ $prefix = 'rl';
         $prefix.'_enable_video_auto_play',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Enable Video AutoPlay', 'riba-lite'),
-            'description' => __('Initial status: disabled', 'riba-lite'),
+            'label' => esc_html__('Enable Video AutoPlay', 'riba-lite'),
+            'description' => esc_html__('Initial status: disabled', 'riba-lite'),
             'section' => $prefix.'_post_video_format_section',
         )
     );
@@ -313,8 +314,8 @@ $prefix = 'rl';
         $prefix.'_enable_video_loop_play',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Enable Video Loop Play', 'riba-lite'),
-            'description' => __('Initial status: enabled', 'riba-lite'),
+            'label' => esc_html__('Enable Video Loop Play', 'riba-lite'),
+            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
             'section' => $prefix.'_post_video_format_section',
         )
     );
@@ -330,8 +331,8 @@ $prefix = 'rl';
         $prefix.'_enable_video_mute_play',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Enable Video Mute Play', 'riba-lite'),
-            'description' => __('Initial status: enabled', 'riba-lite'),
+            'label' => esc_html__('Enable Video Mute Play', 'riba-lite'),
+            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
             'section' => $prefix.'_post_video_format_section',
         )
     );

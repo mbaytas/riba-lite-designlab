@@ -6,7 +6,7 @@
                 <?php the_content(); ?>
                 <?php if ( 'post' == get_post_type() ) : ?>
                 <div class="entry-meta">
-                    <?php rl_posted_on(); ?>
+                    <?php do_action('mtl_entry_meta'); ?>
                     </div>
                 <?php endif; ?>
             </header><!-- .entry-header -->

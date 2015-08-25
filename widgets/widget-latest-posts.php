@@ -81,7 +81,7 @@ class Riba_Lite_Widget_Latest_Posts extends WP_Widget {
 
 
     function form( $instance ) {
-        $defaults = array( 'title' => __(null , 'riba-lite'), 'items' => 2);
+        $defaults = array( 'title' => NULL , 'items' => 2);
         $instance = wp_parse_args( (array) $instance, $defaults ); ?>
         <div class="ewf-meta">
             <p>

@@ -1419,6 +1419,7 @@ textarea {
     top: 0;
     z-index: 2;
     width: 100%;
+    max-width: 1845px;
     z-index: 999;
     height: 70px;
     border-bottom: 1px solid #EEE;
@@ -1848,7 +1849,7 @@ article {
 
         /* Estimated reading time*/
         .riba-lite-estimated-reading-time {
-            padding: 5px 0;
+            padding: 5px;
         }
 
         /* No more padding on headings, single blog posts */
@@ -2405,12 +2406,14 @@ article {
     font-size: 10px;
     line-height: 10px;
     font-family: 'Lato';
+    font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
     .riba-lite-breadcrumbs a {
         color: rgba(255,255, 255, .7) !important;
         font-family: 'Lato';
+        font-weight: bold;
         text-transform: uppercase;
         font-size: 10px;
         line-height: 10px;
@@ -2427,43 +2430,43 @@ article {
 ## Social Sharing
 --------------------------------------------------------------*/
 
-.riba-lite-social-sharing-box-wrapper {
+.mtl-social-sharing-box-wrapper {
     margin: 30px auto;
 }
 
-.riba-lite-social-sharing-box-title {
+.mtl-social-sharing-box-title {
     font-family: 'Lato';
     font-weight: 700;
     text-transform: uppercase;
     font-size: 14px;
 }
 
-.riba-lite-social-sharing-box {
+.mtl-social-sharing-box {
     font-style: italic;
     font-weight: 300;
     font-family: 'Domine';
     font-size: 14px;
     color: #BBB;
 }
-.riba-lite-social-sharing-box a {
+.mtl-social-sharing-box a {
     display: inline-block;
     margin-right: 10px;
     opacity: .2;
     font-size: 18px;
 }
-    .riba-lite-social-sharing-box a:hover {opacity: .75;}
+    .mtl-social-sharing-box a:hover {opacity: .75;}
 
 
 
     /* Icon Coloring */
-    .fa-facebook:hover {color: #6788CE !important; }
-    .fa-twitter:hover {color: #29C5F6 !important; }
-    .fa-linkedin:hover {color: #3A9BDC !important; }
-    .fa-reddit:hover {color: red !important; }
-    .fa-tumblr:hover {color: red !important; }
-    .fa-google-plus:hover {color: #E75C3C !important; }
-    .fa-pinterest:hover {color: #FE4445 !important;}
-    .fa-vk:hover {color: #6383A8 !important;}
+    .mtl-social-sharing-box .fa-facebook:hover {color: #6788CE !important; }
+    .mtl-social-sharing-box .fa-twitter:hover {color: #29C5F6 !important; }
+    .mtl-social-sharing-box .fa-linkedin:hover {color: #3A9BDC !important; }
+    .mtl-social-sharing-box .fa-reddit:hover {color: red !important; }
+    .mtl-social-sharing-box .fa-tumblr:hover {color: red !important; }
+    .mtl-social-sharing-box .fa-google-plus:hover {color: #E75C3C !important; }
+    .mtl-social-sharing-box .fa-pinterest:hover {color: #FE4445 !important;}
+    .mtl-social-sharing-box .fa-vk:hover {color: #6383A8 !important;}
 
 /*--------------------------------------------------------------
 ## Author Area
@@ -2767,72 +2770,6 @@ ul.page-numbers {
 ## Site Preloader
 --------------------------------------------------------------*/
 
-    .pace {
-        -webkit-pointer-events: none;
-        pointer-events: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-    }
-
-    .pace-inactive {
-        display: none;
-    }
-
-    .pace .pace-progress {
-        background: #000000;
-        position: fixed;
-        z-index: 2000;
-        top: 0;
-        right: 100%;
-        width: 100%;
-        height: 2px;
-    }
-
-    #page-loader {
-        position: fixed;
-        height: 100%;
-        width: 100%;
-        background: #ffffff;
-        z-index: 999999999999999999;
-        top: 0;
-    }
-        .logged-in #page-loader {
-            top: 32px;
-        }
-
-    #page-loader .loader-logo-name {
-        position: absolute;
-        top: 40px;
-        left: 0;
-        text-align: center;
-        width: 100%;
-    }
-
-    #page-loader .loader-logo-name img {
-        height: 30px;
-    }
-
-    #page-loader .loader-subtitle {
-        margin-top: 10px;
-    }
-
-    #page-loader .loader {
-        margin-top: 40px;
-        font-family: 'Montserrat';
-        font-weight: 400;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: #0d0d0d;
-        font-size: 32px;
-        line-height: 40px;
-        position: absolute;
-        top: 50%;
-        margin-top: -20px;
-        left: 0;
-        text-align: center;
-        width: 100%;
-    }
 
     .lazy {display: none;}
 

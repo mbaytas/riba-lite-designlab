@@ -1,0 +1,29 @@
+### V 1.0.2
+    - Updated screenshot
+    - Added action Hooks
+        - mtl_after_content
+            - sharing bar
+            - related posts
+            - author box
+        - mtl_before_content
+            - sharing bar (by option)
+        - mtl_entry_meta
+            - post meta
+                - estimated reading time
+                - author
+                - posted on
+    - Created /components/ folders; Most of the functions / classes found in /inc/extras.php are now located in their corresponing class PHP files (removing / adding components is now easier)
+    - Sanitized URL return functions from /inc/components/class.mt-breadcrumbs.php
+    - Customizer
+        - Replaced the customizer section setting: "separator_type" (used to allow HTML) to a drop-down with a few options
+        - Addded posibility of displaying the sharing bar before / after content (prior version only allowed for the sharing bar to be displayed at the end of the content).
+    - If MBYTplayer script is turned off (Customizer -> Advanced), video controls aren't displayed and as a fallback, the featured post image is displayed instead of the video background
+    - Added preloader styles as a customizer section (more preloader styles will be added in the near fuure)
+
+### V 1.0.1
+    - Updated screenshot
+    - fixed a few responsive bugs
+
+
+### V 1.0.0
+    - Initial Release

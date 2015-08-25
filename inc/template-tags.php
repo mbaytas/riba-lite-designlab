@@ -88,49 +88,6 @@ if ( !function_exists( 'rl_pagination' ) ) {
 }
 
 
-if ( ! function_exists( 'rl_posted_on' ) ) {
-    /**
-     * Prints HTML with meta information for the current post-date/time and author.
-     */
-    function rl_posted_on()
-    {
-        global $post;
-
-
-
-        if( get_post_format() !== false ) {
-            $display_author = get_theme_mod('rl_post_'.esc_attr( get_post_format( $post->ID ) ).'_enable_author', 1);
-            $display_date = get_theme_mod('rl_post_'.esc_attr( get_post_format( $post-> ID ) ).'_enable_posted', 1);
-        } else {
-            $display_author = get_theme_mod('rl_post_standard_enable_author', 1);
-            $display_date = get_theme_mod('rl_post_standard_enable_posted', 1);
-        }
-
-
-        $posted_on = sprintf(
-             esc_html_x( '%s ago', '%s = human-readable time difference', 'riba-lite' ), 
-                human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) )
-        );
-
-        $byline = sprintf(
-            esc_html_x('%s', 'post author', 'riba-lite'),
-            '<div class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></div>'
-        );
-
-        if( $display_author == 1 ) {
-            echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
-        }
-
-
-        if( $display_date == 1 ) {
-            echo '<span class="posted-on">' . $posted_on . '</span>';
-        }
-
-
-
-    }
-}
-
 if ( ! function_exists( 'rl_entry_footer' ) ) {
     /**
      * Prints HTML with meta information for the categories, tags and comments.

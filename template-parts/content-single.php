@@ -1,12 +1,6 @@
 <?php
 
-// quickly fetch some vars
-    $display_post_posted_on_meta = get_theme_mod('rl_enable_post_posted_on_blog_posts', 1);
-    $display_post_esrt_meta = get_theme_mod('rl_enable_post_esrt_blog_posts', 1);
-    $display_social_sharing = get_theme_mod('rl_enable_social_sharing_blog_posts', 1);
-    $display_prev_next_links = get_theme_mod('rl_enable_post_nav_blog_posts', 1);
-    $display_author_box = get_theme_mod('rl_enable_author_box_blog_posts', 1);
-    $display_post_breadcrumbs = get_theme_mod('rl_enable_post_breadcrumbs', 1);
+$display_post_breadcrumbs = get_theme_mod('rl_enable_post_breadcrumbs', 1);
 
 ?>
 
@@ -38,22 +32,11 @@
             <header class="entry-header">
                 <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
                 <hr />
-                <?php if ( 'post' == get_post_type() ) : ?>
-                    <div class="entry-meta">
-                        <?php if( $display_post_posted_on_meta == 1 ) {
-                                rl_posted_on();
-                            }
-                        ?>
-                        <?php if( $display_post_posted_on_meta == 1 && $display_post_esrt_meta == 1 ) { ?> 
-                            <?php echo ' - '; ?>
-                        <?php } ?>
-                        
-                        <?php if( $display_post_esrt_meta == 1 ) {
-                                rl_estimated_reading_time();
-                            }
-                        ?>
-                    </div><!-- .entry-meta -->
-                <?php endif; ?>
+                <?php if ( 'post' == get_post_type() ) {
+                    echo '<div class="entry-meta">';
+                        do_action('mtl_entry_meta');
+                    echo '</div>';
+                    } ?>
             </header><!-- .entry-header -->
         </div>
     </div><!-- .entry-content -->
@@ -62,6 +45,9 @@
 
     <div class="container">
         <div class="row">
+
+            <?php do_action('mtl_before_content'); ?>
+
             <div class="post-content">
                 <?php the_content(); ?>
             </div>
@@ -75,16 +61,7 @@
                 </div>
             </footer>
 
-            <div class="text-center riba-lite-social-sharing-box-wrapper">
-                <h4 class="riba-lite-social-sharing-box-title"><?php _e('Share this: ', 'riba-lite'); ?></h4>
-                <?php if( $display_social_sharing == 1 ) {
-                    rl_output_social_sharing_box();
-                } ?>
-            </div>
-
-            <div class="clearfix"></div>
-
-
+            <?php do_action('mtl_after_content'); ?>
         </div>
     </div>
 

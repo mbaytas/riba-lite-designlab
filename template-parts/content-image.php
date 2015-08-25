@@ -24,12 +24,7 @@ $display_ert = get_theme_mod('rl_post_'.esc_attr( get_post_format( $post->ID ) )
                     <?php if ( 'post' == get_post_type() ) : ?>
                         <?php if( $display_separator == 1 || $display_ert == 1 ) { ?>
                             <div class="entry-meta">
-                                <?php rl_posted_on(); ?>
-                                <?php echo ' - '; ?>
-                                <?php if( $display_ert == 1 ) {
-                                    rl_estimated_reading_time();
-                                }
-                                ?>
+                             <?php do_action('mtl_entry_meta'); ?>
                             </div><!-- .entry-meta -->
                         <?php } ?>
                     <?php endif; ?>

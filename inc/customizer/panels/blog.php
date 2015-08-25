@@ -19,7 +19,8 @@
             'priority' => 29,
             'capability' => 'edit_theme_options',
             'theme_supports' => '',
-            'title' => __( 'Blog options', 'riba-lite' )
+            'title' => esc_html__( 'Blog options', 'riba-lite' ),
+            'description' => esc_html__( 'Control various blog options from here. Most of the options from this panel refer to the blog single page view. If you\'re not familiar with that term, please perform a Google search.', 'riba-lite' ),
         )
     );
 
@@ -29,7 +30,8 @@
 
     $wp_customize->add_section( $prefix.'_blog_global_section' ,
         array(
-            'title'       => __( 'Global', 'riba-lite' ),
+            'title'       => esc_html__( 'Global', 'riba-lite' ),
+            'description' => esc_html__( 'This section allows you to control how certain elements are displayed on the blog single page.', 'riba-lite' ),
             'panel' 	  => $panel_id
         )
     );
@@ -45,8 +47,8 @@
         $prefix.'_enable_post_posted_on_blog_posts',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Posted on meta on single blog post', 'riba-lite'),
-            'description' => __('This will disable the posted on zone.', 'riba-lite'),
+            'label' => esc_html__('Posted on meta on single blog post', 'riba-lite'),
+            'description' => esc_html__('This will disable the posted on zone as well as the author name', 'riba-lite'),
             'section' => $prefix.'_blog_global_section',
         )
     );
@@ -63,8 +65,8 @@
         $prefix.'_enable_post_esrt_blog_posts',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Estimated reading time meta on single blog post', 'riba-lite'),
-            'description' => __('This will disable the estimated reading time zone.', 'riba-lite'),
+            'label' => esc_html__('Estimated reading time meta on single blog post', 'riba-lite'),
+            'description' => esc_html__('This will disable the estimated reading time zone.', 'riba-lite'),
             'section' => $prefix.'_blog_global_section',
         )
     );
@@ -81,8 +83,8 @@
         $prefix.'_enable_post_category_blog_posts',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Category meta on single blog post', 'riba-lite'),
-            'description' => __('This will disable the posted in zone.', 'riba-lite'),
+            'label' => esc_html__('Category meta on single blog post', 'riba-lite'),
+            'description' => esc_html__('This will disable the posted in zone.', 'riba-lite'),
             'section' => $prefix.'_blog_global_section',
         )
     );
@@ -100,8 +102,8 @@
         $prefix.'_enable_post_tags_blog_posts',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Tags meta on single blog post', 'riba-lite'),
-            'description' => __('This will disable the tagged with zone.', 'riba-lite'),
+            'label' => esc_html__('Tags meta on single blog post', 'riba-lite'),
+            'description' => esc_html__('This will disable the tagged with zone.', 'riba-lite'),
             'section' => $prefix.'_blog_global_section',
         )
     );
@@ -119,8 +121,8 @@
         $prefix.'_enable_post_comments_blog_posts',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Coments meta on single blog post', 'riba-lite'),
-            'description' => __('This will disable the comments header zone.', 'riba-lite'),
+            'label' => esc_html__('Coments meta on single blog post', 'riba-lite'),
+            'description' => esc_html__('This will disable the comments header zone.', 'riba-lite'),
             'section' => $prefix.'_blog_global_section',
         )
     );
@@ -138,8 +140,8 @@
         $prefix.'_enable_post_breadcrumbs',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Breadcrumbs on single blog posts', 'riba-lite'),
-            'description' => __('This will disable the breadcrumbs', 'riba-lite'),
+            'label' => esc_html__('Breadcrumbs on single blog posts', 'riba-lite'),
+            'description' => esc_html__('This will disable the breadcrumbs', 'riba-lite'),
             'section' => $prefix.'_blog_global_section',
         )
     );
@@ -157,13 +159,14 @@
         $prefix.'_enable_social_sharing_blog_posts',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Social sharing on single blog post', 'riba-lite'),
-            'description' => __('Displayed right under the post title', 'riba-lite'),
+            'label' => esc_html__('Social sharing on single blog post', 'riba-lite'),
+            'description' => esc_html__('Displayed right under the post title', 'riba-lite'),
             'section' => $prefix.'_blog_global_section',
         )
     );
 
     /* Post Prev / Next links on single blog posts */
+/*
     $wp_customize->add_setting( $prefix.'_enable_post_nav_blog_posts',
         array(
             'sanitize_callback' => $prefix.'_sanitize_checkbox',
@@ -174,11 +177,13 @@
         $prefix.'_enable_post_nav_blog_posts',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Nav links on single blog post', 'riba-lite'),
-            'description' => __('Displayed on the opposite side of the post title (usually, the right side)', 'riba-lite'),
+            'label' => esc_html__('Nav links on single blog post', 'riba-lite'),
+            'description' => esc_html__('Displayed on the opposite side of the post title (usually, the right side)', 'riba-lite'),
             'section' => $prefix.'_blog_global_section',
         )
     );
+
+*/
 
     /* Author Info Box on single blog posts */
     $wp_customize->add_setting( $prefix.'_enable_author_box_blog_posts',
@@ -191,8 +196,8 @@
         $prefix.'_enable_author_box_blog_posts',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Author info box on single blog post', 'riba-lite'),
-            'description' => __('Displayed right at the end of the post', 'riba-lite'),
+            'label' => esc_html__('Author info box on single blog post', 'riba-lite'),
+            'description' => esc_html__('Displayed right at the end of the post', 'riba-lite'),
             'section' => $prefix.'_blog_global_section',
         )
     );
@@ -208,8 +213,8 @@
         $prefix.'_enable_related_blog_posts',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Related posts carousel ?', 'riba-lite'),
-            'description' => __('Displayed after the author box', 'riba-lite'),
+            'label' => esc_html__('Related posts carousel ?', 'riba-lite'),
+            'description' => esc_html__('Displayed after the author box', 'riba-lite'),
             'section' => $prefix.'_blog_global_section',
         )
     );
@@ -220,7 +225,8 @@
 
     $wp_customize->add_section( $prefix.'_blog_breadcrumb_section' ,
         array(
-            'title'       => __( 'Breadcrumbs', 'riba-lite' ),
+            'title'       => esc_html__( 'Breadcrumbs', 'riba-lite' ),
+            'description' => esc_html__( 'Various breadcrumb related settings, like: breadcrumb prefix, breadcrumb item separator & breadcrumb menu post category visibility setting.', 'riba-lite'),
             'panel' 	  => $panel_id
         )
     );
@@ -236,8 +242,8 @@
     $wp_customize->add_control(
         $prefix.'_blog_breadcrumb_menu_prefix',
         array(
-            'label' => __('Text before the breadcrumbs menu', 'riba-lite'),
-            'description' => __('Recommended: You are here','riba-lite'),
+            'label' => esc_html__('Text before the breadcrumbs menu', 'riba-lite'),
+            'description' => esc_html__('Recommended: You are here','riba-lite'),
             'section' => $prefix.'_blog_breadcrumb_section',
         )
     );
@@ -245,15 +251,22 @@
     /* BreadCrumb Menu:  separator */
     $wp_customize->add_setting($prefix.'_blog_breadcrumb_menu_separator',
         array(
-            'sanitize_callback' => 'sanitize_text_field',
-            'default' => '&rarr;'
+            'sanitize_callback' => $prefix.'_sanitize_radio_buttons',
+            'default' => 'rarr'
         )
     );
     $wp_customize->add_control(
         $prefix.'_blog_breadcrumb_menu_separator',
         array(
-            'label' => __('Separator to be used between breadcrumb items', 'riba-lite'),
-            'description' => __('HTML accepted here', 'riba-lite'),
+            'type' => 'select',
+            'choices' => array(
+                'rarr' => esc_html('&rarr;'),
+                'middot' => esc_html('&middot;'),
+                'diez' => esc_html('&#35;'),
+                'ampersand' => esc_html('&#38;'),
+            ),
+            'label' => esc_html__('Separator to be used between breadcrumb items', 'riba-lite'),
+            'description' => esc_html__('HTML accepted here', 'riba-lite'),
             'section' => $prefix.'_blog_breadcrumb_section',
         )
     );
@@ -269,8 +282,8 @@
         $prefix.'_blog_breadcrumb_menu_post_category',
         array(
             'type' => 'checkbox',
-            'label' => __('Show post category ?', 'riba-lite'),
-            'description' => __('Show the post category in the breadcrumb ?', 'riba-lite'),
+            'label' => esc_html__('Show post category ?', 'riba-lite'),
+            'description' => esc_html__('Show the post category in the breadcrumb ?', 'riba-lite'),
             'section' => $prefix.'_blog_breadcrumb_section',
         )
     );
@@ -284,11 +297,50 @@
 
     $wp_customize->add_section( $prefix.'_blog_social_section' ,
         array(
-            'title'       => __( 'Social Sharing', 'riba-lite' ),
+            'title'       => esc_html__( 'Social Sharing', 'riba-lite' ),
+            'description' => esc_html__( 'Control visibility of various social sharing networks. The changes made here will reflect on the blog single post view.', 'riba-lite' ),
             'panel' 	  => $panel_id
         )
     );
 
+
+    /* Sharing Bar Position */
+    $wp_customize->add_setting($prefix.'_social_sharing_position',
+        array(
+            'sanitize_callback' => $prefix.'_sanitize_radio_buttons',
+            'default' => 'after_content'
+        )
+    );
+    $wp_customize->add_control(
+        $prefix.'_social_sharing_position',
+        array(
+            'type'	=> 'radio',
+            'choices' => array(
+                'after_content' => esc_html__('After content', 'riba-lite'),
+                'before_content' => esc_html__('Before Content', 'riba-lite'),
+            ),
+            'label' => esc_html__('Sharing Bar Postion: After / Before Content', 'riba-lite'),
+            'description' => esc_html__('Initial position: after content', 'riba-lite'),
+            'section' => $prefix.'_blog_social_section',
+        )
+    );
+
+    /* Sharing Bar "Share this" content */
+    $wp_customize->add_setting($prefix.'_sharing_bar_text',
+        array(
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => esc_html__('Share this', 'riba-lite'),
+        )
+    );
+    $wp_customize->add_control(
+        $prefix.'_sharing_bar_text',
+        array(
+            'type'	=> 'text',
+            'label' => esc_html__('Text to display above icons', 'riba-lite'),
+            'description' => esc_html__('This is the text that will be displayed above the icons. Change this to whatever you feel like', 'riba-lite'),
+            'section' => $prefix.'_blog_social_section',
+        )
+    );
 
     /* Facebook visibility */
     $wp_customize->add_setting($prefix.'_facebook_visibility',
@@ -301,7 +353,7 @@
         $prefix.'_facebook_visibility',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Display share on Facebook ?', 'riba-lite'),
+            'label' => esc_html__('Display share on Facebook ?', 'riba-lite'),
             'section' => $prefix.'_blog_social_section',
         )
     );
@@ -317,7 +369,7 @@
         $prefix.'_twitter_visibility',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Display share on Twitter ?', 'riba-lite'),
+            'label' => esc_html__('Display share on Twitter ?', 'riba-lite'),
             'section' => $prefix.'_blog_social_section',
         )
     );
@@ -333,7 +385,7 @@
         $prefix.'_linkein_visibility',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Display share on LinkedIN ?', 'riba-lite'),
+            'label' => esc_html__('Display share on LinkedIN ?', 'riba-lite'),
             'section' => $prefix.'_blog_social_section',
         )
     );
@@ -349,7 +401,7 @@
         $prefix.'_reddit_visibility',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Display share on Reddit?', 'riba-lite'),
+            'label' => esc_html__('Display share on Reddit?', 'riba-lite'),
             'section' => $prefix.'_blog_social_section',
         )
     );
@@ -365,7 +417,7 @@
         $prefix.'_tumblr_visibility',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Display share on Tumblr ?', 'riba-lite'),
+            'label' => esc_html__('Display share on Tumblr ?', 'riba-lite'),
             'section' => $prefix.'_blog_social_section',
         )
     );
@@ -381,7 +433,7 @@
         $prefix.'_googlep_visibility',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Display share on Google+ ?', 'riba-lite'),
+            'label' => esc_html__('Display share on Google+ ?', 'riba-lite'),
             'section' => $prefix.'_blog_social_section',
         )
     );
@@ -397,7 +449,7 @@
         $prefix.'_pinterest_visibility',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Display share on Pinterest ?', 'riba-lite'),
+            'label' => esc_html__('Display share on Pinterest ?', 'riba-lite'),
             'section' => $prefix.'_blog_social_section',
         )
     );
@@ -413,7 +465,7 @@
         $prefix.'_vk_visibility',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Display share on VK ?', 'riba-lite'),
+            'label' => esc_html__('Display share on VK ?', 'riba-lite'),
             'section' => $prefix.'_blog_social_section',
         )
     );
@@ -430,7 +482,7 @@
         $prefix.'_mail_visibility',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Display share on VK ?', 'riba-lite'),
+            'label' => esc_html__('Display share on VK ?', 'riba-lite'),
             'section' => $prefix.'_blog_social_section',
         )
     );
@@ -443,7 +495,8 @@
 
     $wp_customize->add_section( $prefix.'_blog_related_section' ,
         array(
-            'title'       => __( 'Related posts', 'riba-lite' ),
+            'title'       => esc_html__( 'Related posts', 'riba-lite' ),
+            'description' => esc_html__( 'Control various related posts settings from here. For a demo-like experience, we recommend you don\'t change these settings.', 'riba-lite'),
             'panel' 	  => $panel_id
         )
     );
@@ -460,7 +513,7 @@
         $prefix.'_enable_related_title_blog_posts',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Show posts title in the carousel ?', 'riba-lite'),
+            'label' => esc_html__('Show posts title in the carousel ?', 'riba-lite'),
             'section' => $prefix.'_blog_related_section',
         )
     );
@@ -476,7 +529,7 @@
         $prefix.'_enable_related_date_blog_posts',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Show posts date in the carousel ?', 'riba-lite'),
+            'label' => esc_html__('Show posts date in the carousel ?', 'riba-lite'),
             'section' => $prefix.'_blog_related_section',
         )
     );
@@ -493,7 +546,7 @@
         $prefix.'_autoplay_blog_posts',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Autoplay related posts carousel ?', 'riba-lite'),
+            'label' => esc_html__('Autoplay related posts carousel ?', 'riba-lite'),
             'section' => $prefix.'_blog_related_section',
         )
     );
@@ -508,8 +561,8 @@
     $wp_customize->add_control( new RL_Controls_Slider_Control($wp_customize,
         $prefix.'_howmany_blog_posts',
             array(
-                'label' => __('How many blog posts to display in the carousel at once ?', 'riba-lite'),
-                'description' => __('No more than 4 posts at once;', 'riba-lite'),
+                'label' => esc_html__('How many blog posts to display in the carousel at once ?', 'riba-lite'),
+                'description' => esc_html__('No more than 4 posts at once;', 'riba-lite'),
                 'choices' => array(
                     'min' => 1,
                     'max' => 4,
@@ -532,8 +585,8 @@
         $prefix.'_pagination_blog_posts',
         array(
             'type'	=> 'checkbox',
-            'label' => __('Display pagination controls ?', 'riba-lite'),
-            'description' => __('Will be displayed as navigation bullets', 'riba-lite'),
+            'label' => esc_html__('Display pagination controls ?', 'riba-lite'),
+            'description' => esc_html__('Will be displayed as navigation bullets', 'riba-lite'),
             'section' => $prefix.'_blog_related_section',
         )
     );

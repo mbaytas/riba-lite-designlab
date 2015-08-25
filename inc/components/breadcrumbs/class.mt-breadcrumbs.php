@@ -2,9 +2,9 @@
 /**
  * Class Riba_Breadcrumbs
  *
- * This file does the breadcrumbs handling for the fusion framework
+ * This file does the breadcrumbs handling for the Muscle Core Lite framework
  *
- * @author		Riba Themes
+ * @author		Cristian Raiber
  * @copyright	(c) Copyright by Macho Themes
  * @link		http://www.machothemes.com
  * @package 	Muscle Core
@@ -18,7 +18,6 @@ class Riba_Breadcrumbs {
 	 * @var mixed Current post object
 	 */
 	private $post;
-	
 
 	/**
 	 * @var	string Prefix for the breadcrumb path
@@ -72,7 +71,7 @@ class Riba_Breadcrumbs {
 		// Setup default array for changeable variables
 		$defaults = array(
 			 'home_prefix'   			=> get_theme_mod('rl_blog_breadcrumb_menu_prefix', __('You Are Here', 'riba-lite') ),
-			 'separator' 				=> get_theme_mod('rl_blog_breadcrumb_menu_separator', '&rarr;'),
+			 'separator' 				=> get_theme_mod('rl_blog_breadcrumb_menu_separator', 'rarr'),
 			 'show_post_type_archive'	=> '1',
 			 'show_terms'  				=> get_theme_mod('rl_blog_breadcrumb_menu_post_category', 1),
 			 'home_label'      			=> __( 'Home', 'riba-lite' ),
@@ -93,6 +92,19 @@ class Riba_Breadcrumbs {
 		$this->tag_archive_prefix		= $defaults['tag_archive_prefix'];
 		$this->search_prefix			= $defaults['search_prefix'];
 		$this->error_prefix				= $defaults['error_prefix'];
+
+
+		// Set separator
+		if($this->separator == 'rarr') {
+			$this->separator = '&rarr;';
+		} else if($this->separator == 'middot') {
+			$this->separator = '&middot;';
+		} else if($this->separator == 'diez') {
+			$this->separator = '&#35;';
+		} else if($this->separator == 'ampersand' ) {
+			$this->separator = '&#38;';
+		}
+
 	}
 
 	/**
@@ -133,7 +145,7 @@ class Riba_Breadcrumbs {
 		$this->html_markup = $this->get_breadcrumb_prefix();
 
 		// Add the "Home" link
-		$this->html_markup .= $this->get_breadcrumb_home();
+		$this->html_markup .= esc_url( $this->get_breadcrumb_home() );
 
 		// Woocommerce path prefix (e.g "Shop" )
 		if ( class_exists( 'WooCommerce' ) &&
@@ -275,7 +287,7 @@ class Riba_Breadcrumbs {
 		if ( ! is_front_page() ) {
 			// Add chosen path prefix
 			if ( $this->home_prefix ) {
-				$prefix = sprintf( '<span class="rl-breadcrumb-prefix">%s:</span>', $this->home_prefix );
+				$prefix = sprintf( '<span class="rl-breadcrumb-prefix">%s:</span>', esc_html( $this->home_prefix ) );
 			}
 		}
 
@@ -292,10 +304,10 @@ class Riba_Breadcrumbs {
 
 		// If the home page is a real page
 		if ( ! is_front_page() ) {
-			$home_link = $this->get_single_breadcrumb_markup( $this->home_label, get_home_url() );
+			$home_link = $this->get_single_breadcrumb_markup( esc_html( $this->home_label ), esc_url( get_home_url() ) );
 		// If the home page is the main blog page
 		} elseif ( is_home() ) {
-			$home_link = $this->get_single_breadcrumb_markup( $this->options['blog_title'] );
+			$home_link = $this->get_single_breadcrumb_markup( esc_html( $this->options['blog_title'] ) );
 		}
 
 		return $home_link;
@@ -482,7 +494,7 @@ class Riba_Breadcrumbs {
 			) {
 				$archive_title = bbp_get_forum_archive_title();
 				if ( $linked ) {
-					$link = get_post_type_archive_link( bbp_get_forum_post_type() );
+					$link = esc_url( get_post_type_archive_link( bbp_get_forum_post_type() ) );
 				}
 
 				return $this->get_single_breadcrumb_markup( $archive_title, $link );
@@ -507,7 +519,7 @@ class Riba_Breadcrumbs {
 
 		// Check if the breadcrumb should be linked
 		if ( $linked ) {
-			$link = get_post_type_archive_link( $post_type );
+			$link = esc_url( get_post_type_archive_link( $post_type ) );
 		}
 
 		return $this->get_single_breadcrumb_markup( $archive_title, $link );
@@ -541,7 +553,7 @@ class Riba_Breadcrumbs {
 
 			// Check if the breadcrumb should be linked
 			if ( $linked ) {
-				$link = get_post_type_archive_link( $post_type );
+				$link = esc_url( get_post_type_archive_link( $post_type ) );
 			}
 
 			$shop_page_markup = $this->get_single_breadcrumb_markup( $shop_page_name, $link );
@@ -558,7 +570,7 @@ class Riba_Breadcrumbs {
 	private function get_bbpress_main_archive_page() {
 		global $wp_query;
 
-		return $this->get_single_breadcrumb_markup( bbp_get_forum_archive_title(), get_post_type_archive_link( 'forum' ) );
+		return $this->get_single_breadcrumb_markup( bbp_get_forum_archive_title(), esc_url( get_post_type_archive_link( 'forum' ) ) );
 	}
 
 	/**

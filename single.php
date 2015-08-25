@@ -14,29 +14,7 @@ get_header(); ?>
 
 			<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
-            <div class="container">
-                    <?php
-                    $author_box_enabled = get_theme_mod('rl_enable_author_box_blog_posts', 1);
 
-                    if( $author_box_enabled == 1 ) {
-                        echo rl_render_author_box();
-                    }
-
-
-                    ?>
-            </div>
-
-			<div class="container">
-				<div class="row">
-					<?php
-					$related_posts_enabled = get_theme_mod('rl_enable_related_blog_posts', 1);
-					if(  $related_posts_enabled == 1) {
-                        echo rl_render_related_posts();
-                    }
-
-					?>
-				</div>
-			</div>
 			<div class="container">
 				<div class="row">
 					<?php
@@ -54,5 +32,5 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+
 <?php get_footer(); ?>

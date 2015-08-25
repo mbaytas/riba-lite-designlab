@@ -10,7 +10,7 @@
 </head>
 
 <?php
-    $preloader_text = get_theme_mod('rl_preloader_text', __('Loading', 'riba-lite') );
+
     $rl_logo_url = get_theme_mod('rl_img_logo', get_template_directory_uri() . '/layout/images/logo/riba-logo.png');
     $rl_logo_text = get_theme_mod('rl_text_logo', __('Riba', 'riba-lite') );
 ?>
@@ -20,19 +20,9 @@
 <div id="page" class="hfeed site">
 
 
-    <?php
-        global $wp_customize;
-        $preloader_is_enabled = get_theme_mod('rl_enable_site_preloader', 1);
+    <?php do_action('mtl_site_preloader'); ?>
 
-    if( !isset($wp_customize) && $preloader_is_enabled == 1 ) { ?>
-        <!-- Site Preloader -->
-        <div id="page-loader">
-            <div class="page-loader-inner">
-                <div class="loader"><strong><?php echo esc_html( $preloader_text ); ?></strong></div>
-            </div>
-        </div>
-        <!-- END Site Preloader -->
-    <?php } ?>
+
 
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'riba-lite' ); ?></a>
 
@@ -71,8 +61,8 @@
 						'menu_id' => 'primary-menu',
                         'container_id' => 'rl-main-menu',
                         'container_class' => 'hidden-xs',
-						'walker' => new RibaLiteMyExtendedMenuWalker(),
-						'fallback_cb' =>  'RibaLiteMyExtendedMenuWalker::fallback',
+						'walker' => new MTL_Extended_Menu_Walker(),
+						'fallback_cb' =>  'MTL_Extended_Menu_Walker::fallback',
 					) ); ?>
 				</nav><!-- #site-navigation -->
 			</header><!-- #masthead -->

@@ -49,8 +49,8 @@
                     'menu_id' => 'secondary-menu',
                     'container_id' => 'rl-secondary-menu',
                     'container_class' => 'hidden-xs',
-                    'walker' => new RibaLiteMyExtendedMenuWalker(),
-                    'fallback_cb' =>  'RibaLiteMyExtendedMenuWalker::fallback',
+                    'walker' => new MTL_Extended_Menu_Walker(),
+                    'fallback_cb' =>  'MTL_Extended_Menu_Walker::fallback',
                 ) ); ?>
             </div>
         </div><!--/.row-->
@@ -81,5 +81,7 @@
 
 
 <?php wp_footer(); ?>
+
+
 </body>
 </html>

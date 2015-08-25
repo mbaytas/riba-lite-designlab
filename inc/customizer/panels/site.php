@@ -24,9 +24,6 @@
     $site_title        = $wp_customize->get_section( 'static_front_page' );
     $site_title->panel = $panel_id;
 
-    // Change panel for Navigation
-    $site_title        = $wp_customize->get_section( 'nav' );
-    $site_title->panel = $panel_id;
 
     // Change priority for Site Title
     $site_title           = $wp_customize->get_control( 'blogname' );
@@ -47,7 +44,8 @@
             'priority' => 29,
             'capability' => 'edit_theme_options',
             'theme_supports' => '',
-            'title' => __( 'General Options', 'riba-lite' )
+            'title' => esc_html__( 'General Options', 'riba-lite' ),
+            'description' => esc_html__('You can change the site layout in this area as well as your contact details (the ones displayed in the footer) ', 'riba-lite'),
         )
     );
 
@@ -58,7 +56,8 @@
     /* Layout */
     $wp_customize->add_section( $prefix.'_layout_section' ,
         array(
-            'title'       => __( 'Site Layout', 'riba-lite' ),
+            'title'       => esc_html__( 'Site Layout', 'riba-lite' ),
+            'description' => esc_html__( 'Depending on the quality of your pictures / videos, you can switch the site layout. We do recommend the boxed one so you can also set a nice looking background image.', 'riba-lite' ),
             'priority'    => 1,
             'panel' 	  => $panel_id
         )
@@ -76,8 +75,8 @@
         $prefix.'_site_layout',
             array(
                 'type'          => 'radio-image',
-                'label' 		=> __('Select Site Layout', 'riba-lite'),
-                'description'   => __('Fixed / Fluid layout', 'riba-lite'),
+                'label' 		=> esc_html__('Select Site Layout', 'riba-lite'),
+                'description'   => esc_html__('Fixed / Fluid layout', 'riba-lite'),
                 'section' 		=> $prefix.'_layout_section',
                 'priority' 		=> 2,
                 'choices'     => array(
@@ -93,7 +92,7 @@
     /* Logo */
     $wp_customize->add_section( $prefix.'_general_section' ,
         array(
-            'title'       => __( 'Logo', 'riba-lite' ),
+            'title'       => esc_html__( 'Logo', 'riba-lite' ),
             'priority'    => 2,
             'panel' 	  => $panel_id
         )
@@ -104,15 +103,15 @@
     $wp_customize->add_setting($prefix.'_text_logo',
         array(
             'sanitize_callback' => 'sanitize_text_field',
-            'default' => __('Riba', 'riba-lite'),
+            'default' => esc_html__('Riba', 'riba-lite'),
         )
     );
 
     $wp_customize->add_control(
         $prefix.'_text_logo',
         array(
-            'label' 		=> __('Enter company name', 'riba-lite'),
-            'description'   => __('This field is best used when you don\'t have a professional image logo', 'riba-lite'),
+            'label' 		=> esc_html__('Enter company name', 'riba-lite'),
+            'description'   => esc_html__('This field is best used when you don\'t have a professional image logo', 'riba-lite'),
             'section' 		=> $prefix.'_general_section',
             'priority' 		=> 2
         )
@@ -122,15 +121,15 @@
     $wp_customize->add_setting($prefix.'_img_logo',
         array(
             'sanitize_callback' => $prefix.'_sanitize_file_url',
-            'default' => get_template_directory_uri() . '/layout/images/logo/riba-logo.png',
+            'default' => '',
         )
     );
     $wp_customize->add_control( new WP_Customize_Image_Control(
             $wp_customize,
             $prefix.'_img_logo',
             array(
-                'label'         => __('Site Logo', 'riba-lite'),
-                'description'   => __('Recommended size: 100 x 100', 'riba-lite'),
+                'label'         => esc_html__('Site Logo', 'riba-lite'),
+                'description'   => esc_html__('Recommended size: 100 x 100', 'riba-lite'),
                 'section'       => $prefix.'_general_section',
                 'priority'      => 2
             )
@@ -144,7 +143,8 @@
 
     $wp_customize->add_section( $prefix.'_general_contact_section' ,
         array(
-            'title'       => __( 'Contact Details', 'riba-lite' ),
+            'title'       => esc_html__( 'Contact Details', 'riba-lite' ),
+            'description' => esc_html__( 'These are the contact details displayed in the footer of the website.', 'riba-lite' ),
             'priority'    => 3,
             'panel' => $panel_id
         )
@@ -161,8 +161,8 @@
 
     $wp_customize->add_control( $prefix.'_email',
         array(
-            'label'   => __( 'Email addr.', 'riba-lite' ),
-            'description' => __('Will be displayed in the footer', 'riba-lite'),
+            'label'   => esc_html__( 'Email addr.', 'riba-lite' ),
+            'description' => esc_html__('Will be displayed in the footer', 'riba-lite'),
             'section' => $prefix.'_general_contact_section',
             'settings'   => $prefix.'_email',
             'priority' => 10
@@ -180,8 +180,8 @@
 
     $wp_customize->add_control( $prefix.'_phone',
         array(
-            'label'   => __( 'Phone number', 'riba-lite' ),
-            'description' => __('Will be displayed in the footer', 'riba-lite'),
+            'label'   => esc_html__( 'Phone number', 'riba-lite' ),
+            'description' => esc_html__('Will be displayed in the footer', 'riba-lite'),
             'section' => $prefix.'_general_contact_section',
             'settings'   => $prefix.'_phone',
             'priority' => 12
@@ -193,7 +193,8 @@
     /***********************************************/
     $wp_customize->add_section( $prefix.'_general_footer_section' ,
         array(
-            'title'       => __( 'Footer Details', 'riba-lite' ),
+            'title'       => esc_html__( 'Footer Details', 'riba-lite' ),
+            'description' => esc_html__( 'Change the footer copyright message from here. Note: no HTML allowed.', 'riba-lite'),
             'priority'    => 4,
             'panel' => $panel_id
         )
@@ -203,15 +204,15 @@
     $wp_customize->add_setting( $prefix.'_footer_copyright',
         array(
             'sanitize_callback' => 'sanitize_text_field',
-            'default' => sprintf('&copy; %s', __('Macho Themes 2015. All Rights Reserved', 'riba-lite') )
+            'default' => sprintf('&copy; %s', esc_html__('Macho Themes 2015. All Rights Reserved', 'riba-lite') )
         )
     );
 
     $wp_customize->add_control( $prefix.'_footer_copyright',
         array(
             'type'  => 'textarea',
-            'label'   => __( 'Footer Copyright.', 'riba-lite' ),
-            'description' => __('Will be displayed in the footer', 'riba-lite'),
+            'label'   => esc_html__( 'Footer Copyright.', 'riba-lite' ),
+            'description' => esc_html__('Will be displayed in the footer', 'riba-lite'),
             'section' => $prefix.'_general_footer_section',
             'settings'   => $prefix.'_footer_copyright',
             'priority' => 11
