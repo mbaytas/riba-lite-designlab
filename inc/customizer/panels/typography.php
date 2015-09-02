@@ -17,7 +17,7 @@ $wp_customize->register_control_type( 'RL_Customizer_Control_Typography' );
 // Add the typography panel.
 $wp_customize->add_panel( $panel_id,
     array(
-        'priority' => 31,
+        'priority' => 32,
         'title' => esc_html__( 'Typography', 'riba-lite' ),
         'description' => esc_html__( 'This section allows you to control the font families, heights, weights, line-heights, letter spacing and styles of the website. If you are looking for a way to change the colors, please take a look at the colors section. ', 'riba-lite'),
     )

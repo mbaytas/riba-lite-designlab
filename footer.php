@@ -34,7 +34,7 @@
         <div class="container">
         <div class="row">
         <?php if($footer_email !== '' || $footer_phone !== '' ) { ?>
-        <div class="col-md-7 col-xs-12">
+        <div class="col-md-4 col-xs-12">
                 <div class="text-lg-left text-md-left text-sm-left text-xs-center">
                     <small>
                         <?php _e('Mail: ', 'riba-lite'); ?><a href="mailto:<?php echo esc_attr( $footer_email ); ?>" rel="nofollow" target="_blank"><?php echo esc_attr( $footer_email ); ?></a> &middot;
@@ -43,7 +43,7 @@
                 </div><!--/.text-center-->
             </div><!--/col-lg-7-->
             <?php } ?>
-            <div class="col-md-5 col-xs-12">
+            <div class="col-md-8 col-xs-12">
                 <?php wp_nav_menu( array(
                     'theme_location' => 'secondary',
                     'menu_id' => 'secondary-menu',

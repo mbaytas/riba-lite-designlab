@@ -19,14 +19,14 @@ function rl_customize_register( $wp_customize ) {
     /* Blog Panel */
     require_once get_template_directory() . '/inc/customizer/panels/blog.php';
 
+    /* Post Formats Panel */
+    require_once get_template_directory() . '/inc/customizer/panels/post-formats.php';
+
 	/* Typography Panel */
     require_once get_template_directory() . '/inc/customizer/panels/typography.php';
 
     /* Colors Panel */
     require_once get_template_directory() . '/inc/customizer/panels/colors.php';
-
-    /* Post Formats Panel */
-    require_once get_template_directory() . '/inc/customizer/panels/post-formats.php';
 
     /* Advanced Panel */
     require_once get_template_directory() . '/inc/customizer/panels/advanced.php';
@@ -163,12 +163,15 @@ if( !function_exists( 'rl_customizer_preview_js' ) ) {
 }
 
 
+
+
 if( !function_exists( 'rl_customizer_css_load' ) ) {
     /**
      * Function to load CSS into the customizer
      */
     function rl_customizer_css_load() {
         wp_enqueue_style(   'rl-general-customizer-css', get_template_directory_uri() . '/inc/customizer/assets/css/riba-lite.css');
+        wp_enqueue_style('mt-customizer-css', get_template_directory_uri() .'/inc/customizer/assets/css/pro/pro-version.css');
 
     }
 

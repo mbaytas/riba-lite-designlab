@@ -19,7 +19,7 @@
             'priority' => 29,
             'capability' => 'edit_theme_options',
             'theme_supports' => '',
-            'title' => esc_html__( 'Blog options', 'riba-lite' ),
+            'title' => esc_html__( 'Single Post Options', 'riba-lite' ),
             'description' => esc_html__( 'Control various blog options from here. Most of the options from this panel refer to the blog single page view. If you\'re not familiar with that term, please perform a Google search.', 'riba-lite' ),
         )
     );

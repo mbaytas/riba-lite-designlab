@@ -52,7 +52,7 @@ if( !class_exists( 'MTL_Author_Box_Output' ) ) {
          *
          */
         protected function __construct() {
-            add_action( 'mtl_after_content', array( $this, 'output_author_box' ), 3);
+            add_action( 'mtl_single_after_content', array( $this, 'output_author_box' ), 3);
         }
 
         /**
@@ -97,18 +97,18 @@ if( !class_exists( 'MTL_Author_Box_Output' ) ) {
         function output_author_box() {
 
         echo '<div class="container">';
-            echo '<div class="rl-author-area row">';
+            echo '<div class="author-area row">';
                 echo '<div class="col-lg-1 col-md-1 hidden-sm hidden-xs">';
-                    echo'<a class="rl-author-link" href="'.esc_url( get_author_posts_url( get_the_author_meta() ) ).'" rel="author">';
+                    echo'<a class="author-link" href="'.esc_url( get_author_posts_url( get_the_author_meta() ) ).'" rel="author">';
                         echo get_avatar( get_the_author_meta( 'user_email' ), 110 );
                         echo '</a>';
                     echo '</div>';
         
                     echo '<div class="col-lg-11 col-md-11 col-xs-12">';
                     echo '<h4>';
-                        echo  '<a class="rl-author-link" href="'.esc_url( get_author_posts_url( get_the_author_meta() ) ).'" rel="author">'.esc_html( get_the_author() ).'</a>';
+                        echo  '<a class="author-link" href="'.esc_url( get_author_posts_url( get_the_author_meta() ) ).'" rel="author">'.esc_html( get_the_author() ).'</a>';
                     echo '</h4>';
-                    echo '<div class="rl-author-info">';
+                    echo '<div class="author-info">';
                         echo '<p>' . esc_html( get_the_author_meta( 'description' ) ) . '</p>';
                     echo '</div>';
                 echo '</div><!--/.col-lg-9-->';

@@ -240,3 +240,36 @@ if( ! function_exists( 'rl_breadcrumbs' ) ) {
         $breadcrumbs->get_breadcrumbs();
     }
 }
+
+if( !function_exists( 'rl_prefix_upsell_notice' ) ) {
+    /**
+     * Display upgrade notice on customizer page
+     *
+     * @since Riba Lite 1.0.3
+     */
+    function rl_prefix_upsell_notice()
+    {
+
+        // Enqueue the script
+        wp_enqueue_script(
+            'riba-lite-customizer-upsell',
+            get_template_directory_uri() . '/inc/customizer/assets/js/upsell/upsell.js',
+            array(), '1.0.0',
+            true
+        );
+
+        // Localize the script
+        wp_localize_script(
+            'riba-lite-customizer-upsell',
+            'prefixL10n',
+            array(
+                'prefixURL' => esc_url('https://www.machothemes.com/?edd_action=add_to_cart&download_id=13&discount=DEMO10'),
+                'prefixLabel' => esc_html__('Buy PRO', 'pixova-lite'),
+                'prefixImageURL' => esc_url( get_template_directory_uri() . '/layout/images/upsell/placeholdit-300x100.png')
+            )
+        );
+
+    }
+
+    add_action('customize_controls_enqueue_scripts', 'rl_prefix_upsell_notice');
+}

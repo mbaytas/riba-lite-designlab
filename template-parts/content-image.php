@@ -1,7 +1,5 @@
 <?php
-$display_separator = get_theme_mod('rl_post_'.esc_attr( get_post_format( $post->ID ) ).'_enable_separator', 1);
 $display_ert = get_theme_mod('rl_post_'.esc_attr( get_post_format( $post->ID ) ).'_enable_ert', 1);
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('post-grid post-featured-image col-xs-12'); ?>>
@@ -15,18 +13,10 @@ $display_ert = get_theme_mod('rl_post_'.esc_attr( get_post_format( $post->ID ) )
 
             <div class="entry-content">
                 <header class="entry-header">
-                    <?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
-                    <?php if($display_separator == 1 ) { ?>
-                        <!-- SEPARATOR -->
-                        <hr />
-                        <!-- / END SEPARATOR -->
-                    <?php } ?>
+                    <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+
                     <?php if ( 'post' == get_post_type() ) : ?>
-                        <?php if( $display_separator == 1 || $display_ert == 1 ) { ?>
-                            <div class="entry-meta">
-                             <?php do_action('mtl_entry_meta'); ?>
-                            </div><!-- .entry-meta -->
-                        <?php } ?>
+                        <?php do_action('mtl_entry_meta'); ?>
                     <?php endif; ?>
                 </header><!-- .entry-header -->
             </div><!-- .entry-content -->

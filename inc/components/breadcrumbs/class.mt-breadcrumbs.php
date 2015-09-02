@@ -74,10 +74,10 @@ class Riba_Breadcrumbs {
 			 'separator' 				=> get_theme_mod('rl_blog_breadcrumb_menu_separator', 'rarr'),
 			 'show_post_type_archive'	=> '1',
 			 'show_terms'  				=> get_theme_mod('rl_blog_breadcrumb_menu_post_category', 1),
-			 'home_label'      			=> __( 'Home', 'riba-lite' ),
-			 'tag_archive_prefix'   	=> __( 'Tag:', 'riba-lite' ),
-			 'search_prefix'        	=> __( 'Search:', 'riba-lite' ),
-			 'error_prefix' 			=> __( '404 - Page not Found', 'riba-lite' ),
+			 'home_label'      			=> esc_html__( 'Home', 'riba-lite' ),
+			 'tag_archive_prefix'   	=> esc_html__( 'Tag:', 'riba-lite' ),
+			 'search_prefix'        	=> esc_html__( 'Search:', 'riba-lite' ),
+			 'error_prefix' 			=> esc_html__( '404 - Page not Found', 'riba-lite' ),
 		);
 
 		// Setup a filter for changeable variables and meger it with the defaults

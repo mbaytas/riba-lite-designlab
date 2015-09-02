@@ -13,10 +13,10 @@ $prefix = 'rl';
 
     $wp_customize->add_panel( $panel_id,
         array(
-            'priority' => 34,
+            'priority' => 32,
             'capability' => 'edit_theme_options',
             'theme_supports' => '',
-            'title' => esc_html__( 'Post Formats', 'riba-lite' ),
+            'title' => esc_html__( 'Archive Blog Post Settings', 'riba-lite' ),
             'description' => esc_html__('This section allows you to control various settings specific to each post-format. Making changes in these sections will be reflected on the homepage.', 'riba-lite'),
         )
     );
@@ -34,22 +34,6 @@ $prefix = 'rl';
         )
     );
 
-    /* Enable Separator */
-    $wp_customize->add_setting( $prefix.'_post_standard_enable_separator',
-        array(
-            'sanitize_callback' => $prefix.'_sanitize_checkbox',
-            'default' => 1
-        )
-    );
-    $wp_customize->add_control(
-        $prefix.'_post_standard_enable_separator',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Enable Separator', 'riba-lite'),
-            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
-            'section' => $prefix.'_post_standard_format_section',
-        )
-    );
 
     /* Enable Author Name  */
     $wp_customize->add_setting( $prefix.'_post_standard_enable_author',
@@ -115,22 +99,6 @@ $prefix = 'rl';
         )
     );
 
-    /* Enable Separator */
-    $wp_customize->add_setting( $prefix.'_post_image_enable_separator',
-        array(
-            'sanitize_callback' => $prefix.'_sanitize_checkbox',
-            'default' => 1
-        )
-    );
-    $wp_customize->add_control(
-        $prefix.'_post_image_enable_separator',
-        array(
-            'type'  => 'checkbox',
-            'label' => esc_html__('Enable Separator', 'riba-lite'),
-            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
-            'section' => $prefix.'_post_image_format_section',
-        )
-    );
 
     /* Enable Author Name  */
     $wp_customize->add_setting( $prefix.'_post_image_enable_author',
@@ -200,22 +168,6 @@ $prefix = 'rl';
         )
     );
 
-    /* Enable Separator */
-    $wp_customize->add_setting( $prefix.'_post_video_enable_separator',
-        array(
-            'sanitize_callback' => $prefix.'_sanitize_checkbox',
-            'default' => 1
-        )
-    );
-    $wp_customize->add_control(
-        $prefix.'_post_video_enable_separator',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Enable Separator', 'riba-lite'),
-            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
-            'section' => $prefix.'_post_video_format_section',
-        )
-    );
 
     /* Enable Author Name  */
     $wp_customize->add_setting( $prefix.'_post_video_enable_author',

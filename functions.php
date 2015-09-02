@@ -31,6 +31,7 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
         require get_template_directory() . '/inc/components/preloader/class.mt-preloader-output.php';
 
         // Functionality
+		require get_template_directory() . '/inc/components/pagination/class.mt-pagination.php';
         require get_template_directory() . '/inc/components/nav-walker/class.mt-nav-walker.php';
         require get_template_directory() . '/inc/components/breadcrumbs/class.mt-breadcrumbs.php';
         require get_template_directory() . '/inc/components/entry-meta/class.mt-entry-meta.php';
@@ -46,6 +47,13 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
 			require get_template_directory() . '/inc/back-compat.php';
 		}
 
+        /**
+         * Riba Lite Plugin dependencies
+         *
+         * @since Riba Lite 1.0.3
+         */
+        require get_template_directory() . '/inc/plugin-activation.php';
+
 		/**
 		 * Jetpack support
 		 */
@@ -54,7 +62,6 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
 		/**
 		 * Custom functions that act independently of the theme templates.
 		 */
-
 		require get_template_directory() . '/inc/extras.php';
         require get_template_directory() . '/inc/template-tags.php';
 
@@ -123,7 +130,7 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
 
 		// Setup the WordPress core custom background feature.
 		add_theme_support( 'custom-background', apply_filters( 'custom_background_args', array(
-			'default-color' => 'ffffff',
+			'default-color' => 'f2f2f2',
 			'default-image' => '',
 		) ) );
 
@@ -272,7 +279,7 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 		 */
 
 		// General theme Stylesheet
-		wp_enqueue_style( 'riba-main-style', get_stylesheet_uri() );
+		wp_enqueue_style( 'rl-main-style', get_stylesheet_uri() );
 
         // BS3 Components
         wp_enqueue_style( 'bootstrap-components', get_template_directory_uri() .'/layout/css/bootstrap-components.min.css' );
@@ -318,7 +325,7 @@ if( !function_exists( 'rl_comment_reply_js' ) ) {
 
 if ( ! function_exists( 'rl_fonts_url' ) ) {
 	/**
-	 * Register Google fonts for Twenty Fifteen.
+	 * Register Google fonts for Riba Lite.
 	 *
 	 * Riba Lite 1.16
 	 *
@@ -419,3 +426,84 @@ if( !function_exists( 'rl_layout_body_class' ) ) {
     }
 }
 
+if( !function_exists('rl_register_required_plugins') ) {
+    /**
+     * Custom function to load TGMPA
+     *
+     * @since Riba Lite 1.0.3
+     */
+    function rl_register_required_plugins()
+    {
+
+        /**
+         * Array of plugin arrays. Required keys are name and slug.
+         * If the source is NOT from the .org repo, then source is also required.
+         */
+        $plugins = array(
+
+            // Login Customizer
+            array(
+                'name' => 'Custom Login Page Customizer', // The plugin name.
+                'slug' => 'login-customizer', // The plugin slug (typically the folder name).
+                'source' => '', // The plugin source.
+                'required' => false, // If false, the plugin is only 'recommended' instead of required.
+                'version' => '1.0.3', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
+                'force_activation' => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+                'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+                'external_url' => '', // If set, overrides default API URL and points to an external URL.
+            ),
+
+            array(
+                'name' => 'WP Product Review', // The plugin name.
+                'slug' => 'wp-product-review', // The plugin slug (typically the folder name).
+                'source' => '', // The plugin source.
+                'required' => false, // If false, the plugin is only 'recommended' instead of required.
+                'version' => '2.5.2', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
+                'force_activation' => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+                'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+                'external_url' => '', // If set, overrides default API URL and points to an external URL.
+            ),
+        );
+
+        /**
+         * Array of configuration settings. Amend each line as needed.
+         * If you want the default strings to be available under your own theme domain,
+         * leave the strings uncommented.
+         * Some of the strings are added into a sprintf, so see the comments at the
+         * end of each line for what each argument will be.
+         */
+        $config = array(
+            'default_path' => '',                      // Default absolute path to pre-packaged plugins.
+            'menu'        => 'mt-install-plugins', // Menu slug.
+            'has_notices' => true,                    // Show admin notices or not.
+            'dismissable' => true,                    // If false, a user cannot dismiss the nag message.
+            'dismiss_msg' => true,                      // If 'dismissable' is false, this message will be output at top of nag.
+            'is_automatic' => false,                   // Automatically activate plugins after installation or not.
+            'message' => '',                      // Message to output right before the plugins table.
+            'strings' => array(
+                'page_title' => __('Install Required Plugins', 'riba-lite'),
+                'menu_title' => __('Install Plugins', 'riba-lite'),
+                'installing' => __('Installing Plugin: %s', 'riba-lite'), // %s = plugin name.
+                'oops' => __('Something went wrong with the plugin API.', 'riba-lite'),
+                'notice_can_install_required' => _n_noop('This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.', 'riba-lite'), // %1$s = plugin name(s).
+                'notice_can_install_recommended' => _n_noop('This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.', 'riba-lite'), // %1$s = plugin name(s).
+                'notice_cannot_install' => _n_noop('Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.', 'riba-lite'), // %1$s = plugin name(s).
+                'notice_can_activate_required' => _n_noop('The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.', 'riba-lite'), // %1$s = plugin name(s).
+                'notice_can_activate_recommended' => _n_noop('The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.', 'riba-lite'), // %1$s = plugin name(s).
+                'notice_cannot_activate' => _n_noop('Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.', 'riba-lite'), // %1$s = plugin name(s).
+                'notice_ask_to_update' => _n_noop('The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.', 'riba-lite'), // %1$s = plugin name(s).
+                'notice_cannot_update' => _n_noop('Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.', 'riba-lite'), // %1$s = plugin name(s).
+                'install_link' => _n_noop('Begin installing plugin', 'Begin installing plugins', 'riba-lite'),
+                'activate_link' => _n_noop('Begin activating plugin', 'Begin activating plugins', 'riba-lite'),
+                'return' => __('Return to Required Plugins Installer', 'riba-lite'),
+                'plugin_activated' => __('Plugin activated successfully.', 'riba-lite'),
+                'complete' => __('All plugins installed and activated successfully. %s', 'riba-lite'), // %s = dashboard link.
+                'nag_type' => 'updated' // Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
+            )
+        );
+
+        tgmpa($plugins, $config);
+    }
+
+    add_action( 'tgmpa_register', 'rl_register_required_plugins' );
+}

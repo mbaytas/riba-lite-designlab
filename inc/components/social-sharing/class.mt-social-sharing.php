@@ -59,13 +59,13 @@ if( !class_exists( 'MTL_Social_Sharing_Output' ) ) {
                 /**
                  * Display the sharing bar at the end of the content
                  */
-                add_action('mtl_after_content', array($this, 'output_social_sharing_box'), 1);
+                add_action('mtl_single_after_content', array($this, 'output_social_sharing_box'), 1);
 
             } else if( $sharing_bar_position == 'before_content' ) {
                 /**
                  * Display social sharing box before the content (right below the big bg. image)
                  */
-                add_action('mtl_before_content', array($this, 'output_social_sharing_box'), 1);
+                add_action('mtl_single_before_content', array($this, 'output_social_sharing_box'), 1);
             }
 
 

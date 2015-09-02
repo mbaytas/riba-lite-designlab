@@ -1,5 +1,4 @@
 <?php
-    $display_separator = get_theme_mod('rl_post_standard_enable_separator', 1);
     $display_ert = get_theme_mod('rl_post_standard_enable_ert', 1);
 
 ?>
@@ -16,17 +15,9 @@
         <div class="entry-content">
             <header class="entry-header">
                 <?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
-                <?php if($display_separator == 1 ) { ?>
-                    <!-- SEPARATOR -->
-                    <hr />
-                    <!-- / END SEPARATOR -->
-                <?php } ?>
+
                 <?php if ( 'post' == get_post_type() ) : ?>
-                    <?php if( $display_separator == 1 || $display_ert == 1 ) { ?>
-                    <div class="entry-meta">
-                        <?php do_action('mtl_entry_meta'); ?>
-                    </div><!-- .entry-meta -->
-                <?php } ?>
+                    <?php do_action('mtl_entry_meta'); ?>
                 <?php endif; ?>
             </header><!-- .entry-header -->
         </div><!-- .entry-content -->

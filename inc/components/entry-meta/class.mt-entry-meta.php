@@ -60,6 +60,7 @@ if( !class_exists( 'MTL_Entry_Meta_Output' ) ) {
             $display_post_posted_on_meta = get_theme_mod('rl_enable_post_posted_on_blog_posts', 1);
             $display_post_esrt_meta = get_theme_mod('rl_enable_post_esrt_blog_posts', 1);
 
+            echo '<div class="entry-meta">';
 
             if( $display_post_posted_on_meta == 1 ) {
                echo $this->posted_on_output();
@@ -68,6 +69,9 @@ if( !class_exists( 'MTL_Entry_Meta_Output' ) ) {
             if( $display_post_esrt_meta == 1 ) {
                echo $this->reading_time_output();
             }
+
+            echo '</div>';
+
         }
 
         /**
@@ -136,7 +140,7 @@ if( !class_exists( 'MTL_Entry_Meta_Output' ) ) {
 
             $byline = sprintf(
                 esc_html_x('%s', 'post author', 'riba-lite'),
-                '<div class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></div>'
+                '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
             );
 
             if( $display_author == 1 ) {
@@ -151,7 +155,5 @@ if( !class_exists( 'MTL_Entry_Meta_Output' ) ) {
 
 
         }
-
-
     }
 }

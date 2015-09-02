@@ -22,9 +22,9 @@
 
     <?php do_action('mtl_site_preloader'); ?>
 
-
-
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'riba-lite' ); ?></a>
+
+    <?php do_action('mtl_before_header'); ?>
 
     <?php if($rl_logo_url) {  ?>
 	    <div id="header-container" class="container-fluid rl-img-logo">
@@ -53,9 +53,6 @@
                     echo '<nav id="site-navigation" class="main-navigation col-lg-8 col-md-8 col-sm-8 hidden-xs" role="navigation">';
                 }
                 ?>
-
-
-
 					<?php wp_nav_menu( array(
 						'theme_location' => 'primary',
 						'menu_id' => 'primary-menu',

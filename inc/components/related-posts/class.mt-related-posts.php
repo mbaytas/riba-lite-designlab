@@ -57,7 +57,7 @@ if( !class_exists( 'MTL_Related_Posts_Output' ) ) {
          *
          */
         protected function __construct() {
-            add_action( 'mtl_after_content', array( $this, 'output_related_posts' ), 2);
+            add_action( 'mtl_single_after_content', array( $this, 'output_related_posts' ), 2);
         }
 
         /**
