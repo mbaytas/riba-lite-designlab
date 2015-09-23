@@ -2,6 +2,7 @@
 
     // Include Custom Controls
     require get_template_directory() . '/inc/customizer/custom-controls/radio-img-selector.php';
+    require get_template_directory() . '/inc/customizer/custom-controls/pro-controls-selector.php';
 
     // Set Panel ID
     $panel_id = 'rl_panel_general';
@@ -45,7 +46,7 @@
             'capability' => 'edit_theme_options',
             'theme_supports' => '',
             'title' => esc_html__( 'General Options', 'riba-lite' ),
-            'description' => esc_html__('You can change the site layout in this area as well as your contact details (the ones displayed in the footer) ', 'riba-lite'),
+            'description' => esc_html__('You can change the site layout in this area as well as your contact details (the ones displayed in the header & footer) ', 'riba-lite'),
         )
     );
 
@@ -121,15 +122,15 @@
     $wp_customize->add_setting($prefix.'_img_logo',
         array(
             'sanitize_callback' => $prefix.'_sanitize_file_url',
-            'default' => '',
+            'default' => __('Your site IMAGE logo HERE', 'riba-lite'),
         )
     );
-    $wp_customize->add_control( new WP_Customize_Image_Control(
+    $wp_customize->add_control( new RL_Disabled_Custom_Control(
             $wp_customize,
             $prefix.'_img_logo',
             array(
-                'label'         => esc_html__('Site Logo', 'riba-lite'),
-                'description'   => esc_html__('Recommended size: 100 x 100', 'riba-lite'),
+	            'type'          => 'text',
+                'label'         => esc_html__('Image Site Logo', 'riba-lite'),
                 'section'       => $prefix.'_general_section',
                 'priority'      => 2
             )
@@ -144,14 +145,104 @@
     $wp_customize->add_section( $prefix.'_general_contact_section' ,
         array(
             'title'       => esc_html__( 'Contact Details', 'riba-lite' ),
-            'description' => esc_html__( 'These are the contact details displayed in the footer of the website.', 'riba-lite' ),
+            'description' => esc_html__( 'These are the contact details displayed in the header & footer of the website.', 'riba-lite' ),
             'priority'    => 3,
             'panel' => $panel_id
         )
     );
 
+	/* Facebook URL */
+	$wp_customize->add_setting( $prefix.'_contact_bar_facebook_url',
+		array(
+			'sanitize_callback' => 'esc_url',
+			'default' => esc_url('https://www.facebook.com/machothemes/')
+		)
+	);
 
-    /* email */
+	$wp_customize->add_control( $prefix.'_contact_bar_facebook_url',
+		array(
+			'label'   => esc_html__( 'Facebook URL', 'riba-lite' ),
+			'description' => esc_html__('Will be displayed in the contact bar ( Header )', 'riba-lite'),
+			'section' => $prefix.'_general_contact_section',
+			'settings'   => $prefix.'_contact_bar_facebook_url',
+			'priority' => 10
+		)
+	);
+
+	/* Twitter URL */
+	$wp_customize->add_setting( $prefix.'_contact_bar_twitter_url',
+		array(
+			'sanitize_callback' => 'esc_url',
+			'default' => esc_html('#')
+		)
+	);
+
+	$wp_customize->add_control( $prefix.'_contact_bar_twitter_url',
+		array(
+			'label'   => esc_html__( 'Twitter URL', 'riba-lite' ),
+			'description' => esc_html__('Will be displayed in the contact bar ( Header )', 'riba-lite'),
+			'section' => $prefix.'_general_contact_section',
+			'settings'   => $prefix.'_contact_bar_twitter_url',
+			'priority' => 10
+		)
+	);
+
+	/* YouTube URL */
+	$wp_customize->add_setting( $prefix.'_contact_bar_youtube_url',
+		array(
+			'sanitize_callback' => 'esc_url',
+			'default' => esc_html('#')
+		)
+	);
+
+	$wp_customize->add_control( $prefix.'_contact_bar_youtube_url',
+		array(
+			'label'   => esc_html__( 'YouTube URL', 'riba-lite' ),
+			'description' => esc_html__('Will be displayed in the contact bar ( Header )', 'riba-lite'),
+			'section' => $prefix.'_general_contact_section',
+			'settings'   => $prefix.'_contact_bar_youtube_url',
+			'priority' => 10
+		)
+	);
+
+	/* Pinterest URL */
+	$wp_customize->add_setting( $prefix.'_contact_bar_pinterest_url',
+		array(
+			'sanitize_callback' => 'esc_url',
+			'default' => esc_html('#')
+		)
+	);
+
+	$wp_customize->add_control( $prefix.'_contact_bar_pinterest_url',
+		array(
+			'label'   => esc_html__( 'Pinterest URL', 'riba-lite' ),
+			'description' => esc_html__('Will be displayed in the contact bar ( Header )', 'riba-lite'),
+			'section' => $prefix.'_general_contact_section',
+			'settings'   => $prefix.'_contact_bar_pinterest_url',
+			'priority' => 10
+		)
+	);
+
+	/* LinkedIN URL */
+	$wp_customize->add_setting( $prefix.'_contact_bar_linkedin_url',
+		array(
+			'sanitize_callback' => 'esc_url',
+			'default' => esc_html('#')
+		)
+	);
+
+	$wp_customize->add_control( $prefix.'_contact_bar_linkedin_url',
+		array(
+			'label'   => esc_html__( 'LinkedIN URL', 'riba-lite' ),
+			'description' => esc_html__('Will be displayed in the contact bar ( Header )', 'riba-lite'),
+			'section' => $prefix.'_general_contact_section',
+			'settings'   => $prefix.'_contact_bar_linkedin_url',
+			'priority' => 10
+		)
+	);
+
+
+	/* email */
     $wp_customize->add_setting( $prefix.'_email',
         array(
             'sanitize_callback' => 'sanitize_email',
@@ -162,7 +253,7 @@
     $wp_customize->add_control( $prefix.'_email',
         array(
             'label'   => esc_html__( 'Email addr.', 'riba-lite' ),
-            'description' => esc_html__('Will be displayed in the footer', 'riba-lite'),
+            'description' => esc_html__('Will be displayed in the header & footer', 'riba-lite'),
             'section' => $prefix.'_general_contact_section',
             'settings'   => $prefix.'_email',
             'priority' => 10
@@ -181,7 +272,7 @@
     $wp_customize->add_control( $prefix.'_phone',
         array(
             'label'   => esc_html__( 'Phone number', 'riba-lite' ),
-            'description' => esc_html__('Will be displayed in the footer', 'riba-lite'),
+            'description' => esc_html__('Will be displayed in the header & footer', 'riba-lite'),
             'section' => $prefix.'_general_contact_section',
             'settings'   => $prefix.'_phone',
             'priority' => 12
@@ -208,14 +299,17 @@
         )
     );
 
-    $wp_customize->add_control( $prefix.'_footer_copyright',
-        array(
-            'type'  => 'textarea',
-            'label'   => esc_html__( 'Footer Copyright.', 'riba-lite' ),
-            'description' => esc_html__('Will be displayed in the footer', 'riba-lite'),
-            'section' => $prefix.'_general_footer_section',
-            'settings'   => $prefix.'_footer_copyright',
-            'priority' => 11
-        )
+    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+	    $wp_customize,
+	    $prefix.'_footer_copyright',
+	        array(
+	            'type'  => 'textarea',
+	            'label'   => esc_html__( 'Footer Copyright.', 'riba-lite' ),
+	            'description' => esc_html__('Will be displayed in the footer', 'riba-lite'),
+	            'section' => $prefix.'_general_footer_section',
+	            'settings'   => $prefix.'_footer_copyright',
+	            'priority' => 11
+	        )
+	    )
     );
 

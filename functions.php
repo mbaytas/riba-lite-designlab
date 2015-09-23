@@ -26,12 +26,11 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
          */
 
         // Design
-        require get_template_directory() . '/inc/components/colors/class.mt-colors-output.php';
-        require get_template_directory() . '/inc/components/typography/class.mt-typography-output.php';
         require get_template_directory() . '/inc/components/preloader/class.mt-preloader-output.php';
 
         // Functionality
-		require get_template_directory() . '/inc/components/pagination/class.mt-pagination.php';
+		require get_template_directory() . '/inc/components/contact-bar/class.mt-contact-bar.php';
+ 		require get_template_directory() . '/inc/components/pagination/class.mt-pagination.php';
         require get_template_directory() . '/inc/components/nav-walker/class.mt-nav-walker.php';
         require get_template_directory() . '/inc/components/breadcrumbs/class.mt-breadcrumbs.php';
         require get_template_directory() . '/inc/components/entry-meta/class.mt-entry-meta.php';
@@ -191,9 +190,6 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 		// Simple Placeholders JS
 		wp_register_script( 'simple-placeholder-js', get_template_directory_uri() . '/layout/js/simpleplaceholder/simplePlaceholder.min.js', array('jquery'), '1.0.0', true );
 
-		// YT Player JS
-		wp_register_script( 'mb-ytplayer-min-js', get_template_directory_uri() . '/layout/js/ytplayer/mb-ytplayer.min.js', array('jquery'), '2.9.4', true );
-
 		// Scripts JS
 		wp_register_script ( 'riba-lite-scripts-js', get_template_directory_uri() . '/layout/js/scripts.min.js', array(), '1.0', true );
 
@@ -215,7 +211,6 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 
 		$enable_smooth_scroll = get_theme_mod('rl_enable_site_smoothscroll', 1);
         $enable_site_preloader = get_theme_mod('rl_enable_site_preloader', 1);
-		$enable_mbytplayer = get_theme_mod('rl_enable_site_mbytplayer', 1);
         $enable_headroom = get_theme_mod('rl_enable_site_headroom', 1);
         $enable_lazyload = get_theme_mod('rl_enable_site_lazyload', 1);
 
@@ -232,7 +227,10 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 
                 echo '<!-- Customizer CSS Fixes-->'."\n";
                 echo '<style>';
-                echo '.site-header {top : 0 !important; max-width: 1545px; }'."\n";
+	            echo 'body .site-header {top: 42px; }'."\n";
+                echo 'body .site-header.headroom--pinned.headroom--top {top : 42px !important; max-width: 1545px; }'."\n";
+                echo 'body .site-header.headroom--unpinned.headroom--not-top {top: 90px !important; }' ."\n";
+	            echo 'body .site-header.headroom--not-top.headroom--pinned { top: 0 !important; }' ."\n";
                 echo '#page {padding-top: 0 !important; }'."\n";
                 echo '</style>';
             }
@@ -250,10 +248,6 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 
         if( $enable_lazyload == 1 ) {
             wp_enqueue_script( 'lazy-load-min-js' );
-        }
-
-        if( $enable_mbytplayer == 1 ) {
-            wp_enqueue_script( 'mb-ytplayer-min-js' );
         }
 
         if( $enable_headroom == 1 ) {
@@ -386,45 +380,45 @@ if ( ! function_exists( 'rl_fonts_url' ) ) {
 	}
 }
 
-
 if( !function_exists( 'rl_print_layout_styles' ) ) {
-    /**
-     * Simple function to switch CSS for boxed / fluid layouts
-     */
-    function rl_print_layout_styles() {
+	/**
+	 * Simple function to switch CSS for boxed / fluid layouts
+	 */
+	function rl_print_layout_styles() {
 
-        $layout = get_theme_mod('rl_site_layout', 'boxed');
+		$layout = get_theme_mod('rl_site_layout', 'boxed');
 
-        // Output the styles.
-        if ( $layout == 'boxed' ) {
-            echo '<!-- Custom Layout Styles -->'."\n";
-            echo "\n" . '<style type="text/css" id="rl-layout"> body .container-fluid {max-width: 1170px; } body .container {width: auto !important; } body .site-header {width: 1170px; max-width: 100% !important;} </style>' . "\n";
-            echo '<!-- END -->';
+		// Output the styles.
+		if ( $layout == 'boxed' ) {
+			echo '<!-- Custom Layout Styles -->'."\n";
+			echo "\n" . '<style type="text/css" id="rl-layout"> body .container-fluid {max-width: 1170px; } body .container {width: auto !important; } body .site-header {width: 1170px; max-width: 100% !important;} </style>' . "\n";
+			echo '<!-- END -->';
 
-            # Add custom body class for more CSS weight
-            add_filter( 'body_class', 'rl_layout_body_class' );
+			# Add custom body class for more CSS weight
+			add_filter( 'body_class', 'rl_layout_body_class' );
 
-        }
-    }
+		}
+	}
 
-    # Add custom styles to `<head>`.
-    add_action( 'wp_head', 'rl_print_layout_styles', 2);
+	# Add custom styles to `<head>`.
+	add_action( 'wp_head', 'rl_print_layout_styles', 2);
 }
 
 if( !function_exists( 'rl_layout_body_class' ) ) {
-    /**
-     * Add custom body class to give some more weight to our styles.
-     *
-     * @since  1.0.0
-     * @access public
-     * @param  array $classes
-     * @return array
-     */
-    function rl_layout_body_class($classes)
-    {
-        return array_merge($classes, array('rl-layout'));
-    }
+	/**
+	 * Add custom body class to give some more weight to our styles.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  array $classes
+	 * @return array
+	 */
+	function rl_layout_body_class($classes)
+	{
+		return array_merge($classes, array('rl-layout'));
+	}
 }
+
 
 if( !function_exists('rl_register_required_plugins') ) {
     /**
@@ -451,18 +445,8 @@ if( !function_exists('rl_register_required_plugins') ) {
                 'force_activation' => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
                 'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
                 'external_url' => '', // If set, overrides default API URL and points to an external URL.
-            ),
+            )
 
-            array(
-                'name' => 'WP Product Review', // The plugin name.
-                'slug' => 'wp-product-review', // The plugin slug (typically the folder name).
-                'source' => '', // The plugin source.
-                'required' => false, // If false, the plugin is only 'recommended' instead of required.
-                'version' => '2.5.2', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
-                'force_activation' => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-                'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-                'external_url' => '', // If set, overrides default API URL and points to an external URL.
-            ),
         );
 
         /**
@@ -506,4 +490,221 @@ if( !function_exists('rl_register_required_plugins') ) {
     }
 
     add_action( 'tgmpa_register', 'rl_register_required_plugins' );
+}
+
+#
+# More Themes Functionality
+#
+
+
+if( !function_exists( 'rl_more_themes_styles' ) ) {
+    /**
+     *
+     */
+    function rl_more_themes_styles() {
+        wp_enqueue_style('more-theme-style', get_template_directory_uri() . '/layout/css/more-themes.min.css');
+    }
+}
+
+# Add upsell page to the menu.
+if( !function_exists( 'rl_add_upsell' ) ) {
+    /**
+     *
+     */
+    function rl_lite_add_upsell() {
+
+        $page = add_theme_page(
+            __( 'More Themes', 'riba-lite' ),
+            __( 'More Themes', 'riba-lite' ),
+            'administrator',
+            'macho-themes',
+            'rl_display_upsell'
+        );
+
+        add_action( 'admin_print_styles-' . $page, 'rl_more_themes_styles' );
+    }
+
+    add_action( 'admin_menu', 'rl_lite_add_upsell', 11 );
+}
+
+
+# Define markup for the upsell page.
+if( !function_exists( 'rl_display_upsell' ) ) {
+    function rl_display_upsell() {
+
+        // Set template directory uri
+        $directory_uri = get_template_directory_uri();
+        ?>
+        <div class="wrap">
+            <div class="container-fluid">
+                <div id="upsell_container">
+                    <div class="row">
+                        <div id="upsell_header" class="col-md-12">
+
+                            <a href="http://www.machothemes.com/" target="_blank">
+                                <img
+                                    src="<?php echo get_template_directory_uri(); ?>/layout/images/upsell/macho-themes-logo.png"/>
+                            </a>
+
+
+
+                            <h3><?php echo __( 'Simple. Powerful. Flexible. That\'s how we at', 'riba-lite'). sprintf('<a href="%s" target=="_blank" rel="nofollow">', 'http://www.machothemes.com'). __(' Macho Themes', 'riba-lite'). '</a>'. __(' build all of our themes.', 'riba-lite' ); ?></h3>
+
+                        </div>
+                    </div>
+                    <div id="upsell_themes" class="row">
+                        <?php
+
+                        // Set the argument array with author name.
+                        $args = array(
+                            'author' => 'cristianraiber-1',
+                        );
+
+                        // Set the $request array.
+                        $request = array(
+                            'body' => array(
+                                'action'  => 'query_themes',
+                                'request' => serialize( (object) $args )
+                            )
+                        );
+
+                        $themes       = rl_get_themes( $request );
+                        $active_theme = wp_get_theme()->get( 'Name' );
+                        $counter      = 1;
+
+                        // For currently active theme.
+                        foreach ( $themes->themes as $theme ) {
+                            if ( $active_theme == $theme->name ) { ?>
+
+                                <div id="<?php echo $theme->slug; ?>" class="theme-container col-md-6 col-lg-4">
+                                    <div class="image-container">
+                                        <img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>"/>
+
+                                        <div class="theme-description">
+                                            <p><?php echo $theme->description; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="theme-details active">
+											<span
+                                                class="theme-name"><?php echo $theme->name . ':' . __( ' Current theme', 'riba-lite' ); ?></span>
+                                        <a class="button button-secondary customize right" target="_blank"
+                                           href="<?php echo get_site_url() . '/wp-admin/customize.php' ?>">Customize</a>
+                                    </div>
+                                </div>
+
+                                <?php
+                                $counter ++;
+                                break;
+                            }
+                        }
+
+                        // For all other themes.
+                        foreach ( $themes->themes as $theme ) {
+                            if ( $active_theme != $theme->name ) {
+
+                                // Set the argument array with author name.
+                                $args = array(
+                                    'slug' => $theme->slug,
+                                );
+
+                                // Set the $request array.
+                                $request = array(
+                                    'body' => array(
+                                        'action'  => 'theme_information',
+                                        'request' => serialize( (object) $args )
+                                    )
+                                );
+
+                                $theme_details = rl_get_themes( $request );
+                                ?>
+
+                                <div id="<?php echo $theme->slug; ?>"
+                                     class="theme-container col-md-6 col-lg-4 <?php echo $counter % 3 == 1 ? 'no-left-megin' : ""; ?>">
+                                    <div class="image-container">
+                                        <img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>"/>
+
+                                        <div class="theme-description">
+                                            <p><?php echo $theme->description; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="theme-details">
+                                        <span class="theme-name"><?php echo $theme->name; ?></span>
+
+                                        <!-- Check if the theme is installed -->
+                                        <?php if ( wp_get_theme( $theme->slug )->exists() ) { ?>
+
+
+
+                                            <!-- Activate Button -->
+                                            <a class="button button-primary activate right"
+                                               href="<?php echo wp_nonce_url( admin_url( 'themes.php?action=activate&amp;stylesheet=' . urlencode( $theme->slug ) ), 'switch-theme_' . $theme->slug ); ?>">Activate</a>
+                                        <?php } else {
+
+                                            // Set the install url for the theme.
+                                            $install_url = add_query_arg( array(
+                                                'action' => 'install-theme',
+                                                'theme'  => $theme->slug,
+                                            ), self_admin_url( 'update.php' ) );
+                                            ?>
+                                            <!-- Install Button -->
+                                            <a data-toggle="tooltip" data-placement="bottom"
+                                               title="<?php echo 'Downloaded ' . number_format( $theme_details->downloaded ) . ' times'; ?>"
+                                               class="button button-primary install right"
+                                               href="<?php echo esc_url( wp_nonce_url( $install_url, 'install-theme_' . $theme->slug ) ); ?>"><?php _e( 'Install Now', 'riba-lite' ); ?></a>
+                                        <?php } ?>
+
+                                        <!-- Preview button -->
+                                        <a class="button button-secondary preview right" target="_blank"
+                                           href="<?php echo $theme->preview_url; ?>"><?php _e( 'Live Preview', 'riba-lite' ); ?></a>
+                                    </div>
+                                </div>
+                                <?php
+                                $counter ++;
+                            }
+                        } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <?php
+    }
+}
+
+# Get all Macho Themes themes by using WP API.
+if( !function_exists( 'rl_get_themes' ) ) {
+    function rl_get_themes( $request ) {
+
+        // Generate a cache key that would hold the response for this request:
+        $key = 'riba-lite_' . md5( serialize( $request ) );
+
+        // Check transient. If it's there - use that, if not re fetch the theme
+        if ( false === ( $themes = get_transient( $key ) ) ) {
+
+            // Transient expired/does not exist. Send request to the API.
+            $response = wp_remote_post( 'http://api.wordpress.org/themes/info/1.0/', $request );
+
+            // Check for the error.
+            if ( ! is_wp_error( $response ) ) {
+
+                $themes = unserialize( wp_remote_retrieve_body( $response ) );
+
+
+                if ( ! is_object( $themes ) && ! is_array( $themes ) ) {
+
+                    // Response body does not contain an object/array
+                    return new WP_Error( 'theme_api_error', 'An unexpected error has occurred' );
+                }
+
+                // Set transient for next time... keep it for 24 hours should be good
+                set_transient( $key, $themes, 60 * 60 * 24 );
+            } else {
+                // Error object returned
+                return $response;
+            }
+        }
+
+        return $themes;
+    }
 }

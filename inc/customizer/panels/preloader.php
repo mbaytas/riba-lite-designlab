@@ -1,5 +1,8 @@
 <?php
 
+	// requires
+	require get_template_directory() . '/inc/customizer/custom-controls/pro-controls-selector.php';
+
     // Set Panel ID
     $panel_id = 'rl_panel_preloader';
 
@@ -41,13 +44,16 @@
         )
     );
 
-    $wp_customize->add_control(
+    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+        $wp_customize,
         $prefix.'_preloader_text',
-        array(
-            'label' 		=> esc_html__('Preloader text', 'riba-lite'),
-            'description'   => esc_html__('Current text: Loading', 'riba-lite'),
-            'section' 		=> $prefix.'_preloader_general_section',
-        )
+	        array(
+	            'type'          => 'text',
+	            'label' 		=> esc_html__('Preloader text', 'riba-lite'),
+	            'description'   => esc_html__('Current text: Loading', 'riba-lite'),
+	            'section' 		=> $prefix.'_preloader_general_section',
+	        )
+	    )
     );
 
 
@@ -117,7 +123,7 @@
     $wp_customize->add_section( $prefix.'_preloader_styles_section' ,
         array(
             'title'       => esc_html__( 'Styles', 'riba-lite' ),
-            'description' => esc_html__( 'This section allows you to pick your preloader style. More styles coming soon', 'riba-lite'),
+            'description' => esc_html__( 'This section allows you to pick your preloader style. More styles are available in the PRO version', 'riba-lite'),
             'panel' 	  => $panel_id
         )
     );

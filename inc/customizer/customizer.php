@@ -22,12 +22,6 @@ function rl_customize_register( $wp_customize ) {
     /* Post Formats Panel */
     require_once get_template_directory() . '/inc/customizer/panels/post-formats.php';
 
-	/* Typography Panel */
-    require_once get_template_directory() . '/inc/customizer/panels/typography.php';
-
-    /* Colors Panel */
-    require_once get_template_directory() . '/inc/customizer/panels/colors.php';
-
     /* Advanced Panel */
     require_once get_template_directory() . '/inc/customizer/panels/advanced.php';
 
@@ -69,27 +63,6 @@ if( !function_exists( 'rl_sanitize_file_url' ) ) {
     }
 }
 
-if( !function_exists( 'rl_sanitize_hex_color' ) ) {
-    /**
-     * Function to sanitize HEX formatted color codes
-     *
-     * @param $color
-     * @return null|string
-     */
-    function rl_sanitize_hex_color($color)
-    {
-        if ('' === $color) {
-            return '';
-        }
-
-        // 3 or 6 hex digits, or the empty string.
-        if (preg_match('|^#([A-Fa-f0-9]{3}){1,2}$|', $color)) {
-            return $color;
-        }
-
-        return null;
-    }
-}
 
 if( !function_exists( 'rl_sanitize_radio_buttons' ) ) {
     /**
@@ -151,18 +124,10 @@ if( !function_exists( 'rl_customizer_preview_js' ) ) {
         // Customizer preview JS
         wp_enqueue_script( 'rl-customizer-script', get_template_directory_uri() . '/inc/customizer/assets/js/customizer.js', array('customize-preview'), '1.0', true);
 
-        // Typography Preview JS
-        wp_enqueue_script( 'rl-typography-preview', get_template_directory_uri() . '/inc/customizer/assets/js/typography/typography-preview.js', array('jquery', 'customize-preview'), '1.0', true );
-
-        // Colors Preview JS
-        wp_enqueue_script('rl-colors-preview', get_template_directory_uri() . '/inc/customizer/assets/js/colors/color-preview.js', array('jquery', 'customize-preview'), '1.0', true);
-
     }
 
     add_action('customize_preview_init', 'rl_customizer_preview_js');
 }
-
-
 
 
 if( !function_exists( 'rl_customizer_css_load' ) ) {

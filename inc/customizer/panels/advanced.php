@@ -36,69 +36,37 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control(
+    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+        $wp_customize,
         $prefix.'_enable_site_preloader',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Enable site preloader', 'riba-lite'),
-            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
-            'section' => $prefix.'_advanced_section',
+            array(
+                'type'	=> 'checkbox',
+                'label' => esc_html__('Enable site preloader', 'riba-lite'),
+                'description' => esc_html__('Initial status: enabled', 'riba-lite'),
+                'section' => $prefix.'_advanced_section',
+            )
         )
     );
 
-    /* Enable LazyLoad */
+    /* Enable SmothScroll */
     $wp_customize->add_setting( $prefix.'_enable_site_smoothscroll',
         array(
             'sanitize_callback' => $prefix.'_sanitize_checkbox',
             'default' => 1
         )
     );
-    $wp_customize->add_control(
+    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+	    $wp_customize,
         $prefix.'_enable_site_smoothscroll',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Enable smoothscroll', 'riba-lite'),
-            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
-            'section' => $prefix.'_advanced_section',
-        )
+	        array(
+	            'type'	=> 'checkbox',
+	            'label' => esc_html__('Enable smoothscroll', 'riba-lite'),
+	            'description' => esc_html__('Initial status: enabled', 'riba-lite'),
+	            'section' => $prefix.'_advanced_section',
+	        )
+	    )
     );
 
-
-    /* MB YTplayer */
-    $wp_customize->add_setting( $prefix.'_enable_site_mbytplayer',
-        array(
-            'sanitize_callback' => $prefix.'_sanitize_checkbox',
-            'default' => 1
-        )
-    );
-
-    $wp_customize->add_control(
-        $prefix.'_enable_site_mbytplayer',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Enable YouTube Player ?', 'riba-lite'),
-            'description' => esc_html__('Initial status: enabled. If you do not plan on using videos in your post (or featuring them), go ahead and uncheck this.', 'riba-lite'),
-            'section' => $prefix.'_advanced_section',
-        )
-    );
-
-    /* Enable Sticky Header Behaviour */
-    $wp_customize->add_setting( $prefix.'_enable_site_headroom',
-        array(
-            'sanitize_callback' => $prefix.'_sanitize_checkbox',
-            'default' => 1
-        )
-    );
-
-    $wp_customize->add_control(
-        $prefix.'_enable_site_headroom',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Enable Sticky Header behavior ?', 'riba-lite'),
-            'description' => esc_html__('Initial status: enabled. If you don\'t like the fact that the header is hidden when you scroll down, uncheck this.', 'riba-lite'),
-            'section' => $prefix.'_advanced_section',
-        )
-    );
 
     /* Enable Image LazyLoad Behavior */
     $wp_customize->add_setting( $prefix.'_enable_site_lazyload',

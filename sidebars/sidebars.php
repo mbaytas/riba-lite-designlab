@@ -39,11 +39,6 @@ if (function_exists('register_sidebar')) {
                     'after_widget' => '</div>')
             );
 
-
-
-
-
-
         } // function riba_lite_register_sidebars end
 
         add_action('widgets_init', 'rl_register_sidebars');

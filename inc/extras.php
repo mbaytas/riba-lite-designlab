@@ -12,13 +12,11 @@ if( !function_exists( 'rl_body_classes' ) ) {
     {
 
         // Adds a class of group-blog to blogs with more than 1 published author.
-
-        if (is_multi_author()) {
+        if ( is_multi_author() ) {
             $classes[] = 'group-blog';
         }
 
         return $classes;
-
     }
 
     add_filter('body_class', 'rl_body_classes');
@@ -34,7 +32,7 @@ if ( version_compare( $GLOBALS['wp_version'], '4.3', '<' ) ) {
      */
     function rl_wp_title($title, $sep)
     {
-        if (is_feed()) {
+        if( is_feed() ) {
             return $title;
         }
 
@@ -154,62 +152,6 @@ if( !function_exists( 'rl_hex2rgba' ) ) {
 }
 
 
-
-
-if( !function_exists( 'rl_get_first_video_from_post') ) {
-    /**
-     * Function to fetch only URL of embedded video
-     *
-     * @param $post_id
-     * @return bool
-     */
-    function rl_get_first_video_from_post($post_id) {
-
-        $post = get_post($post_id);
-        $content = do_shortcode( apply_filters( 'the_content', $post->post_content ) );
-        $embeds = get_media_embedded_in_content( $content );
-
-        if( !empty($embeds) ) {
-            //check what is the first embed containg video tag, youtube or vimeo
-            foreach( $embeds as $embed ) {
-
-                if( strpos( $embed, 'video' ) || strpos( $embed, 'youtube' ) ) {
-
-                    return rl_get_video_id_from_iframe( $embed );
-                }
-            }
-
-        } else {
-            //No video embedded found
-            return false;
-        }
-
-    }
-}
-
-if( !function_exists( 'rl_get_video_id_from_iframe' ) ) {
-    /**
-     * Simple function to get video URL from <iframe></iframe>
-     *
-     * @param $input
-     * @return array
-     */
-    function rl_get_video_id_from_iframe( $input ) {
-
-        $pattern = '/(youtu.be\/|youtube.com\/(watch\?(.*&)?v=|(embed|v)\/))([^\?&\"\'>]+)/';
-
-        $result = preg_match($pattern, $input, $matches);
-
-        if (false !== (bool)$result) {
-            return $matches[5];
-        }
-
-        return false;
-
-
-    }
-}
-
 if( !function_exists( 'rl_fix_responsive_videos' ) ) {
     /**
      * Makes Embeddable videos to become responsive, cool eh ?
@@ -239,6 +181,8 @@ if( ! function_exists( 'rl_breadcrumbs' ) ) {
         $breadcrumbs = new Riba_Breadcrumbs();
         $breadcrumbs->get_breadcrumbs();
     }
+
+    add_action('mtl_breadcrumbs', 'rl_breadcrumbs');
 }
 
 if( !function_exists( 'rl_prefix_upsell_notice' ) ) {
@@ -264,7 +208,7 @@ if( !function_exists( 'rl_prefix_upsell_notice' ) ) {
             'prefixL10n',
             array(
                 'prefixURL' => esc_url('https://www.machothemes.com/?edd_action=add_to_cart&download_id=13&discount=DEMO10'),
-                'prefixLabel' => esc_html__('Buy PRO', 'pixova-lite'),
+                'prefixLabel' => esc_html__('Buy PRO', 'riba-lite'),
                 'prefixImageURL' => esc_url( get_template_directory_uri() . '/layout/images/upsell/placeholdit-300x100.png')
             )
         );

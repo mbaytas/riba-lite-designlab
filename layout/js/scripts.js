@@ -181,12 +181,51 @@
   }
 
 
+ /* ==========================================================================
+  Full Screen Search
+  ========================================================================== */
 
+ function fullScreenSearchBox() {
 
+     $('a[href="#search"]').on('click', function(event) {
+         event.preventDefault();
+         $('#search').addClass('open');
+         $('#search > form > input[type="search"]').focus();
+     });
+
+     $('#search, #search button.close').on('click keyup', function(event) {
+         if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
+             $(this).removeClass('open');
+         }
+     });
+ }
 
  /* ==========================================================================
-  Enable tooltips
+  Fade Out Text on Scroll
   ========================================================================== */
+ function fadeOutTextOnScroll() {
+
+     /** Get the scroll position of the page */
+     var scrollPos = $(window).scrollTop();
+
+     /** Scroll and fade out the banner text */
+     $('.single .parallax-text-fade').css({
+         'top' : -( scrollPos / 3 ) + "px",
+         'position'   : 'relative',
+         'opacity' : 1 - ( scrollPos / 300 ),
+         '-ms-filter' : 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + 1 - ( scrollPos / 300 ) + ')'
+     });
+
+     /** Scroll and lower the opacity of the parallax bg image */
+     $('.single .parallax-bg-image').css({
+         'opacity' : 1 - ( scrollPos / 750 ),
+     });
+
+ }
+
+     /* ==========================================================================
+      Enable tooltips
+      ========================================================================== */
 
  function enableTooltips() {
      $('[data-toggle="tooltip"]').tooltip();
@@ -203,6 +242,7 @@
     removeAnchors();
     MTBackToTop();
     enableTooltips();
+    fullScreenSearchBox();
 
 
 });
@@ -212,6 +252,7 @@
 
          if(!isMobile()) {
              ParallaxDoScroll();
+             fadeOutTextOnScroll();
          }
 
      });

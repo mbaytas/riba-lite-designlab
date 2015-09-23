@@ -50,63 +50,6 @@ if ( ! function_exists( 'rl_content_nav' ) ) {
     }
 }
 
-if ( !function_exists( 'rl_pagination' ) ) {
-
-}
-
-
-if ( ! function_exists( 'rl_entry_footer' ) ) {
-    /**
-     * Prints HTML with meta information for the categories, tags and comments.
-     */
-    function rl_entry_footer()
-    {
-        //$display_category_post_meta = get_theme_mod('rl_enable_post_category_blog_posts', 0);
-        $display_tags_post_meta = get_theme_mod('rl_enable_post_tags_blog_posts', 1);
-        //$display_number_comments = get_theme_mod('rl_enable_post_comments_blog_posts', 0);
-
-        // Hide category and tag text for pages.
-        if ('post' == get_post_type() ) {
-
-
-            // check if category post meta is enabled
-            /*
-            if( $display_category_post_meta == 1 ) {
-
-                // translators: used between list items, there is a space after the comma
-                $categories_list = get_the_category_list(esc_html__(', ', 'riba-lite'));
-
-                if ($categories_list && rl_categorized_blog()) {
-                    printf('<span class="cat-links">' . esc_html__('Posted in: %1$s', 'riba-lite') . '</span>', $categories_list); // WPCS: XSS OK.
-                }
-            }
-            */
-
-            // check if tags post meta is enabled
-            if( $display_tags_post_meta == 1 ) {
-
-                /* translators: used between list items, there is a space after the comma */
-                $tags_list = get_the_tag_list('', esc_html__(' ', 'riba-lite'));
-                if ($tags_list) {
-                    echo '<span class="tags-links">'. $tags_list .'</span>'; // WPCS: XSS OK.
-                }
-            }
-        }
-
-        // check if comment meta is enabled
-        /*
-        if( $display_number_comments == 1 ) {
-
-            if (!post_password_required() && (comments_open() || get_comments_number())) {
-                echo '<span class="comments-link">';
-                comments_popup_link(esc_html__('Leave a comment', 'riba-lite'), esc_html__('1 Comment', 'riba-lite'), esc_html__('% Comments', 'riba-lite'));
-                echo '</span>';
-            }
-        }
-        */
-
-    }
-}
 
 /**
  * Riba Lite only works in WordPress 4.1 or later.

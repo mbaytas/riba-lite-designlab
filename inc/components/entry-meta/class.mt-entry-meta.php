@@ -38,6 +38,7 @@ if( !class_exists( 'MTL_Entry_Meta_Output' ) ) {
         {
 
             add_action('mtl_entry_meta', array($this, 'entry_meta_output'), 1);
+	        add_action('mtl_single_after_content', array($this, 'entry_footer_output'), 2);
         }
 
         /**
@@ -60,7 +61,7 @@ if( !class_exists( 'MTL_Entry_Meta_Output' ) ) {
             $display_post_posted_on_meta = get_theme_mod('rl_enable_post_posted_on_blog_posts', 1);
             $display_post_esrt_meta = get_theme_mod('rl_enable_post_esrt_blog_posts', 1);
 
-            echo '<div class="entry-meta">';
+            echo '<div class="entry-meta parallax-text-fade">';
 
             if( $display_post_posted_on_meta == 1 ) {
                echo $this->posted_on_output();
@@ -138,10 +139,13 @@ if( !class_exists( 'MTL_Entry_Meta_Output' ) ) {
                 human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) )
             );
 
+
             $byline = sprintf(
                 esc_html_x('%s', 'post author', 'riba-lite'),
-                '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
+                '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta('ID') ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
             );
+
+
 
             if( $display_author == 1 ) {
                 echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
@@ -151,9 +155,78 @@ if( !class_exists( 'MTL_Entry_Meta_Output' ) ) {
             if( $display_date == 1 ) {
                 echo '<span class="posted-on">' . $posted_on . '</span>';
             }
-
-
-
         }
+
+	    /**
+	     * Prints HTML with meta information for the categories, tags and comments.
+	     */
+	    public function entry_footer_output() {
+            echo '<div class="mt-entry-footer">';
+            echo '<footer>';
+
+            $display_category_post_meta = get_theme_mod( 'rl_enable_post_category_blog_posts', 1 );
+            $display_tags_post_meta     = get_theme_mod( 'rl_enable_post_tags_blog_posts', 1 );
+            $display_number_comments    = get_theme_mod( 'rl_enable_post_comments_blog_posts', 1 );
+
+
+            # Hide category and tag text for pages.
+            if ( 'post' == get_post_type() ) {
+
+	            echo '<div class="row">';
+
+	            echo '<div class="col-sm-6">';
+                # check if category post meta is enabled
+                if ( $display_category_post_meta == 1 ) {
+
+                    // translators: used between list items, there is a space after the comma
+                    $categories_list = get_the_category_list( esc_html__( ', ', 'riba-lite' ) );
+
+                    if ( $categories_list && rl_categorized_blog() ) {
+                        printf( '<span class="cat-links"><i class="fa fa-tags"></i>' . esc_html__( 'Posted in: %1$s', 'riba-lite' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+                    }
+                }
+	            echo '</div><!--/.col-sm-6-->';
+            } # end if
+
+            # check if comment meta is enabled
+            if ( $display_number_comments == 1 ) {
+	            echo '<div class="col-sm-6 text-right">';
+
+                if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+                    echo '<span class="comments-link"><i class="fa fa-comment"></i>';
+                    comments_popup_link( esc_html__( 'Leave a comment', 'riba-lite' ), esc_html__( '1 Comment', 'riba-lite' ), esc_html__( '% Comments', 'riba-lite' ) );
+                    echo '</span>';
+                }
+
+	            echo '</div><!--/.col-sm-6-->';
+	            echo '</div><!--/.row-->';
+            } # end if
+
+
+            # Hide category and tag text for pages.
+            if ( 'post' == get_post_type() ) {
+
+	            echo '<div class="row">';
+
+                # check if tags post meta is enabled
+                if ( $display_tags_post_meta == 1 ) {
+
+	                echo '<div class="col-xs-12">';
+
+                    /* translators: used between list items, there is a space after the comma */
+                    $tags_list = get_the_tag_list( '', esc_html__( ' ', 'riba-lite' ) );
+                    if ( $tags_list ) {
+                        echo '<span class="tags-links">' . $tags_list . '</span>'; // WPCS: XSS OK.
+                    }
+                }
+
+	            echo '</div><!--/.col-xs-12-->';
+	            echo '</row><!--/.row-->';
+            }
+
+		    echo '</footer>';
+		    echo '</div><!--/.entry-footer-->';
+
+	    }
     }
 }

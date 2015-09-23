@@ -107,21 +107,6 @@
             });
         }
 
-        //YT Player - YouTube player
-        // https://github.com/pupunzi/jquery.mb.YTPlayer/wiki
-        if (typeof $.fn.YTPlayer !== 'undefined') {
-
-            $('.player').each(function(){
-
-               $(this).YTPlayer({
-                   showControls: false,
-                   showYTLogo: false,
-                   optimizeDisplay: true,
-                   ratio: 'auto',
-               });
-
-            });
-        }
 
     });
 

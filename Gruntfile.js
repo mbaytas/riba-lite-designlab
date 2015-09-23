@@ -97,7 +97,7 @@ module.exports = function(grunt){
         checktextdomain: {
             standard: {
                 options:{
-                    text_domain: [ 'riba-lite', 'tgmpa' ], //Specify allowed domain(s)
+                    text_domain: [ 'riba-lite'], //Specify allowed domain(s)
                     create_report_file: "true",
                     keywords: [ //List keyword specifications
                         '__:1,2d',

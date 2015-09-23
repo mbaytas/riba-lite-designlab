@@ -2,7 +2,6 @@
     margin              : 0;
 }
 
-/* Upsell */
 
     /* Upsell link */
     .upsell-link {
@@ -69,4 +68,52 @@
 
 .pro-version p{
     line-height         : 1.5;
+}
+
+
+/* Add dotted lines on PRO sections */
+#accordion-panel-rl_panel_advanced .accordion-section-title,
+#accordion-panel-rl_panel_general .accordion-section-title,
+#accordion-panel-rl_panel_preloader .accordion-section-title,
+#accordion-panel-rl_panel_blog .accordion-section-title,
+#accordion-panel-rl_panel_formats .accordion-section-title {
+    background-image: url('../../images/gray-lines.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: repeat;
+}
+
+
+#accordion-section-pixova_lite_pro_section .accordion-section-title {
+    background-color: #e25136;
+    color: #FFF;
+    border-bottom: 1px solid transparent;
+}
+
+/* PRO disabled fields */
+.textarea-pro-feature,
+.text-pro-feature,
+.checkbox-pro-feature,
+.radio-pro-feature {
+    border: 1px solid #e25136;
+    border-top-right-radius: 4px;
+    padding: 7.5px;
+    position: relative;
+}
+
+.textarea-pro-feature .pro-badge,
+.text-pro-feature .pro-badge,
+.checkbox-pro-feature .pro-badge,
+.radio-pro-feature .pro-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 7.5px;
+    background: #e25136;
+    color: #FFF;
+    border-bottom-left-radius: 4px;
+
+}
+.checkbox-pro-feature .pro-badge {
+    padding: 13px 7.5px;
 }

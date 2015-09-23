@@ -2,6 +2,7 @@
 
     // includes
     require get_template_directory() . '/inc/customizer/custom-controls/slider-selector.php';
+	require get_template_directory() . '/inc/customizer/custom-controls/pro-controls-selector.php';
 
     // Set Panel ID
     $panel_id = 'rl_panel_blog';
@@ -72,7 +73,7 @@
     );
 
     /* Post Category on single blog posts */
-    /*
+
     $wp_customize->add_setting( $prefix.'_enable_post_category_blog_posts',
         array(
             'sanitize_callback' => $prefix.'_sanitize_checkbox',
@@ -88,7 +89,7 @@
             'section' => $prefix.'_blog_global_section',
         )
     );
-    */
+
 
 
     /* Post Tags on single blog posts */
@@ -109,7 +110,7 @@
     );
 
     /* Post Comments on single blog posts */
-    /*
+
     $wp_customize->add_setting( $prefix.'_enable_post_comments_blog_posts',
         array(
             'sanitize_callback' => $prefix.'_sanitize_checkbox',
@@ -126,7 +127,7 @@
             'section' => $prefix.'_blog_global_section',
         )
     );
-    */
+
 
     /* Breadcrumbs on single blog posts */
     $wp_customize->add_setting( $prefix.'_enable_post_breadcrumbs',
@@ -155,35 +156,18 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control(
+    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+	    $wp_customize,
         $prefix.'_enable_social_sharing_blog_posts',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Social sharing on single blog post', 'riba-lite'),
-            'description' => esc_html__('Displayed right under the post title', 'riba-lite'),
-            'section' => $prefix.'_blog_global_section',
-        )
+	        array(
+	            'type'	=> 'checkbox',
+	            'label' => esc_html__('Social sharing ?', 'riba-lite'),
+	            'description' => esc_html__('Displayed right under the post title', 'riba-lite'),
+	            'section' => $prefix.'_blog_global_section',
+	        )
+	    )
     );
 
-    /* Post Prev / Next links on single blog posts */
-/*
-    $wp_customize->add_setting( $prefix.'_enable_post_nav_blog_posts',
-        array(
-            'sanitize_callback' => $prefix.'_sanitize_checkbox',
-            'default' => 1
-        )
-    );
-    $wp_customize->add_control(
-        $prefix.'_enable_post_nav_blog_posts',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Nav links on single blog post', 'riba-lite'),
-            'description' => esc_html__('Displayed on the opposite side of the post title (usually, the right side)', 'riba-lite'),
-            'section' => $prefix.'_blog_global_section',
-        )
-    );
-
-*/
 
     /* Author Info Box on single blog posts */
     $wp_customize->add_setting( $prefix.'_enable_author_box_blog_posts',
@@ -278,16 +262,17 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control(
+    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+	    $wp_customize,
         $prefix.'_blog_breadcrumb_menu_post_category',
-        array(
-            'type' => 'checkbox',
-            'label' => esc_html__('Show post category ?', 'riba-lite'),
-            'description' => esc_html__('Show the post category in the breadcrumb ?', 'riba-lite'),
-            'section' => $prefix.'_blog_breadcrumb_section',
-        )
+	        array(
+	            'type' => 'checkbox',
+	            'label' => esc_html__('Show post category ?', 'riba-lite'),
+	            'description' => esc_html__('Show the post category in the breadcrumb ?', 'riba-lite'),
+	            'section' => $prefix.'_blog_breadcrumb_section',
+	        )
+	    )
     );
-
 
 
     /***********************************************/
@@ -329,7 +314,7 @@
     $wp_customize->add_setting($prefix.'_sharing_bar_text',
         array(
             'sanitize_callback' => 'sanitize_text_field',
-            'default' => esc_html__('Share this', 'riba-lite'),
+            'default' => esc_html__('Share this article :', 'riba-lite'),
         )
     );
     $wp_customize->add_control(
@@ -349,13 +334,15 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control(
+    $wp_customize->add_control( new RL_Disabled_Custom_Control (
+	    $wp_customize,
         $prefix.'_facebook_visibility',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Display share on Facebook ?', 'riba-lite'),
-            'section' => $prefix.'_blog_social_section',
-        )
+	        array(
+	            'type'	=> 'checkbox',
+	            'label' => esc_html__('Display share on Facebook ?', 'riba-lite'),
+	            'section' => $prefix.'_blog_social_section',
+	        )
+	    )
     );
 
     /* Twitter visibility */
@@ -365,12 +352,14 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control(
+    $wp_customize->add_control( new RL_Disabled_Custom_Control (
+        $wp_customize,
         $prefix.'_twitter_visibility',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Display share on Twitter ?', 'riba-lite'),
-            'section' => $prefix.'_blog_social_section',
+            array(
+                'type'	=> 'checkbox',
+                'label' => esc_html__('Display share on Twitter ?', 'riba-lite'),
+                'section' => $prefix.'_blog_social_section',
+            )
         )
     );
 
@@ -381,13 +370,15 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control(
+    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+	    $wp_customize,
         $prefix.'_linkein_visibility',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Display share on LinkedIN ?', 'riba-lite'),
-            'section' => $prefix.'_blog_social_section',
-        )
+	        array(
+	            'type'	=> 'checkbox',
+	            'label' => esc_html__('Display share on LinkedIN ?', 'riba-lite'),
+	            'section' => $prefix.'_blog_social_section',
+	        )
+	    )
     );
 
     /* Reddit visibility */
@@ -397,13 +388,15 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control(
+    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+	    $wp_customize,
         $prefix.'_reddit_visibility',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Display share on Reddit?', 'riba-lite'),
-            'section' => $prefix.'_blog_social_section',
-        )
+	        array(
+	            'type'	=> 'checkbox',
+	            'label' => esc_html__('Display share on Reddit?', 'riba-lite'),
+	            'section' => $prefix.'_blog_social_section',
+	        )
+	    )
     );
 
     /* Tumblr visibility */
@@ -429,13 +422,15 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control(
+    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+	    $wp_customize,
         $prefix.'_googlep_visibility',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Display share on Google+ ?', 'riba-lite'),
-            'section' => $prefix.'_blog_social_section',
-        )
+	        array(
+	            'type'	=> 'checkbox',
+	            'label' => esc_html__('Display share on Google+ ?', 'riba-lite'),
+	            'section' => $prefix.'_blog_social_section',
+	        )
+	    )
     );
 
     /* Pinterest visibility */
@@ -445,13 +440,15 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control(
+    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+	    $wp_customize,
         $prefix.'_pinterest_visibility',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Display share on Pinterest ?', 'riba-lite'),
-            'section' => $prefix.'_blog_social_section',
-        )
+	        array(
+	            'type'	=> 'checkbox',
+	            'label' => esc_html__('Display share on Pinterest ?', 'riba-lite'),
+	            'section' => $prefix.'_blog_social_section',
+	        )
+	    )
     );
 
     /* VK visibility */
@@ -482,7 +479,7 @@
         $prefix.'_mail_visibility',
         array(
             'type'	=> 'checkbox',
-            'label' => esc_html__('Display share on VK ?', 'riba-lite'),
+            'label' => esc_html__('Display share on mail ?', 'riba-lite'),
             'section' => $prefix.'_blog_social_section',
         )
     );
@@ -506,32 +503,36 @@
     $wp_customize->add_setting( $prefix.'_enable_related_title_blog_posts',
         array(
             'sanitize_callback' => $prefix.'_sanitize_checkbox',
-            'default' => 1
+            'default' => 0
         )
     );
-    $wp_customize->add_control(
+    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+	    $wp_customize,
         $prefix.'_enable_related_title_blog_posts',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Show posts title in the carousel ?', 'riba-lite'),
-            'section' => $prefix.'_blog_related_section',
-        )
+	        array(
+	            'type'	=> 'checkbox',
+	            'label' => esc_html__('Show posts title in the carousel ?', 'riba-lite'),
+	            'section' => $prefix.'_blog_related_section',
+	        )
+	    )
     );
 
     /*  related posts date */
     $wp_customize->add_setting( $prefix.'_enable_related_date_blog_posts',
         array(
             'sanitize_callback' => $prefix.'_sanitize_checkbox',
-            'default' => 1
+            'default' => 0
         )
     );
-    $wp_customize->add_control(
+    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+	    $wp_customize,
         $prefix.'_enable_related_date_blog_posts',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Show posts date in the carousel ?', 'riba-lite'),
-            'section' => $prefix.'_blog_related_section',
-        )
+	        array(
+	            'type'	=> 'checkbox',
+	            'label' => esc_html__('Show posts date  ?', 'riba-lite'),
+	            'section' => $prefix.'_blog_related_section',
+	        )
+	    )
     );
 
 
@@ -542,13 +543,15 @@
             'default' => 1,
         )
     );
-    $wp_customize->add_control(
+    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+	    $wp_customize,
         $prefix.'_autoplay_blog_posts',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Autoplay related posts carousel ?', 'riba-lite'),
-            'section' => $prefix.'_blog_related_section',
-        )
+	        array(
+	            'type'	=> 'checkbox',
+	            'label' => esc_html__('Autoplay related carousel ?', 'riba-lite'),
+	            'section' => $prefix.'_blog_related_section',
+	        )
+	    )
     );
 
     /* Number of related posts to display at once  */
@@ -578,15 +581,17 @@
     $wp_customize->add_setting( $prefix.'_pagination_blog_posts',
         array(
             'sanitize_callback' => $prefix.'_sanitize_checkbox',
-            'default' => 0
+            'default' => 1
         )
     );
-    $wp_customize->add_control(
-        $prefix.'_pagination_blog_posts',
-        array(
-            'type'	=> 'checkbox',
-            'label' => esc_html__('Display pagination controls ?', 'riba-lite'),
-            'description' => esc_html__('Will be displayed as navigation bullets', 'riba-lite'),
-            'section' => $prefix.'_blog_related_section',
-        )
+    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+	    $wp_customize,
+	        $prefix.'_pagination_blog_posts',
+	        array(
+	            'type'	=> 'checkbox',
+	            'label' => esc_html__('Display pagination controls ?', 'riba-lite'),
+	            'description' => esc_html__('Will be displayed as navigation bullets', 'riba-lite'),
+	            'section' => $prefix.'_blog_related_section',
+	        )
+	    )
     );

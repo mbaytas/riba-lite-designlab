@@ -1,6 +1,13 @@
 ### V 1.0.3
-    - Added TGMPA
-    - Added Login Customizer
+    - Added TGMPA.
+    - Added Login Customizer.
+    - Updated header menu (CSS fixes).
+    - Added Contact bar & full-screen search functionality.
+    - Added breadcrumbs on single blog posts via hook.
+    - Fixed Line height problem on related posts.
+    - Added Parallax text fade & opacity effect on single blog posts.
+    - Added up-sell features.
+    - Fixed CSS Issues in the Customizer
 
 ### V 1.0.2
     - Updated screenshot

@@ -1,9 +1,3 @@
-<?php
-
-$display_post_breadcrumbs = get_theme_mod('rl_enable_post_breadcrumbs', 1);
-
-?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class('post-grid ' . get_post_type() ); ?>>
 
     <div class="link-wrapper">
@@ -17,12 +11,12 @@ $display_post_breadcrumbs = get_theme_mod('rl_enable_post_breadcrumbs', 1);
                 echo '<a class="post-cover post-cover-'.get_the_ID().'">';
                 echo '<div class="parallax-bg-image" style="background-image: url('.esc_url( $featured_image[0] ).');"></div>';
                 echo '</a>';
-            } ?>
+            }  ?>
         </div><!-- .post-cover-wrapper -->
 
         <div class="entry-content">
             <header class="entry-header">
-                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                <?php the_title( '<h1 class="entry-title parallax-text-fade">', '</h1>' ); ?>
                 <?php if ( 'post' == get_post_type() ) {
                     do_action('mtl_entry_meta');
                 } ?>
@@ -40,4 +34,5 @@ $display_post_breadcrumbs = get_theme_mod('rl_enable_post_breadcrumbs', 1);
             <?php do_action('mtl_single_after_content'); ?>
         </div>
     </div>
+
 </article><!-- #post-## -->
