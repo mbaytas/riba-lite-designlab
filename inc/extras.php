@@ -1,6 +1,6 @@
 <?php
 
-if( !function_exists( 'rl_body_classes' ) ) {
+if( !function_exists( 'riba_lite_body_classes' ) ) {
     /**
      * Adds custom classes to the array of body classes.
      *
@@ -8,7 +8,7 @@ if( !function_exists( 'rl_body_classes' ) ) {
      * @return array
      */
 
-    function rl_body_classes($classes)
+    function riba_lite_body_classes($classes)
     {
 
         // Adds a class of group-blog to blogs with more than 1 published author.
@@ -19,7 +19,7 @@ if( !function_exists( 'rl_body_classes' ) ) {
         return $classes;
     }
 
-    add_filter('body_class', 'rl_body_classes');
+    add_filter('body_class', 'riba_lite_body_classes');
 }
 
 if ( version_compare( $GLOBALS['wp_version'], '4.3', '<' ) ) {
@@ -30,7 +30,7 @@ if ( version_compare( $GLOBALS['wp_version'], '4.3', '<' ) ) {
      * @param string $sep Optional separator.
      * @return string The filtered title.
      */
-    function rl_wp_title($title, $sep)
+    function riba_lite_wp_title($title, $sep)
     {
         if( is_feed() ) {
             return $title;
@@ -55,24 +55,24 @@ if ( version_compare( $GLOBALS['wp_version'], '4.3', '<' ) ) {
         return $title;
     }
 
-    add_filter('wp_title', 'rl_wp_title', 10, 2);
+    add_filter('wp_title', 'riba_lite_wp_title', 10, 2);
 
     /**
      * Title shim for sites older than WordPress 4.1.
      *
      * @link https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/
      */
-    function rl_render_title()
+    function riba_lite_render_title()
     {
         ?>
             <title><?php wp_title('|', true, 'right'); ?></title>
         <?php
     }
 
-    add_action('wp_head', 'rl_render_title');
+    add_action('wp_head', 'riba_lite_render_title');
 }
 
-if( !function_exists( 'rl_setup_author' ) ) {
+if( !function_exists( 'riba_lite_setup_author' ) ) {
     /**
      * Sets the authordata global when viewing an author archive.
      *
@@ -86,7 +86,7 @@ if( !function_exists( 'rl_setup_author' ) ) {
      * @return void
      */
 
-    function rl_setup_author()
+    function riba_lite_setup_author()
     {
 
         global $wp_query;
@@ -98,12 +98,12 @@ if( !function_exists( 'rl_setup_author' ) ) {
 
     }
 
-    add_action('wp', 'rl_setup_author');
+    add_action('wp', 'riba_lite_setup_author');
 }
 
 
 // Function to convert hex color codes to rgba
-if( !function_exists( 'rl_hex2rgba' ) ) {
+if( !function_exists( 'riba_lite_hex2rgba' ) ) {
     /**
      * Convers HEX color codes to RGBA
      *
@@ -111,7 +111,7 @@ if( !function_exists( 'rl_hex2rgba' ) ) {
      * @param bool|false $opacity
      * @return string
      */
-    function rl_hex2rgba($color, $opacity = false)
+    function riba_lite_hex2rgba($color, $opacity = false)
     {
 
         $default = 'rgb(0,0,0)';
@@ -152,46 +152,46 @@ if( !function_exists( 'rl_hex2rgba' ) ) {
 }
 
 
-if( !function_exists( 'rl_fix_responsive_videos' ) ) {
+if( !function_exists( 'riba_lite_fix_responsive_videos' ) ) {
     /**
      * Makes Embeddable videos to become responsive, cool eh ?
      *
      * @param $html
      * @return string
      */
-function rl_fix_responsive_videos($html) {
+function riba_lite_fix_responsive_videos($html) {
 
 
     return '<div class="rl-video-container">' . $html . '</div>';
 }
 
-    add_filter('embed_oembed_html', 'rl_fix_responsive_videos', 10, 3);
-    add_filter('video_embed_html', 'rl_fix_responsive_videos'); // Jetpack
+    add_filter('embed_oembed_html', 'riba_lite_fix_responsive_videos', 10, 3);
+    add_filter('video_embed_html', 'riba_lite_fix_responsive_videos'); // Jetpack
 }
 
 
 
-if( ! function_exists( 'rl_breadcrumbs' ) ) {
+if( ! function_exists( 'riba_lite_breadcrumbs' ) ) {
     /**
      * Render the breadcrumbs with help of class-breadcrumbs.php
      *
      * @return void
      */
-    function rl_breadcrumbs() {
+    function riba_lite_breadcrumbs() {
         $breadcrumbs = new Riba_Breadcrumbs();
         $breadcrumbs->get_breadcrumbs();
     }
 
-    add_action('mtl_breadcrumbs', 'rl_breadcrumbs');
+    add_action('mtl_breadcrumbs', 'riba_lite_breadcrumbs');
 }
 
-if( !function_exists( 'rl_prefix_upsell_notice' ) ) {
+if( !function_exists( 'riba_lite_prefix_upsell_notice' ) ) {
     /**
      * Display upgrade notice on customizer page
      *
      * @since Riba Lite 1.0.3
      */
-    function rl_prefix_upsell_notice()
+    function riba_lite_prefix_upsell_notice()
     {
 
         // Enqueue the script
@@ -207,13 +207,13 @@ if( !function_exists( 'rl_prefix_upsell_notice' ) ) {
             'riba-lite-customizer-upsell',
             'prefixL10n',
             array(
-                'prefixURL' => esc_url('https://www.machothemes.com/?edd_action=add_to_cart&download_id=13&discount=DEMO10'),
+                'prefixURL' => esc_url('https://www.machothemes.com/?edd_action=add_to_cart&download_id=2413&discount=DEMO20'),
                 'prefixLabel' => esc_html__('Buy PRO', 'riba-lite'),
-                'prefixImageURL' => esc_url( get_template_directory_uri() . '/layout/images/upsell/placeholdit-300x100.png')
+                'prefixImageURL' => esc_url( get_template_directory_uri() . '/layout/images/upsell/upgrade-20-off.png')
             )
         );
 
     }
 
-    add_action('customize_controls_enqueue_scripts', 'rl_prefix_upsell_notice');
+    add_action('customize_controls_enqueue_scripts', 'riba_lite_prefix_upsell_notice');
 }

@@ -84,7 +84,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
          *
          * @since 2.5.0
          */
-        const IS_URL_REGEX = '|^http[s]?://|';
+        const IS_URiba_lite_REGEX = '|^http[s]?://|';
 
         /**
          * Holds a copy of itself, so it can be referenced by the class name.
@@ -1296,7 +1296,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
         protected function get_plugin_source_type( $source ) {
             if ( 'repo' === $source || preg_match( self::WP_REPO_REGEX, $source ) ) {
                 return 'repo';
-            } elseif ( preg_match( self::IS_URL_REGEX, $source ) ) {
+            } elseif ( preg_match( self::IS_URiba_lite_REGEX, $source ) ) {
                 return 'external';
             } else {
                 return 'bundled';
@@ -1539,7 +1539,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
          *                or the plugin name if not.
          */
         public function get_info_link( $slug ) {
-            if ( ! empty( $this->plugins[ $slug ]['external_url'] ) && preg_match( self::IS_URL_REGEX, $this->plugins[ $slug ]['external_url'] ) ) {
+            if ( ! empty( $this->plugins[ $slug ]['external_url'] ) && preg_match( self::IS_URiba_lite_REGEX, $this->plugins[ $slug ]['external_url'] ) ) {
                 $link = sprintf(
                     '<a href="%1$s" target="_blank">%2$s</a>',
                     esc_url( $this->plugins[ $slug ]['external_url'] ),
@@ -1943,8 +1943,8 @@ if ( ! function_exists( 'tgmpa' ) ) {
             if ( isset( $config['parent_menu_slug'] ) ) {
                 _deprecated_argument( __FUNCTION__, '2.4.0', 'The `parent_menu_slug` config parameter was removed in TGMPA 2.4.0. In TGMPA 2.5.0 an alternative was (re-)introduced. Please adjust your configuration. For more information visit the website: http://tgmpluginactivation.com/configuration/#h-configuration-options.' );
             }
-            if ( isset( $config['parent_url_slug'] ) ) {
-                _deprecated_argument( __FUNCTION__, '2.4.0', 'The `parent_url_slug` config parameter was removed in TGMPA 2.4.0. In TGMPA 2.5.0 an alternative was (re-)introduced. Please adjust your configuration. For more information visit the website: http://tgmpluginactivation.com/configuration/#h-configuration-options.' );
+            if ( isset( $config['parent_uriba_lite_slug'] ) ) {
+                _deprecated_argument( __FUNCTION__, '2.4.0', 'The `parent_uriba_lite_slug` config parameter was removed in TGMPA 2.4.0. In TGMPA 2.5.0 an alternative was (re-)introduced. Please adjust your configuration. For more information visit the website: http://tgmpluginactivation.com/configuration/#h-configuration-options.' );
             }
 
             call_user_func( array( $instance, 'config' ), $config );

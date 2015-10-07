@@ -11,8 +11,7 @@
 
 <?php
 
-    $rl_logo_url = get_theme_mod('rl_img_logo', get_template_directory_uri() . '/layout/images/logo/riba-logo.png');
-    $rl_logo_text = get_theme_mod('rl_text_logo', __('Riba', 'riba-lite') );
+    $riba_lite_logo_text = get_theme_mod('riba_lite_text_logo', __('Riba', 'riba-lite') );
 ?>
 
 
@@ -26,44 +25,29 @@
 
     <?php do_action('mtl_before_header'); ?>
 
-    <?php if($rl_logo_url) {  ?>
-	    <div id="header-container" class="container-fluid rl-img-logo">
-    <?php } else { ?>
-        <div id="header-container" class="container-fluid">
-    <?php } ?>
 
+        <div id="header-container" class="container-fluid">
 
 			<header id="masthead" class="site-header" role="banner">
 				<div class="site-branding col-lg-4 col-md-4 col-sm-4 col-xs-12 text-lg-left text-md-left text-sm-left text-xs-center">
 					<?php
-                        if($rl_logo_url) {
-                            echo '<a href="'.esc_url( home_url( '/' ) ).'" rel="home" ><img src="'.esc_url( $rl_logo_url ).'"></a>';
-                        } else {
-                            echo '<a class="rl-text-logo" href="'.esc_url( home_url( '/' ) ).'" rel="home" >'.esc_attr( $rl_logo_text ).'</a>';
-                        }
-
+                        echo '<a class="rl-text-logo" href="'.esc_url( home_url( '/' ) ).'" rel="home" >'.esc_attr( $riba_lite_logo_text ).'</a>';
                     ?>
 				</div><!-- .site-branding -->
 
-                <?php
 
-                if($rl_logo_url) {
-                    echo '<nav id="site-navigation" class="main-navigation col-lg-8 col-md-8 col-sm-8 hidden-xs" role="navigation">';
-                } else {
-                    echo '<nav id="site-navigation" class="main-navigation col-lg-8 col-md-8 col-sm-8 hidden-xs" role="navigation">';
-                }
-                ?>
-					<?php wp_nav_menu( array(
-						'theme_location' => 'primary',
-						'menu_id' => 'primary-menu',
-                        'container_id' => 'rl-main-menu',
-                        'container_class' => 'hidden-xs',
-						'walker' => new MTL_Extended_Menu_Walker(),
-						'fallback_cb' =>  'MTL_Extended_Menu_Walker::fallback',
-					) ); ?>
-				</nav><!-- #site-navigation -->
-			</header><!-- #masthead -->
-	</div>
+    <nav id="site-navigation" class="main-navigation col-lg-8 col-md-8 col-sm-8 hidden-xs" role="navigation">
+        <?php wp_nav_menu( array(
+            'theme_location' => 'primary',
+            'menu_id' => 'primary-menu',
+            'container_id' => 'rl-main-menu',
+            'container_class' => 'hidden-xs',
+            'walker' => new MTL_Extended_Menu_Walker(),
+            'fallback_cb' =>  'MTL_Extended_Menu_Walker::fallback',
+        ) ); ?>
+    </nav><!-- #site-navigation -->
+</header><!-- #masthead -->
+</div>
 
 
 	<div id="content" class="site-content container-fluid">

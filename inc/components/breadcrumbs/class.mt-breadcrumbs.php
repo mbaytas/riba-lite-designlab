@@ -70,10 +70,10 @@ class Riba_Breadcrumbs {
 
 		// Setup default array for changeable variables
 		$defaults = array(
-			 'home_prefix'   			=> get_theme_mod('rl_blog_breadcrumb_menu_prefix', __('You Are Here', 'riba-lite') ),
-			 'separator' 				=> get_theme_mod('rl_blog_breadcrumb_menu_separator', 'rarr'),
+			 'home_prefix'   			=> get_theme_mod('riba_lite_blog_breadcrumb_menu_prefix', __('You Are Here', 'riba-lite') ),
+			 'separator' 				=> get_theme_mod('riba_lite_blog_breadcrumb_menu_separator', 'rarr'),
 			 'show_post_type_archive'	=> '1',
-			 'show_terms'  				=> get_theme_mod('rl_blog_breadcrumb_menu_post_category', 1),
+			 'show_terms'  				=> get_theme_mod('riba_lite_blog_breadcrumb_menu_post_category', 1),
 			 'home_label'      			=> esc_html__( 'Home', 'riba-lite' ),
 			 'tag_archive_prefix'   	=> esc_html__( 'Tag:', 'riba-lite' ),
 			 'search_prefix'        	=> esc_html__( 'Search:', 'riba-lite' ),

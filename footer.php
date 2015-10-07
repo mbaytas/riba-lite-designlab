@@ -1,9 +1,9 @@
 </div><!-- #content -->
 <?php
 
-    $footer_email = get_theme_mod('rl_email', 'contact@site.com');
-    $footer_phone = get_theme_mod('rl_phone', '0 332 548 954');
-    $footer_copyright = get_theme_mod('rl_footer_copyright', sprintf('&copy; %s', __('Macho Themes 2015. All Rights Reserved', 'riba-lite') ) );
+    $footer_email = get_theme_mod('riba_lite_email', 'contact@site.com');
+    $footer_phone = get_theme_mod('riba_lite_phone', '0 332 548 954');
+    $footer_copyright = get_theme_mod('riba_lite_footer_copyright', sprintf('&copy; %s', __('Macho Themes 2015. All Rights Reserved', 'riba-lite') ) );
 ?>
 
 <footer id="footer" class="site-footer container-fluid" role="contentinfo">

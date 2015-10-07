@@ -5,8 +5,8 @@
  *
  * @since Riba Lite 1.0.3
  */
-if( !class_exists('RL_Disabled_Custom_Control') ) {
-	class RL_Disabled_Custom_Control extends WP_Customize_Control
+if( !class_exists('Riba_lite_Disabled_Custom_Control') ) {
+	class Riba_lite_Disabled_Custom_Control extends WP_Customize_Control
 	{
 
 		public function render_content()
@@ -16,7 +16,7 @@ if( !class_exists('RL_Disabled_Custom_Control') ) {
 
 				case 'textarea':
 					echo '<div class="'.$this->type.'-pro-feature">';
-					echo '<span class="pro-badge">PRO</span>';
+					echo '<span class="pro-badge">'.__('PRO', 'riba-lite').'</span>';
 					?>
 					<label>
 						<span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
@@ -29,7 +29,7 @@ if( !class_exists('RL_Disabled_Custom_Control') ) {
 
 				case 'text':
 					echo '<div class="'.$this->type.'-pro-feature">';
-					echo '<span class="pro-badge">PRO</span>';
+					echo '<span class="pro-badge">'.__('PRO', 'riba-lite').'</span>';
 					?>
 					<label>
 						<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
@@ -42,7 +42,7 @@ if( !class_exists('RL_Disabled_Custom_Control') ) {
 
 				case 'checkbox':
 					echo '<div class="'.$this->type.'-pro-feature">';
-					echo '<span class="pro-badge">PRO</span>';
+					echo '<span class="pro-badge">'.__('PRO', 'riba-lite').'</span>';
 					?>
 					<label>
 						<input type="checkbox" value="<?php echo esc_html( $this->value() ); ?>" <?php $this->link(); ?> disabled >
@@ -55,7 +55,7 @@ if( !class_exists('RL_Disabled_Custom_Control') ) {
 
 				case 'radio':
 					echo '<div class="'.$this->type.'-pro-feature">';
-					echo '<span class="pro-badge">PRO</span>';
+					echo '<span class="pro-badge">'.__('PRO', 'riba-lite').'</span>';
 					?>
 					<label>
 						<input type="radio" value="<?php echo esc_html( $this->value() ); ?>" <?php $this->link(); ?> disabled >

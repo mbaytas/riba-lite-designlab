@@ -20,18 +20,18 @@
  * @since   1.0.0
  *
  */
-if(!function_exists('CallSocialMediaClassMTL')) {
-    function CallSocialMediaClassMTL()
+if(!function_exists('MTL_CallSocialMediaClass')) {
+    function MTL_CallSocialMediaClass()
     {
 
-        $display_social_sharing = get_theme_mod('rl_enable_social_sharing_blog_posts', 1);
+        $display_social_sharing = get_theme_mod('riba_lite_enable_social_sharing_blog_posts', 1);
 
         if ($display_social_sharing == 1) {
             // instantiate the class & load everything else
             MTL_Social_Sharing_Output::getInstance();
         }
     }
-    add_action('wp_loaded', 'CallSocialMediaClassMTL');
+    add_action('wp_loaded', 'MTL_CallSocialMediaClass');
 }
 
 
@@ -49,7 +49,7 @@ if( !class_exists( 'MTL_Social_Sharing_Output' ) ) {
 
         protected function __construct() {
 
-            $sharing_bar_position = get_theme_mod('rl_social_sharing_position', 'after_content');
+            $sharing_bar_position = get_theme_mod('riba_lite_social_sharing_position', 'after_content');
 
             if( $sharing_bar_position == 'after_content' ) {
                 /**
@@ -153,7 +153,7 @@ if( !class_exists( 'MTL_Social_Sharing_Output' ) ) {
 
 
             // Title goes here
-            $sharing_bar_title = get_theme_mod('rl_sharing_bar_text', esc_html__('Share this article : ', 'riba-lite') );
+            $sharing_bar_title = get_theme_mod('riba_lite_sharing_bar_text', esc_html__('Share this article : ', 'riba-lite') );
 
             echo '<div class="col-sm-4 text-left">';
                 echo '<h4 class="mtl-social-sharing-box-title">'. $sharing_bar_title . '</h4>';

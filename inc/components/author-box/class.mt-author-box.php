@@ -15,7 +15,7 @@
 
 // @todo: make the order of the boxed changeable
 
-if( !function_exists( 'CallAuthorBoxClassMTL' ) ) {
+if( !function_exists( 'MTL_CallAuthorBoxClass' ) ) {
     /**
      *
      * Gets called only if the "display social media options" option is checked
@@ -24,16 +24,16 @@ if( !function_exists( 'CallAuthorBoxClassMTL' ) ) {
      * @since   1.0.0
      *
      */
-    function CallAuthorBoxClassMTL()
+    function MTL_CallAuthorBoxClass()
     {
-        $display_author_box = get_theme_mod('rl_enable_author_box_blog_posts', 1);
+        $display_author_box = get_theme_mod('riba_lite_enable_author_box_blog_posts', 1);
 
         if ( $display_author_box == 1 ) {
             // instantiate the class & load everything else
             MTL_Author_Box_Output::getInstance();
         }
     }
-    add_action('wp_loaded', 'CallAuthorBoxClassMTL');
+    add_action('wp_loaded', 'MTL_CallAuthorBoxClass');
 }
 
 if( !class_exists( 'MTL_Author_Box_Output' ) ) {

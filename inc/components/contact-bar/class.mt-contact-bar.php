@@ -7,21 +7,21 @@
  * @author		Cristian Raiber
  * @copyright	(c) Copyright by Macho Themes
  * @link		http://www.machothemes.com
- * @package 	Muscle Core Lite
+ * @package 	Muscle Core Lite (prefix: MTL)
  * @since		Version 1.0.1
  */
 
 
-if( !function_exists('CallContactBarClassMTL' ) ) {
+if( !function_exists('MTL_CallContactBarClass' ) ) {
     /**
      *
      */
-    function CallContactBarClassMTL()
+    function MTL_CallContactBarClass()
     {
         // instantiate the class & load everything else
         MTL_Contact_Bar_Output::getInstance();
     }
-    add_action( 'wp_loaded', 'CallContactBarClassMTL' );
+    add_action( 'wp_loaded', 'MTL_CallContactBarClass' );
 }
 
 
@@ -41,13 +41,13 @@ if( !class_exists( 'MTL_Contact_Bar_Output' ) ) {
         {
 
             // quickly fetch some vars
-            $this->facebook_url = get_theme_mod('rl_contact_bar_facebook_url', '#');
-            $this->twitter_url = get_theme_mod('rl_contact_bar_twitter_url', '#');
-            $this->youtube_url = get_theme_mod('rl_contact_bar_youtube_url', '#');
-            $this->pinterest_url = get_theme_mod('rl_contact_bar_pinterest_url', '#');
-            $this->linkedin_url = get_theme_mod('rl_contact_bar_linked_url', '#');
-            $this->email_addr = get_theme_mod('rl_email', 'contact@site.com');
-            $this->phone_number = get_theme_mod('rl_phone', '+0 332 548 954');
+            $this->facebook_url = get_theme_mod('riba_lite_contact_bar_facebook_url', '#');
+            $this->twitter_url = get_theme_mod('riba_lite_contact_bar_twitter_url', '#');
+            $this->youtube_url = get_theme_mod('riba_lite_contact_bar_youtube_url', '#');
+            $this->pinterest_url = get_theme_mod('riba_lite_contact_bar_pinterest_url', '#');
+            $this->linkedin_url = get_theme_mod('riba_lite_contact_bar_linkedin_url', '#');
+            $this->email_addr = get_theme_mod('riba_lite_email', 'contact@site.com');
+            $this->phone_number = get_theme_mod('riba_lite_phone', '+0 332 548 954');
 
             // add the action hook to generate the HTML output
             add_action( 'mtl_before_header', array( $this, 'contact_bar_output' ), 1 );

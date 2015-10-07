@@ -1,7 +1,7 @@
 <?php
 
 
-if ( ! function_exists( 'rl_theme_setup' ) ) {
+if ( ! function_exists( 'riba_lite_theme_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -11,7 +11,7 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
 	 *
 	 * Riba Lite 1.0.0
 	 */
-	function rl_theme_setup() {
+	function riba_lite_theme_setup() {
 
 		/*
         * Using this feature you can set the maximum allowed width for any content in the theme, like oEmbeds and images added to posts.
@@ -53,10 +53,6 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
          */
         require get_template_directory() . '/inc/plugin-activation.php';
 
-		/**
-		 * Jetpack support
-		 */
-		require get_template_directory() . '/inc/jetpack.php';
 
 		/**
 		 * Custom functions that act independently of the theme templates.
@@ -104,7 +100,7 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
          * This theme styles the visual editor to resemble the theme style,
          * specifically font, colors, icons, and column width.
          */
-		add_editor_style( array( 'layout/css/editor-style.min.css', rl_fonts_url() ) );
+		add_editor_style( array( 'layout/css/editor-style.min.css', riba_lite_fonts_url() ) );
 
 		/*
          * Let WordPress manage the document title.
@@ -149,12 +145,12 @@ if ( ! function_exists( 'rl_theme_setup' ) ) {
 		add_image_size( 'riba-lite-1x', 600, 450, true );
 
 
-	} // function rl_theme_setup
-	add_action( 'after_setup_theme', 'rl_theme_setup', 9 );
+	} // function riba_lite_theme_setup
+	add_action( 'after_setup_theme', 'riba_lite_theme_setup', 9 );
 } // function exists (riba_lite_theme_setup) check
 
 
-if( !function_exists( 'rl_enqueue_scripts' ) ) {
+if( !function_exists( 'riba_lite_enqueue_scripts' ) ) {
 	/**
 	 * Enqueue scripts and styles.
 	 *
@@ -163,7 +159,7 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 	 * Riba Lite 1.0.0
 	 */
 
-	function rl_enqueue_scripts() {
+	function riba_lite_enqueue_scripts() {
 
 
 		// Bootstrap JS (required for theme)
@@ -209,10 +205,10 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 		*/
 
 
-		$enable_smooth_scroll = get_theme_mod('rl_enable_site_smoothscroll', 1);
-        $enable_site_preloader = get_theme_mod('rl_enable_site_preloader', 1);
-        $enable_headroom = get_theme_mod('rl_enable_site_headroom', 1);
-        $enable_lazyload = get_theme_mod('rl_enable_site_lazyload', 1);
+		$enable_smooth_scroll = get_theme_mod('riba_lite_enable_site_smoothscroll', 1);
+        $enable_site_preloader = get_theme_mod('riba_lite_enable_site_preloader', 1);
+        $enable_headroom = get_theme_mod('riba_lite_enable_site_headroom', 1);
+        $enable_lazyload = get_theme_mod('riba_lite_enable_site_lazyload', 1);
 
 
         // make sure we don't load our preloader script in the customizer
@@ -223,7 +219,7 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
             wp_enqueue_script( 'preloader-js' );
 
         } else {
-            function rl_output_css_to_head() {
+            function riba_lite_output_css_to_head() {
 
                 echo '<!-- Customizer CSS Fixes-->'."\n";
                 echo '<style>';
@@ -235,7 +231,7 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
                 echo '</style>';
             }
 
-            add_action( 'wp_head', 'rl_output_css_to_head' );
+            add_action( 'wp_head', 'riba_lite_output_css_to_head' );
         }
 
 		wp_enqueue_script( 'bootstrap-min-js' );
@@ -292,12 +288,12 @@ if( !function_exists( 'rl_enqueue_scripts' ) ) {
 
 	} // function riba_lite_enqueue_scripts end
 
-	add_action( 'wp_enqueue_scripts', 'rl_enqueue_scripts' );
+	add_action( 'wp_enqueue_scripts', 'riba_lite_enqueue_scripts' );
 
 } // function exists (riba_lite_enqueue_scripts) check
 
 
-if( !function_exists( 'rl_comment_reply_js' ) ) {
+if( !function_exists( 'riba_lite_comment_reply_js' ) ) {
 	/**
 	 * Function that only loads the comment-reply JS script on pages that have the comment form enabled
 	 *
@@ -305,19 +301,19 @@ if( !function_exists( 'rl_comment_reply_js' ) ) {
 	 *
 	 * Riba Lite 1.0.0
 	 */
-	function rl_comment_reply_js()
+	function riba_lite_comment_reply_js()
 	{
 
 		if (is_singular() && comments_open() && get_option('thread_comments')) {
 			wp_enqueue_script('comment-reply');
 		}
 	}
-	add_action( 'comment_form_before', 'rl_comment_reply_js' );
+	add_action( 'comment_form_before', 'riba_lite_comment_reply_js' );
 }
 
 
 
-if ( ! function_exists( 'rl_fonts_url' ) ) {
+if ( ! function_exists( 'riba_lite_fonts_url' ) ) {
 	/**
 	 * Register Google fonts for Riba Lite.
 	 *
@@ -325,7 +321,7 @@ if ( ! function_exists( 'rl_fonts_url' ) ) {
 	 *
 	 * @return string Google fonts URL for the theme.
 	 */
-	function rl_fonts_url()
+	function riba_lite_fonts_url()
 	{
 		$fonts_url = '';
 		$fonts = array();
@@ -380,13 +376,13 @@ if ( ! function_exists( 'rl_fonts_url' ) ) {
 	}
 }
 
-if( !function_exists( 'rl_print_layout_styles' ) ) {
+if( !function_exists( 'riba_lite_print_layout_styles' ) ) {
 	/**
 	 * Simple function to switch CSS for boxed / fluid layouts
 	 */
-	function rl_print_layout_styles() {
+	function riba_lite_print_layout_styles() {
 
-		$layout = get_theme_mod('rl_site_layout', 'boxed');
+		$layout = get_theme_mod('riba_lite_site_layout', 'boxed');
 
 		// Output the styles.
 		if ( $layout == 'boxed' ) {
@@ -395,16 +391,16 @@ if( !function_exists( 'rl_print_layout_styles' ) ) {
 			echo '<!-- END -->';
 
 			# Add custom body class for more CSS weight
-			add_filter( 'body_class', 'rl_layout_body_class' );
+			add_filter( 'body_class', 'riba_lite_layout_body_class' );
 
 		}
 	}
 
 	# Add custom styles to `<head>`.
-	add_action( 'wp_head', 'rl_print_layout_styles', 2);
+	add_action( 'wp_head', 'riba_lite_print_layout_styles', 2);
 }
 
-if( !function_exists( 'rl_layout_body_class' ) ) {
+if( !function_exists( 'riba_lite_layout_body_class' ) ) {
 	/**
 	 * Add custom body class to give some more weight to our styles.
 	 *
@@ -413,20 +409,20 @@ if( !function_exists( 'rl_layout_body_class' ) ) {
 	 * @param  array $classes
 	 * @return array
 	 */
-	function rl_layout_body_class($classes)
+	function riba_lite_layout_body_class($classes)
 	{
 		return array_merge($classes, array('rl-layout'));
 	}
 }
 
 
-if( !function_exists('rl_register_required_plugins') ) {
+if( !function_exists('riba_lite_register_required_plugins') ) {
     /**
      * Custom function to load TGMPA
      *
      * @since Riba Lite 1.0.3
      */
-    function rl_register_required_plugins()
+    function riba_lite_register_required_plugins()
     {
 
         /**
@@ -489,7 +485,7 @@ if( !function_exists('rl_register_required_plugins') ) {
         tgmpa($plugins, $config);
     }
 
-    add_action( 'tgmpa_register', 'rl_register_required_plugins' );
+    add_action( 'tgmpa_register', 'riba_lite_register_required_plugins' );
 }
 
 #
@@ -497,40 +493,40 @@ if( !function_exists('rl_register_required_plugins') ) {
 #
 
 
-if( !function_exists( 'rl_more_themes_styles' ) ) {
+if( !function_exists( 'riba_lite_more_themes_styles' ) ) {
     /**
      *
      */
-    function rl_more_themes_styles() {
-        wp_enqueue_style('more-theme-style', get_template_directory_uri() . '/layout/css/more-themes.min.css');
+    function riba_lite_more_themes_styles() {
+        wp_enqueue_style('riba-lite-more-theme-style', get_template_directory_uri() . '/layout/css/more-themes.min.css');
     }
 }
 
 # Add upsell page to the menu.
-if( !function_exists( 'rl_add_upsell' ) ) {
+if( !function_exists( 'riba_lite_add_upsell' ) ) {
     /**
      *
      */
-    function rl_lite_add_upsell() {
+    function riba_lite_lite_add_upsell() {
 
         $page = add_theme_page(
             __( 'More Themes', 'riba-lite' ),
             __( 'More Themes', 'riba-lite' ),
             'administrator',
             'macho-themes',
-            'rl_display_upsell'
+            'riba_lite_display_upsell'
         );
 
-        add_action( 'admin_print_styles-' . $page, 'rl_more_themes_styles' );
+        add_action( 'admin_print_styles-' . $page, 'riba_lite_more_themes_styles' );
     }
 
-    add_action( 'admin_menu', 'rl_lite_add_upsell', 11 );
+    add_action( 'admin_menu', 'riba_lite_lite_add_upsell', 11 );
 }
 
 
 # Define markup for the upsell page.
-if( !function_exists( 'rl_display_upsell' ) ) {
-    function rl_display_upsell() {
+if( !function_exists( 'riba_lite_display_upsell' ) ) {
+    function riba_lite_display_upsell() {
 
         // Set template directory uri
         $directory_uri = get_template_directory_uri();
@@ -568,7 +564,7 @@ if( !function_exists( 'rl_display_upsell' ) ) {
                             )
                         );
 
-                        $themes       = rl_get_themes( $request );
+                        $themes       = riba_lite_get_themes( $request );
                         $active_theme = wp_get_theme()->get( 'Name' );
                         $counter      = 1;
 
@@ -588,7 +584,7 @@ if( !function_exists( 'rl_display_upsell' ) ) {
 											<span
                                                 class="theme-name"><?php echo $theme->name . ':' . __( ' Current theme', 'riba-lite' ); ?></span>
                                         <a class="button button-secondary customize right" target="_blank"
-                                           href="<?php echo get_site_url() . '/wp-admin/customize.php' ?>">Customize</a>
+                                           href="<?php echo get_site_url() . '/wp-admin/customize.php' ?>"><?php _e('Customize', 'riba-lite'); ?></a>
                                     </div>
                                 </div>
 
@@ -615,11 +611,11 @@ if( !function_exists( 'rl_display_upsell' ) ) {
                                     )
                                 );
 
-                                $theme_details = rl_get_themes( $request );
+                                $theme_details = riba_lite_get_themes( $request );
                                 ?>
 
                                 <div id="<?php echo $theme->slug; ?>"
-                                     class="theme-container col-md-6 col-lg-4 <?php echo $counter % 3 == 1 ? 'no-left-megin' : ""; ?>">
+                                     class="theme-container col-md-6 col-lg-4 <?php echo $counter % 3 == 1 ? 'no-left-margin' : ""; ?>">
                                     <div class="image-container">
                                         <img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>"/>
 
@@ -637,7 +633,7 @@ if( !function_exists( 'rl_display_upsell' ) ) {
 
                                             <!-- Activate Button -->
                                             <a class="button button-primary activate right"
-                                               href="<?php echo wp_nonce_url( admin_url( 'themes.php?action=activate&amp;stylesheet=' . urlencode( $theme->slug ) ), 'switch-theme_' . $theme->slug ); ?>">Activate</a>
+                                               href="<?php echo wp_nonce_url( admin_url( 'themes.php?action=activate&amp;stylesheet=' . urlencode( $theme->slug ) ), 'switch-theme_' . $theme->slug ); ?>"><?php _e('Activate', 'riba-lite'); ?></a>
                                         <?php } else {
 
                                             // Set the install url for the theme.
@@ -673,8 +669,8 @@ if( !function_exists( 'rl_display_upsell' ) ) {
 }
 
 # Get all Macho Themes themes by using WP API.
-if( !function_exists( 'rl_get_themes' ) ) {
-    function rl_get_themes( $request ) {
+if( !function_exists( 'riba_lite_get_themes' ) ) {
+    function riba_lite_get_themes( $request ) {
 
         // Generate a cache key that would hold the response for this request:
         $key = 'riba-lite_' . md5( serialize( $request ) );

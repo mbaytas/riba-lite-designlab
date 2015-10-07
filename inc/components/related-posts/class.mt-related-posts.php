@@ -16,7 +16,7 @@
 // @todo: pull in more than post title & date
 
 
-if( !function_exists( 'CallRelatedPostsClassMTL' ) ) {
+if( !function_exists( 'MTL_CallRelatedPostsClass' ) ) {
     /**
      *
      * Gets called only if the "display related posts" option is checked
@@ -25,9 +25,9 @@ if( !function_exists( 'CallRelatedPostsClassMTL' ) ) {
      * @since   1.0.0
      *
      */
-    function CallRelatedPostsClassMTL()
+    function MTL_CallRelatedPostsClass()
     {
-        $display_related_blog_posts = get_theme_mod('rl_enable_related_blog_posts', 1);
+        $display_related_blog_posts = get_theme_mod('riba_lite_enable_related_blog_posts', 1);
 
         if ($display_related_blog_posts == 1) {
 
@@ -35,7 +35,7 @@ if( !function_exists( 'CallRelatedPostsClassMTL' ) ) {
             MTL_Related_Posts_Output::getInstance();
         }
     }
-    add_action( 'wp_loaded', 'CallRelatedPostsClassMTL');
+    add_action( 'wp_loaded', 'MTL_CallRelatedPostsClass');
 }
 
 
@@ -138,7 +138,7 @@ if( !class_exists( 'MTL_Related_Posts_Output' ) ) {
 			$related_posts = $this->get_related_posts( get_the_ID(), get_option( 'posts_per_page' ) );
 
 			// Number of posts to show / view
-			$limit = get_theme_mod( 'rl_howmany_blog_posts', 3 );
+			$limit = get_theme_mod( 'riba_lite_howmany_blog_posts', 3 );
 
 
 			// Auto play

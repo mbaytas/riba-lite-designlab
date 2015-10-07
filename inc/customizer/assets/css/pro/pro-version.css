@@ -72,11 +72,11 @@
 
 
 /* Add dotted lines on PRO sections */
-#accordion-panel-rl_panel_advanced .accordion-section-title,
-#accordion-panel-rl_panel_general .accordion-section-title,
-#accordion-panel-rl_panel_preloader .accordion-section-title,
-#accordion-panel-rl_panel_blog .accordion-section-title,
-#accordion-panel-rl_panel_formats .accordion-section-title {
+#accordion-panel-riba_lite_panel_advanced .accordion-section-title,
+#accordion-panel-riba_lite_panel_general .accordion-section-title,
+#accordion-panel-riba_lite_panel_preloader .accordion-section-title,
+#accordion-panel-riba_lite_panel_blog .accordion-section-title,
+#accordion-panel-riba_lite_panel_formats .accordion-section-title {
     background-image: url('../../images/gray-lines.png');
     background-size: cover;
     background-position: center center;

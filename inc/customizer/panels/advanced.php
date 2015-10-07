@@ -1,10 +1,10 @@
 <?php
 
     // Set Panel ID
-    $panel_id = 'rl_panel_advanced';
+    $panel_id = 'riba_lite_panel_advanced';
 
     // Set prefix
-    $prefix = 'rl';
+    $prefix = 'riba_lite';
 
     /***********************************************/
     /************** Settings  ***************/
@@ -36,7 +36,7 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
         $wp_customize,
         $prefix.'_enable_site_preloader',
             array(
@@ -55,7 +55,7 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
         $prefix.'_enable_site_smoothscroll',
 	        array(
@@ -82,6 +82,25 @@
             'type'	=> 'checkbox',
             'label' => esc_html__('Enable Lazy Load behavior for images ?', 'riba-lite'),
             'description' => esc_html__('Initial status: enabled. If you don\'t like the fact that images are being loaded as you scroll them into view, uncheck this.', 'riba-lite'),
+            'section' => $prefix.'_advanced_section',
+        )
+    );
+
+
+    /* Enable Blog Random Images Placeholders */
+    $wp_customize->add_setting( $prefix.'_enable_random_blog_images',
+        array(
+            'sanitize_callback' => $prefix.'_sanitize_checkbox',
+            'default' => 1
+        )
+    );
+
+    $wp_customize->add_control(
+        $prefix.'_enable_random_blog_images',
+        array(
+            'type'	=> 'checkbox',
+            'label' => esc_html__('Enable Random Blog Post Images ', 'riba-lite'),
+            'description' => esc_html__('Initial status: enabled. If you\'ve forgotten to set a featured image, these will be used as placeholders to make the site look nicer.', 'riba-lite'),
             'section' => $prefix.'_advanced_section',
         )
     );

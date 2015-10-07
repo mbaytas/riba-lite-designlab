@@ -4,10 +4,10 @@
 	require get_template_directory() . '/inc/customizer/custom-controls/pro-controls-selector.php';
 
     // Set Panel ID
-    $panel_id = 'rl_panel_preloader';
+    $panel_id = 'riba_lite_panel_preloader';
 
     // Set prefix
-    $prefix = 'rl';
+    $prefix = 'riba_lite';
 
 // @todo: add preloader text font-family control
 
@@ -44,7 +44,7 @@
         )
     );
 
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
         $wp_customize,
         $prefix.'_preloader_text',
 	        array(

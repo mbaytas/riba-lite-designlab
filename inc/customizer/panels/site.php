@@ -5,10 +5,10 @@
     require get_template_directory() . '/inc/customizer/custom-controls/pro-controls-selector.php';
 
     // Set Panel ID
-    $panel_id = 'rl_panel_general';
+    $panel_id = 'riba_lite_panel_general';
 
     // Set prefix
-    $prefix = 'rl';
+    $prefix = 'riba_lite';
 
     // Change panel for Site Title & Tagline Section
     $site_title        = $wp_customize->get_section( 'title_tagline' );
@@ -72,7 +72,7 @@
         )
     );
 
-    $wp_customize->add_control( new RL_Layout_Picker_Custom_Control( $wp_customize,
+    $wp_customize->add_control( new Riba_lite_Layout_Picker_Custom_Control( $wp_customize,
         $prefix.'_site_layout',
             array(
                 'type'          => 'radio-image',
@@ -125,7 +125,7 @@
             'default' => __('Your site IMAGE logo HERE', 'riba-lite'),
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
             $wp_customize,
             $prefix.'_img_logo',
             array(
@@ -299,7 +299,7 @@
         )
     );
 
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
 	    $prefix.'_footer_copyright',
 	        array(

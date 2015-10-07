@@ -1,10 +1,10 @@
 <?php
 
-if ( ! function_exists( 'rl_content_nav' ) ) {
+if ( ! function_exists( 'riba_lite_content_nav' ) ) {
     /**
      * Display navigation to next/previous pages when applicable
      */
-    function rl_content_nav($nav_id)
+    function riba_lite_content_nav($nav_id)
     {
         global $wp_query, $post;
 
@@ -152,16 +152,16 @@ if ( ! function_exists( 'the_archive_description' ) ) {
     }
 }
 
-if( !function_exists( 'rl_categorized_blog' ) ) {
+if( !function_exists( 'riba_lite_categorized_blog' ) ) {
     /**
      * Returns true if a blog has more than 1 category.
      *
      * @return bool
      */
-    function rl_categorized_blog()
+    function riba_lite_categorized_blog()
     {
 
-        if (false === ($all_the_cool_cats = get_transient('rl_categories'))) {
+        if (false === ($all_the_cool_cats = get_transient('riba_lite_categories'))) {
 
             // Create an array of all the categories that are attached to posts.
             $all_the_cool_cats = get_categories(array(
@@ -175,32 +175,32 @@ if( !function_exists( 'rl_categorized_blog' ) ) {
             // Count the number of categories that are attached to the posts.
             $all_the_cool_cats = count($all_the_cool_cats);
 
-            set_transient('rl_categories', $all_the_cool_cats);
+            set_transient('riba_lite_categories', $all_the_cool_cats);
         }
 
         if ($all_the_cool_cats > 1) {
-            // This blog has more than 1 category so rl_categorized_blog should return true.
+            // This blog has more than 1 category so riba_lite_categorized_blog should return true.
             return true;
         } else {
-            // This blog has only 1 category so rl_categorized_blog should return false.
+            // This blog has only 1 category so riba_lite_categorized_blog should return false.
             return false;
         }
     }
 }
 
-if( !function_exists( 'rl_category_transient_flusher' ) ) {
+if( !function_exists( 'riba_lite_category_transient_flusher' ) ) {
     /**
-     * Flush out the transients used in rl_categorized_blog.
+     * Flush out the transients used in riba_lite_categorized_blog.
      */
-    function rl_category_transient_flusher()
+    function riba_lite_category_transient_flusher()
     {
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
             return;
         }
         // Like, beat it. Dig?
-        delete_transient('rl_categories');
+        delete_transient('riba_lite_categories');
     }
 
-    add_action('edit_category', 'rl_category_transient_flusher');
-    add_action('save_post', 'rl_category_transient_flusher');
+    add_action('edit_category', 'riba_lite_category_transient_flusher');
+    add_action('save_post', 'riba_lite_category_transient_flusher');
 }

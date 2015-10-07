@@ -1,6 +1,6 @@
 <?php
 
-function rl_customize_register( $wp_customize ) {
+function riba_lite_customize_register( $wp_customize ) {
 
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
@@ -26,21 +26,21 @@ function rl_customize_register( $wp_customize ) {
     require_once get_template_directory() . '/inc/customizer/panels/advanced.php';
 
 }
-add_action( 'customize_register', 'rl_customize_register');
+add_action( 'customize_register', 'riba_lite_customize_register');
 
-if( !function_exists( 'rl_sanitize_number' ) ) {
+if( !function_exists( 'riba_lite_sanitize_number' ) ) {
     /**
      * Simple function used to sanitize numbers
      *
      * @param $input
      * @return mixed
      */
-    function rl_sanitize_number( $input ) {
+    function riba_lite_sanitize_number( $input ) {
         return force_balance_tags( $input );
     }
 }
 
-if( !function_exists( 'rl_sanitize_file_url' ) ) {
+if( !function_exists( 'riba_lite_sanitize_file_url' ) ) {
     /**
      * Function to sanitize file URLS
      *
@@ -49,7 +49,7 @@ if( !function_exists( 'rl_sanitize_file_url' ) ) {
      * @param $url
      * @return string
      */
-    function rl_sanitize_file_url($url)
+    function riba_lite_sanitize_file_url($url)
     {
 
         $output = '';
@@ -64,14 +64,14 @@ if( !function_exists( 'rl_sanitize_file_url' ) ) {
 }
 
 
-if( !function_exists( 'rl_sanitize_radio_buttons' ) ) {
+if( !function_exists( 'riba_lite_sanitize_radio_buttons' ) ) {
     /**
      * Simple function to validate choices from radio buttons
      *
      * @param $input
      * @return string
      */
-    function rl_sanitize_radio_buttons( $input, $setting ) {
+    function riba_lite_sanitize_radio_buttons( $input, $setting ) {
 
         global $wp_customize;
 
@@ -85,14 +85,14 @@ if( !function_exists( 'rl_sanitize_radio_buttons' ) ) {
     }
 }
 
-if( !function_exists( 'rl_sanitize_checkbox' ) ) {
+if( !function_exists( 'riba_lite_sanitize_checkbox' ) ) {
     /**
      * Function to sanitize checkboxes
      *
      * @param $value
      * @return int
      */
-    function rl_sanitize_checkbox($value)
+    function riba_lite_sanitize_checkbox($value)
     {
         if ($value == 1) {
             return 1;
@@ -101,44 +101,44 @@ if( !function_exists( 'rl_sanitize_checkbox' ) ) {
         }
     }
 }
-if( !function_exists( 'rl_customizer_js_load' ) ) {
+if( !function_exists( 'riba_lite_customizer_js_load' ) ) {
     /**
      * Function to load JS into the customizer
      */
-    function rl_customizer_js_load()
+    function riba_lite_customizer_js_load()
     {
 
         // Customizer JS
         wp_enqueue_script( 'rl-customizer-script', get_template_directory_uri() . '/inc/customizer/assets/js/customizer.js', array('jquery', 'customize-controls'), '1.0', true);
 
-        add_action('customize_controls_enqueue_scripts', 'rl_customizer_js_load');
+        add_action('customize_controls_enqueue_scripts', 'riba_lite_customizer_js_load');
     }
 }
 
-if( !function_exists( 'rl_customizer_preview_js' ) ) {
+if( !function_exists( 'riba_lite_customizer_preview_js' ) ) {
     /**
      * Function to load JS into the customizer preview
      */
-    function rl_customizer_preview_js()
+    function riba_lite_customizer_preview_js()
     {
         // Customizer preview JS
         wp_enqueue_script( 'rl-customizer-script', get_template_directory_uri() . '/inc/customizer/assets/js/customizer.js', array('customize-preview'), '1.0', true);
 
     }
 
-    add_action('customize_preview_init', 'rl_customizer_preview_js');
+    add_action('customize_preview_init', 'riba_lite_customizer_preview_js');
 }
 
 
-if( !function_exists( 'rl_customizer_css_load' ) ) {
+if( !function_exists( 'riba_lite_customizer_css_load' ) ) {
     /**
      * Function to load CSS into the customizer
      */
-    function rl_customizer_css_load() {
+    function riba_lite_customizer_css_load() {
         wp_enqueue_style(   'rl-general-customizer-css', get_template_directory_uri() . '/inc/customizer/assets/css/riba-lite.css');
         wp_enqueue_style('mt-customizer-css', get_template_directory_uri() .'/inc/customizer/assets/css/pro/pro-version.css');
 
     }
 
-    add_action('customize_controls_print_styles', 'rl_customizer_css_load');
+    add_action('customize_controls_print_styles', 'riba_lite_customizer_css_load');
 }

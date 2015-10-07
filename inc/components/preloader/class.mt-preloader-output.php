@@ -10,18 +10,18 @@
 
 // @todo: add more preloader styles
 
-if(!function_exists('CallPreloaderClassMTL')) {
+if(!function_exists('MTL_CallPreloaderClass')) {
     /**
      *
      */
-    function CallPreloaderClassMTL()
+    function MTL_CallPreloaderClass()
     {
 
         // instantiate the class & load everything else
         MTL_Preloader_Output::getInstance();
 
     }
-    add_action('wp_loaded', 'CallPreloaderClassMTL');
+    add_action('wp_loaded', 'MTL_CallPreloaderClass');
 }
 
 if(!class_exists('MTL_Preloader_Output')) {
@@ -41,12 +41,12 @@ if(!class_exists('MTL_Preloader_Output')) {
         protected function __construct()
         {
             //var setting
-            $this->preloader_is_enabled = get_theme_mod('rl_enable_site_preloader', 1);
-            $this->preloader_text = get_theme_mod('rl_preloader_text', __('Loading', 'riba-lite'));
-            $this->preloader_bg_color = get_theme_mod('rl_preloader_bg_color', '#FFF');
-            $this->preloader_progress_color = get_theme_mod('rl_preloader_progress_color', '#000');
-            $this->preloader_text_color = get_theme_mod('rl_preloader_text_color', '#000');
-            $this->preloader_style = get_theme_mod('rl_preloader_style', 'default');
+            $this->preloader_is_enabled = get_theme_mod('riba_lite_enable_site_preloader', 1);
+            $this->preloader_text = get_theme_mod('riba_lite_preloader_text', __('Loading', 'riba-lite'));
+            $this->preloader_bg_color = get_theme_mod('riba_lite_preloader_bg_color', '#FFF');
+            $this->preloader_progress_color = get_theme_mod('riba_lite_preloader_progress_color', '#000');
+            $this->preloader_text_color = get_theme_mod('riba_lite_preloader_text_color', '#000');
+            $this->preloader_style = get_theme_mod('riba_lite_preloader_style', 'default');
 
             // Hooks
             add_action('mtl_site_preloader', array($this, 'preloader_markup_output'), 1);

@@ -1,10 +1,10 @@
 <?php
 
 // Set Panel ID
-$panel_id = 'rl_panel_formats';
+$panel_id = 'riba_lite_panel_formats';
 
 // Set prefix
-$prefix = 'rl';
+$prefix = 'riba_lite';
 
 /***********************************************/
 /************** Post Formats  ***************/
@@ -42,7 +42,7 @@ $prefix = 'rl';
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
         $wp_customize,
         $prefix.'_post_standard_enable_author',
             array(
@@ -61,7 +61,7 @@ $prefix = 'rl';
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
 	        $prefix.'_post_standard_enable_posted',
 	        array(
@@ -80,7 +80,7 @@ $prefix = 'rl';
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
         $prefix.'_post_standard_enable_ert',
 	        array(
@@ -113,7 +113,7 @@ $prefix = 'rl';
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
         $prefix.'_post_image_enable_author',
 	        array(
@@ -132,7 +132,7 @@ $prefix = 'rl';
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
         $prefix.'_post_image_enable_posted',
 	        array(
@@ -151,7 +151,7 @@ $prefix = 'rl';
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
         $prefix.'_post_image_enable_ert',
 	        array(

@@ -13,16 +13,16 @@
  */
 
 
-if( !function_exists('CallPaginationClassMTL' ) ) {
+if( !function_exists('MTL_CallPaginationClass' ) ) {
     /**
      *
      */
-    function CallPaginationClassMTL()
+    function MTL_CallPaginationClass()
     {
         // instantiate the class & load everything else
         MTL_Pagination_Output::getInstance();
     }
-    add_action( 'wp_loaded', 'CallPaginationClassMTL' );
+    add_action( 'wp_loaded', 'MTL_CallPaginationClass' );
 }
 
 if( !class_exists( 'MTL_Pagination_Output' ) ) {

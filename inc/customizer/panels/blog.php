@@ -5,10 +5,10 @@
 	require get_template_directory() . '/inc/customizer/custom-controls/pro-controls-selector.php';
 
     // Set Panel ID
-    $panel_id = 'rl_panel_blog';
+    $panel_id = 'riba_lite_panel_blog';
 
     // Set prefix
-    $prefix = 'rl';
+    $prefix = 'riba_lite';
 
     /***********************************************/
     /************** BLOG OPTIONS  ***************/
@@ -156,7 +156,7 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
         $prefix.'_enable_social_sharing_blog_posts',
 	        array(
@@ -262,7 +262,7 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
         $prefix.'_blog_breadcrumb_menu_post_category',
 	        array(
@@ -334,7 +334,7 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control (
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control (
 	    $wp_customize,
         $prefix.'_facebook_visibility',
 	        array(
@@ -352,7 +352,7 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control (
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control (
         $wp_customize,
         $prefix.'_twitter_visibility',
             array(
@@ -370,7 +370,7 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
         $prefix.'_linkein_visibility',
 	        array(
@@ -388,7 +388,7 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
         $prefix.'_reddit_visibility',
 	        array(
@@ -422,7 +422,7 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
         $prefix.'_googlep_visibility',
 	        array(
@@ -440,7 +440,7 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
         $prefix.'_pinterest_visibility',
 	        array(
@@ -506,7 +506,7 @@
             'default' => 0
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
         $prefix.'_enable_related_title_blog_posts',
 	        array(
@@ -524,7 +524,7 @@
             'default' => 0
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
         $prefix.'_enable_related_date_blog_posts',
 	        array(
@@ -543,7 +543,7 @@
             'default' => 1,
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
         $prefix.'_autoplay_blog_posts',
 	        array(
@@ -561,7 +561,7 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Controls_Slider_Control($wp_customize,
+    $wp_customize->add_control( new Riba_lite_Controls_Slider_Control($wp_customize,
         $prefix.'_howmany_blog_posts',
             array(
                 'label' => esc_html__('How many blog posts to display in the carousel at once ?', 'riba-lite'),
@@ -584,7 +584,7 @@
             'default' => 1
         )
     );
-    $wp_customize->add_control( new RL_Disabled_Custom_Control(
+    $wp_customize->add_control( new Riba_lite_Disabled_Custom_Control(
 	    $wp_customize,
 	        $prefix.'_pagination_blog_posts',
 	        array(

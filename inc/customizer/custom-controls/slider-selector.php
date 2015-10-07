@@ -6,11 +6,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Early exit if the class already exists
-if ( class_exists( 'RL_Controls_Slider_Control' ) ) {
+if ( class_exists( 'Riba_lite_Controls_Slider_Control' ) ) {
     return;
 }
 
-class RL_Controls_Slider_Control extends WP_Customize_Control {
+class Riba_lite_Controls_Slider_Control extends WP_Customize_Control {
 
     public $type = 'slider';
 

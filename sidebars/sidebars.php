@@ -2,8 +2,8 @@
 
 
 if (function_exists('register_sidebar')) {
-    if( !function_exists('rl_register_sidebars') ) {
-        function rl_register_sidebars() {
+    if( !function_exists('riba_lite_register_sidebars') ) {
+        function riba_lite_register_sidebars() {
 
             #
             #    Register sidebars
@@ -41,7 +41,7 @@ if (function_exists('register_sidebar')) {
 
         } // function riba_lite_register_sidebars end
 
-        add_action('widgets_init', 'rl_register_sidebars');
+        add_action('widgets_init', 'riba_lite_register_sidebars');
 
     } // function exists (riba_lite_register_sidebars) check
 } // function exists (register_sidebar) check

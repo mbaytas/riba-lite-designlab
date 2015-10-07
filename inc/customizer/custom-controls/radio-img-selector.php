@@ -7,11 +7,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Early exit if the class already exists
-if ( class_exists( 'RL_Layout_Picker_Custom_Control' ) ) {
+if ( class_exists( 'Riba_lite_Layout_Picker_Custom_Control' ) ) {
     return;
 }
 
-class RL_Layout_Picker_Custom_Control extends WP_Customize_Control {
+class Riba_lite_Layout_Picker_Custom_Control extends WP_Customize_Control {
 
     public $type = 'radio-image';
 

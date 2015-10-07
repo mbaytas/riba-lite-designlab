@@ -7,18 +7,18 @@
  * @since   1.0.0
  *
  */
-if(!function_exists('CallEntryMetaClassMTL')) {
+if(!function_exists('MTL_CallEntryMetaClass')) {
     /**
      *
      */
-    function CallEntryMetaClassMTL()
+    function MTL_CallEntryMetaClass()
     {
 
         // instantiate the class & load everything else
         MTL_Entry_Meta_Output::getInstance();
 
     }
-    add_action('wp_loaded', 'CallEntryMetaClassMTL');
+    add_action('wp_loaded', 'MTL_CallEntryMetaClass');
 }
 
 
@@ -58,8 +58,8 @@ if( !class_exists( 'MTL_Entry_Meta_Output' ) ) {
         public function entry_meta_output() {
 
             // quickly fetch some vars
-            $display_post_posted_on_meta = get_theme_mod('rl_enable_post_posted_on_blog_posts', 1);
-            $display_post_esrt_meta = get_theme_mod('rl_enable_post_esrt_blog_posts', 1);
+            $display_post_posted_on_meta = get_theme_mod('riba_lite_enable_post_posted_on_blog_posts', 1);
+            $display_post_esrt_meta = get_theme_mod('riba_lite_enable_post_esrt_blog_posts', 1);
 
             echo '<div class="entry-meta parallax-text-fade">';
 
@@ -126,11 +126,11 @@ if( !class_exists( 'MTL_Entry_Meta_Output' ) ) {
 
 
             if( get_post_format() !== false ) {
-                $display_author = get_theme_mod('rl_post_'.esc_attr( get_post_format( $post->ID ) ).'_enable_author', 1);
-                $display_date = get_theme_mod('rl_post_'.esc_attr( get_post_format( $post-> ID ) ).'_enable_posted', 1);
+                $display_author = get_theme_mod('riba_lite_post_'.esc_attr( get_post_format( $post->ID ) ).'_enable_author', 1);
+                $display_date = get_theme_mod('riba_lite_post_'.esc_attr( get_post_format( $post-> ID ) ).'_enable_posted', 1);
             } else {
-                $display_author = get_theme_mod('rl_post_standard_enable_author', 1);
-                $display_date = get_theme_mod('rl_post_standard_enable_posted', 1);
+                $display_author = get_theme_mod('riba_lite_post_standard_enable_author', 1);
+                $display_date = get_theme_mod('riba_lite_post_standard_enable_posted', 1);
             }
 
 
@@ -164,9 +164,9 @@ if( !class_exists( 'MTL_Entry_Meta_Output' ) ) {
             echo '<div class="mt-entry-footer">';
             echo '<footer>';
 
-            $display_category_post_meta = get_theme_mod( 'rl_enable_post_category_blog_posts', 1 );
-            $display_tags_post_meta     = get_theme_mod( 'rl_enable_post_tags_blog_posts', 1 );
-            $display_number_comments    = get_theme_mod( 'rl_enable_post_comments_blog_posts', 1 );
+            $display_category_post_meta = get_theme_mod( 'riba_lite_enable_post_category_blog_posts', 1 );
+            $display_tags_post_meta     = get_theme_mod( 'riba_lite_enable_post_tags_blog_posts', 1 );
+            $display_number_comments    = get_theme_mod( 'riba_lite_enable_post_comments_blog_posts', 1 );
 
 
             # Hide category and tag text for pages.
@@ -181,7 +181,7 @@ if( !class_exists( 'MTL_Entry_Meta_Output' ) ) {
                     // translators: used between list items, there is a space after the comma
                     $categories_list = get_the_category_list( esc_html__( ', ', 'riba-lite' ) );
 
-                    if ( $categories_list && rl_categorized_blog() ) {
+                    if ( $categories_list && riba_lite_categorized_blog() ) {
                         printf( '<span class="cat-links"><i class="fa fa-tags"></i>' . esc_html__( 'Posted in: %1$s', 'riba-lite' ) . '</span>', $categories_list ); // WPCS: XSS OK.
                     }
                 }
