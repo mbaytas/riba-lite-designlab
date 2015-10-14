@@ -1,3 +1,16 @@
+## Riba-Lite-DesignLab
+
+###
+    V 1.0.0
+    - Added images folder.
+    - Added fonts folder.
+    - Added Design Lab logo to images.
+    - Added DIN BEK font to fonts.
+    - Added Design Lab logo to site header.
+    - Removed rtl.css.
+
+## Riba-Lite
+
 ###
     V 1.0.3.1
     - Replaced prefix rl_ with theme slug according to w.org rules ...
