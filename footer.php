@@ -34,25 +34,22 @@
         <div class="container">
         <div class="row">
         <?php if($footer_email !== '' || $footer_phone !== '' ) { ?>
-        <div class="col-md-4 col-xs-12">
-                <div class="text-lg-left text-md-left text-sm-left text-xs-center">
+        <div class="col-md-12 col-xs-12">
+                <div class="text-lg-center text-md-center text-sm-center text-xs-center">
                     <small>
-                        <?php _e('Mail: ', 'riba-lite'); ?><a href="mailto:<?php echo esc_attr( $footer_email ); ?>" rel="nofollow" target="_blank"><?php echo esc_attr( $footer_email ); ?></a> &middot;
-                        <?php _e('Phone: ', 'riba-lite'); ?><a href="tel:<?php echo esc_attr( $footer_phone ); ?>" rel="nofollow"><?php echo esc_attr( $footer_phone ); ?></a>
+                        <a href="http://facebook.com/KUdesignlab">facebook.com/kudesignlab</a>
+                        &middot;
+                        <a href="http://www.twitter.com/kudesignlab">twitter.com/kudesignlab</a>
+                        &middot;
+                        <a href="http://www.youtube.com/user/KUdesignlab">youtube.com/kudesignlab</a>
+                        &middot;
+                        <a href="mailto:<?php echo esc_attr( $footer_email ); ?>" rel="nofollow" target="_blank"><?php echo esc_attr( $footer_email ); ?></a>
+                        &middot;
+                        <a href="tel:<?php echo esc_attr( $footer_phone ); ?>" rel="nofollow"><?php echo esc_attr( $footer_phone ); ?></a>
                     </small>
                 </div><!--/.text-center-->
-            </div><!--/col-lg-7-->
+            </div><!--/col-->
             <?php } ?>
-            <div class="col-md-8 col-xs-12">
-                <?php wp_nav_menu( array(
-                    'theme_location' => 'secondary',
-                    'menu_id' => 'secondary-menu',
-                    'container_id' => 'rl-secondary-menu',
-                    'container_class' => 'hidden-xs',
-                    'walker' => new MTL_Extended_Menu_Walker(),
-                    'fallback_cb' =>  'MTL_Extended_Menu_Walker::fallback',
-                ) ); ?>
-            </div>
         </div><!--/.row-->
         </div><!--/.container-->
     </div><!--/.footer-copyright--container-->
@@ -64,10 +61,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="text-center">
-                    <p class="footer-copyright"><?php echo esc_html($footer_copyright); ?>
-                        <?php _e('Powered by','riba-lite'); ?> <a href="<?php echo esc_url( __( 'http://www.machothemes.com', 'riba-lite') ); ?>" target="_blank" rel="nofollow" title="<?php _e('Premium WordPress Themes', 'riba-lite'); ?>"><?php _e('Macho Themes', 'riba-lite'); ?></a>
-                        &middot;
-                        <?php _e('Running on:', 'riba-lite'); ?> <a href="<?php echo esc_url( __( 'http://www.wordpress.org', 'riba-lite') ); ?>" target="_blank" rel="nofollow" title="WordPress"><?php _e('WordPress', 'riba-lite'); ?></a>
+                    <p class="footer-copyright">
+                        Design Lab &middot; Koç University &middot; Rumelifeneri Yolu 34450 Sarıyer İstanbul
                     </p>
                 </div><!--/.text-center-->
             </div><!--/.col-lg-12-->

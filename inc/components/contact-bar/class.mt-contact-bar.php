@@ -92,16 +92,6 @@ if( !class_exists( 'MTL_Contact_Bar_Output' ) ) {
                 echo '<a href="' . esc_url( $this->youtube_url ).'" rel="nofollow" target="_blank" title="' . esc_html__('View on Youtube', 'riba-lite') . '">' . esc_html__('YouTube', 'riba-lite') . '</a>';
             echo '</span>';
 
-            echo '<span>';
-            echo '<i class="fa fa-pinterest"></i>';
-                echo '<a href="' . esc_url( $this->pinterest_url ).'" rel="nofollow" target="_blank" title="' . esc_html__('Follow on Pinterest', 'riba-lite') . '">' . esc_html__('Pinterest', 'riba-lite') . '</a>';
-            echo '</span>';
-
-            echo '<span>';
-            echo '<i class="fa fa-linkedin"></i>';
-                echo '<a href="' . esc_url( $this->linkedin_url ).'" rel="nofollow" target="_blank" title="' . esc_html__('Follow on LinkedIN', 'riba-lite') . '">' . esc_html__('LinkedIn', 'riba-lite') .'</a>';
-            echo '</span>';
-
             echo '</div><!--/.social-bar-details-->';
 
 

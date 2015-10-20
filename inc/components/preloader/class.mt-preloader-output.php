@@ -100,7 +100,9 @@ if(!class_exists('MTL_Preloader_Output')) {
                 <!-- Site Preloader -->
                 <div id="page-loader">
                     <div class="page-loader-inner">
-                        <div class="loader"><strong><?php echo esc_html($this->preloader_text); ?></strong></div>
+                        <div class="loader">
+                            <img src="<?php echo get_stylesheet_directory_uri() ?>/images/logo-designlab.png">
+                        </div>
                     </div>
                 </div>
                 <!-- END Site Preloader -->

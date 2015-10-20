@@ -20,11 +20,11 @@
     <?php do_action('mtl_before_header'); ?>
 
 
-        <div id="header-container" class="container-fluid">
+        <div id="header-container" class="container-fluid rl-img-logo">
 
             <header id="masthead" class="site-header" role="banner">
                 <div class="site-branding col-lg-4 col-md-4 col-sm-4 col-xs-12 text-lg-left text-md-left text-sm-left text-xs-center">
-                    <a href="<?php home_url() ?>" rel="home" ><img src="<?php bloginfo('stylesheet_directory')?>/images/logo-designlab.png"></a>
+                    <a href="<?php echo home_url() ?>" rel="home" ><img src="<?php echo get_stylesheet_directory_uri() ?>/images/logo-designlab.png"></a>
                 </div><!-- .site-branding -->
 
 

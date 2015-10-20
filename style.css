@@ -1,16 +1,119 @@
 /*
-Theme Name: Riba Lite
-Theme URI: http://www.machothemes.com/themes/riba-lite/
-Author: Macho Themes
-Author URI: http://www.machothemes.com/
-Description: A beautiful, stylish & minimal theme suitable for story tellers. Features full-width images, post formats, sticky header, lazy loading for images & unlimited customisation possibilities - all for FREE.
-Version: 1.0.5
+Theme Name: Riba Lite for Design Lab
+Author: Macho Themes / Mehmet Aydın Baytaş
+Description: Macho Themes' Riba Lite theme, modified for Koç University Design Lab.
+Version: 1.0.0
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Tags: black,white,gray,light,one-column,two-columns,fixed-layout,featured-images,sticky-post,responsive-layout,full-width-template,threaded-comments,translation-ready,photoblogging
-Text Domain: riba-lite
+Text Domain: riba-lite-designlab
 
 This theme, like WordPress, is licensed under the GPL.
 */
 
 @import url('layout/css/style.min.css');
+
+@media (max-width: 768px) {
+    .rl-layout #header-container {
+        height: inherit;
+    }
+    .rl-styled-select {
+        margin-top: 0;
+    }
+}
+
+ol, ul {
+  margin-left: 0;
+  padding-left: 30px;
+}
+
+.riba-lite-breadcrumbs {
+  display: none;
+}
+.mtl-social-sharing-box-wrapper {
+  display: none;
+}
+
+.post-grid .link-wrapper.noshine:hover {
+  opacity: 1;
+}
+
+/* Fonts */
+
+.entry-content a {
+    text-decoration: underline;
+    color: #666;
+}
+.entry-content a:hover {
+    color: #ccc;
+}
+
+.entry-header h1.entry-title.parallax-text-fade {
+  font-size: 1.125rem !important;
+}
+
+.post-content p {
+  font-size: 0.9rem;
+}
+
+@font-face {
+   font-family: "DIN BEK";
+   src: url('fonts/DINBek.ttf');
+   font-weight: normal;
+}
+
+@font-face {
+   font-family: "DIN BEK";
+   src: url('fonts/DINbekBold.ttf');
+   font-weight: bold;
+}
+
+html {
+    font-family: 'DIN BEK', Arial, sans-serif;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6,
+input#submit,
+#cancel-comment-reply-link:before,
+.mt-contact-bar a,
+.rl-text-logo,
+#rl-main-menu > ul > li > a,
+#rl-main-menu ul li > ul li a,
+#rl-secondary-menu ul li a,
+.post-grid .entry-meta,
+.tags-links a,
+.mt-date,
+.riba-lite-breadcrumbs,
+.riba-lite-breadcrumbs a,
+.mtl-social-sharing-box-title {
+    font-family: 'DIN BEK', Arial, sans-serif;
+}
+body p.footer-copyright,
+body.riba-lite p.footer-copyright {
+    font-family: 'DIN BEK', Arial, sans-serif !important;
+}
+
+.entry-content a.btn-read-more,
+body:not(.single) .format-quote .entry-content p,
+body:not(.single) .format-aside .entry-content p,
+body:not(.single) .format-aside .entry-content a,
+.post-content p,
+.cat-links,
+.cat-links a,
+.tags-links,
+.tags-links a,
+.comments-link,
+.comments-links a,
+.comment-content p,
+.mtl-social-sharing-box,
+.mt-author-area,
+.footer-widget-container .footer-descr,
+.footer-widget-container p,
+.riba_lite_widget_social_media ul {
+  /* using font "Domine" set in Riba Lite theme */
+}

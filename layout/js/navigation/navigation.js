@@ -29,7 +29,7 @@ jQuery(function() {
 		}).appendTo("#masthead select");
 	});
 
-	jQuery("nav select").change(function() {
+	jQuery("select#rl-navMenu").change(function() {
 		window.location = jQuery(this).find("option:selected").val();
 	});
 });

@@ -1,6 +1,6 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('post-grid ' . get_post_type() ); ?>>
 
-    <div class="link-wrapper">
+    <div class="link-wrapper noshine">
         <div class="post-cover-wrapper">
 
             <?php do_action('mtl_breadcrumbs'); ?>
